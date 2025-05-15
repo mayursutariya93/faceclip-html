@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left">
+            <h2 class="heading-01 fw-bold">My Assets</h2>
+            <p class="text-light">Manage your FaceClip assets, including cloned voices, videos, and images.</p>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <ul class="nav nav-tabs nav-plans-tabs-white  nav-fill py-2 px-3 w-100 bg-primary-light" id="myAssetsTab"
+                role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="myclonedvoice-tab" data-bs-toggle="tab"
+                    data-bs-target="#myclonedvoice-tab-pane" type="button" role="tab" aria-controls="myclonedvoice-pane"
+                    aria-selected="true">
+                    My Cloned Voice
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="myvideos-tab" data-bs-toggle="tab" data-bs-target="#myvideos-tab-pane"
+                    type="button" role="tab" aria-controls="myvideos-tab-pane" aria-selected="false" tabindex="-1">
+                    My Videos
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="myimages-tab" data-bs-toggle="tab" data-bs-target="#myimages-tab-pane"
+                    type="button" role="tab" aria-controls="myimages-tab-pane" aria-selected="false" tabindex="-1">
+                    My Images
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content mt-4 pt-2" id="myAssetsTabContent">
+                <div class="tab-pane fade active show" id="myclonedvoice-tab-pane" role="tabpanel"
+                  aria-labelledby="myclonedvoice-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 w-100 mb-4">
+                        <div>
+                          <h2 class="heading-02 fw-bold">My Cloned Voices</h2>
+                        </div>
+
+                        <button type="button" class="btn btn-sm btn-primary mn-width-auto">
+                          <img src="icon/Upload-Video.svg" class="img-fluid">
+                          Add New Voice Clone
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-xxl-4 col-lg-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="d-flex align-items-center gap-3 flex-shrink-0 w-100">
+                              <div class="personal-voice-image flex-shrink-0">
+                                <img src="assets/images/user-profile.png" class="img-fluid rounded-circle" width="68"
+                                  alt="">
+                              </div>
+                              <div>
+                                <h6 class="heading-04 fw-bold mb-1">Personal Voice</h6>
+                                <p class="small text-light">Apr 16, 2025</p>
+                              </div>
+                              <div class="ms-auto flex-shrink-0">
+                                <button type="button" class="btn mn-width-auto p-0">
+                                  <img src="icon/icon-transh-danger.svg" class="img-fluid" alt="">
+                                </button>
+                              </div>
+                            </div>
+
+                            <div class="audio-player">
+                              <button class="play-btn">&#9654;</button>
+
+                              <span class="small text-light flex-shrink-0">0:00 / 0:00</span>
+
+                              <div class="progress w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <div class="progress-bar" style="width: 0%"></div>
+                              </div>
+
+                              <button class="volume-btn flex-shrink-0">
+                                <img src="icon/icon-volumn-alt.svg" class="img-fluid" alt="Volume Icon">
+                              </button>
+
+                              <button class="dots-btn flex-shrink-0">
+                                <img src="icon/icon-dots.svg" class="img-fluid" alt="Volume Icon">
+                              </button>
+                            </div>
+
+                            <div class="w-100">
+                              <p class="small text-light">Duration: 0:25</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-4 col-lg-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="d-flex align-items-center gap-3 flex-shrink-0 w-100">
+                              <div class="personal-voice-image flex-shrink-0">
+                                <img src="assets/images/user-profile.png" class="img-fluid rounded-circle" width="68"
+                                  alt="">
+                              </div>
+                              <div>
+                                <h6 class="heading-04 fw-bold mb-1">Personal Voice</h6>
+                                <p class="small text-light">Apr 16, 2025</p>
+                              </div>
+                              <div class="ms-auto flex-shrink-0">
+                                <button type="button" class="btn mn-width-auto p-0">
+                                  <img src="icon/icon-transh-danger.svg" class="img-fluid" alt="">
+                                </button>
+                              </div>
+                            </div>
+
+                            <div class="audio-player">
+                              <button class="play-btn">&#9654;</button>
+
+                              <span class="small text-light flex-shrink-0">0:00 / 0:00</span>
+
+                              <div class="progress w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <div class="progress-bar" style="width: 0%"></div>
+                              </div>
+
+                              <button class="volume-btn flex-shrink-0">
+                                <img src="icon/icon-volumn-alt.svg" class="img-fluid" alt="Volume Icon">
+                              </button>
+
+                              <button class="dots-btn flex-shrink-0">
+                                <img src="icon/icon-dots.svg" class="img-fluid" alt="Volume Icon">
+                              </button>
+                            </div>
+
+                            <div class="w-100">
+                              <p class="small text-light">Duration: 0:25</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="myvideos-tab-pane" role="tabpanel" aria-labelledby="myvideos-tab"
+                  tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 w-100 mb-4">
+                        <div>
+                          <h2 class="heading-02 fw-bold">My Uploaded Videos</h2>
+                        </div>
+
+                        <button type="button" id="myassetsvideouploadbtn" class="btn btn-sm btn-primary mn-width-auto">
+                          <input type="file" accept="video/*" class="opacity-0 position-absolute top-0 start-0 w-100 h-100" />
+                          <img src="icon/Upload-Video.svg" class="img-fluid">
+                          Upload Videos
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row g-3" id="myassetsvideouploadRow">
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                <video controls>
+                                  <source src="assets/video/video1.mp4" type="video/mp4">
+                                  <source src="assets/video/video1.mp4" type="video/ogg">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Company Introduction</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                <video controls>
+                                  <source src="assets/video/video1.mp4" type="video/mp4">
+                                  <source src="assets/video/video1.mp4" type="video/ogg">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Company Introduction</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                <video controls>
+                                  <source src="assets/video/video1.mp4" type="video/mp4">
+                                  <source src="assets/video/video1.mp4" type="video/ogg">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Company Introduction</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                <video controls>
+                                  <source src="assets/video/video1.mp4" type="video/mp4">
+                                  <source src="assets/video/video1.mp4" type="video/ogg">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Company Introduction</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                <video controls>
+                                  <source src="assets/video/video1.mp4" type="video/mp4">
+                                  <source src="assets/video/video1.mp4" type="video/ogg">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Company Introduction</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">4:5</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <!-- IF VIDEO IS NOT LOAD OR BROKEN -->
+                              <!-- <img src="assets/images/video-placeholder.png" class="img-fluid w-100 rounded-4" alt=""> -->
+                              <div class="ratio ratio-4x5 rounded-3 overflow-hidden">
+                                <video controls>
+                                  <source src="assets/video/video4.mp4" type="video/mp4">
+                                  <source src="assets/video/video4.mp4" type="video/ogg">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Product Demo</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">1:1</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-1x1 rounded-3 overflow-hidden">
+                                <video controls>
+                                  <source src="assets/video/video5.mp4" type="video/mp4">
+                                  <source src="assets/video/video5.mp4" type="video/ogg">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Team Meeting</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">9:16</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-9x16 rounded-3 overflow-hidden">
+                                <video controls>
+                                  <source src="assets/video/video3.mp4" type="video/mp4">
+                                  <source src="assets/video/video3.mp4" type="video/ogg">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Team Meeting</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="myimages-tab-pane" role="tabpanel" aria-labelledby="myimages-tab"
+                  tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 w-100 mb-4">
+                        <div>
+                          <h2 class="heading-02 fw-bold">My Uploaded Images</h2>
+                        </div>
+
+                        <button type="button" class="btn btn-sm btn-primary mn-width-auto">
+                          <img src="icon/Upload-Video.svg" class="img-fluid">
+                          Upload Images
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">1:1</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-1x1 rounded-3 overflow-hidden">
+                                <img src="assets/images/video-placeholder.png"
+                                  class="img-fluid object-fit-cover w-100 rounded-4" alt="">
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Product Image</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">4:5</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-4x5 rounded-3 overflow-hidden">
+                                <img src="assets/images/video-placeholder.png"
+                                  class="img-fluid object-fit-cover w-100 rounded-4" alt="">
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Profile Photo</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">9:16</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-9x16 rounded-3 overflow-hidden">
+                                <img src="assets/images/video-placeholder.png"
+                                  class="img-fluid object-fit-cover w-100 rounded-4" alt="">
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Company Logo</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center gap-3">
+                            <div class="flex-shrink-0 w-100 position-relative">
+                              <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                              <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                              <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                <img src="assets/images/video-placeholder.png"
+                                  class="img-fluid object-fit-cover w-100 rounded-4" alt="">
+                              </div>
+                            </div>
+
+                            <div class="w-100">
+                              <h5 class="heading-06 fw-semibold mb-2">Product Image</h5>
+                              <p class="heading-06 text-light">Video</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

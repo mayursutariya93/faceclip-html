@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left">
+            <h2 class="heading-02 fw-bold">Dashboard</h2>
+            <p class="text-light">Manage your videos, analytics, and account settings.</p>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row g-4 mt-0">
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="card-icon flex-shrink-0">
+                      <img src="icon/icon-total-videos.svg" class="img-fluid" alt="" />
+                    </div>
+                    <div class="card-content">
+                      <p class="heading-06 text-light">Total Videos</p>
+                      <h6 class="heading-02 fw-bold mb-0">12</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="card-icon flex-shrink-0">
+                      <img src="icon/icon-total-views.svg" class="img-fluid" alt="" />
+                    </div>
+                    <div class="card-content">
+                      <p class="heading-06 text-light">Total Views</p>
+                      <h6 class="heading-02 fw-bold mb-0">1,289</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="card-icon flex-shrink-0">
+                      <img src="icon/icon-total-share.svg" class="img-fluid" alt="" />
+                    </div>
+                    <div class="card-content">
+                      <p class="heading-06 text-light">Total Share</p>
+                      <h6 class="heading-02 fw-bold mb-0">389</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="card-icon flex-shrink-0">
+                      <img src="icon/icon-total-videos.svg" class="img-fluid" alt="" />
+                    </div>
+                    <div class="card-content">
+                      <p class="heading-06 text-light">Credits Left</p>
+                      <h6 class="heading-02 fw-bold mb-0">28/30</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4 mt-0">
+            <div class="col-lg-4 d-flex">
+              <div class="card w-100">
+                <div class="card-body p-lg-4">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                    <h5 class="card-title fw-bold mb-0">Create New Video</h5>
+
+                    <img src="icon/icon-create-video-alt.svg" class="img-fluid" alt="" />
+                  </div>
+
+                  <div class="heading-06 d-flex flex-column gap-2 text-light my-3">
+                    <p>Generate a new video using your cloned voice and images</p>
+                    <p>Transform any text into a video featuring your cloned voice and appearance in minutes.</p>
+                  </div>
+
+                  <a href="#" class="btn btn-primary">
+                    <img src="icon/Play.svg" alt="Plus Icon" class="img-fluid dark-white" />
+                    Create Video
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 d-flex">
+              <div class="card w-100">
+                <div class="card-body p-lg-4">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                    <h5 class="card-title fw-bold mb-0">Recent Videos</h5>
+
+                    <img src="icon/icon-recent-video.svg" class="img-fluid" alt="" />
+                  </div>
+
+                  <div class="heading-06 d-flex flex-column gap-2 text-light my-3">
+                    <p>View and manage your recently created videos</p>
+                    <p>Access, edit, and share your previously created videos from this dashboard.</p>
+                  </div>
+
+                  <a href="#" class="btn btn-outline-light">View All</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 d-flex">
+              <div class="card w-100">
+                <div class="card-body p-lg-4">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                    <h5 class="card-title fw-bold mb-0">Account Status</h5>
+
+                    <img src="icon/icon-account-status.svg" class="img-fluid" alt="" />
+                  </div>
+
+                  <div class="heading-06 d-flex flex-column gap-2 text-light my-3">
+                    <p>Standard Plan: 2/30 videos remaining this month</p>
+                    <div class="progress w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                      aria-valuemax="100">
+                      <div class="progress-bar" style="width: 93%;"></div>
+                    </div>
+                    <p class="small">93% of your monthly quota used</p>
+                  </div>
+
+                  <div class="card-warning my-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <img src="icon/icon-add-more-credits.svg" class="img-fluid" alt="">
+                      <h5 class="heading-03 fw-semibold mb-0">Add more credits</h5>
+                    </div>
+                    <p class="small mt-2">Purchase additional credits without changing your current plan</p>
+                  </div>
+
+                  <a href="#" class="btn btn-outline-light">Manage Plan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4 mt-0">
+            <div class="col-lg-4 d-flex">
+              <div class="card w-100">
+                <div class="card-body p-lg-4">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                    <h5 class="card-title fw-bold mb-0">How It Works</h5>
+
+                    <img src="icon/icon-how-work.svg" class="img-fluid" alt="" />
+                  </div>
+
+                  <ul class="heading-06 d-flex flex-column gap-2 text-light my-3 ps-0">
+                    <li class="d-flex gap-2">
+                      <img src="icon/icon-work-done.svg" class="img-fluid" width="21" alt="" />
+                      <p>Upload your images & photos</p>
+                    </li>
+                    <li class="d-flex gap-2">
+                      <img src="icon/icon-work-done.svg" class="img-fluid" width="21" alt="" />
+                      <p>Clone your voice (30-second sample)</p>
+                    </li>
+                    <li class="d-flex gap-2">
+                      <img src="icon/icon-work-done-light.svg" class="img-fluid" width="21" alt="" />
+                      <p>Create your first video</p>
+                    </li>
+                  </ul>
+
+                  <div class="d-flex align-items-center gap-2">
+                    <a href="#" class="btn btn-outline-light">
+                      <img src="icon/icon-video-dark.svg" class="img-fluid" />
+                      Watch Tutorial</a>
+                    <a href="#" class="btn mn-width-auto">
+                      <img src="icon/icon-guide-dark.svg" class="img-fluid dark-white" />
+                      Guide</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 d-flex">
+              <div class="card w-100">
+                <div class="card-body p-lg-4">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                    <h5 class="card-title fw-bold mb-0">Templates & Styles</h5>
+
+                    <img src="icon/icon-style.svg" class="img-fluid" alt="" />
+                  </div>
+
+                  <div class="style-list mb-3 d-flex flex-wrap align-items-center gap-2">
+                    <div class="style-item">
+                      <a class="bg-gradient-blue" href="javascript:void(0);">Professional</a>
+                    </div>
+                    <div class="style-item">
+                      <a class="bg-gradient-orange" href="javascript:void(0);">Casual</a>
+                    </div>
+                    <div class="style-item">
+                      <a class="bg-gradient-green" href="javascript:void(0);">Marketing</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <a href="#" class="btn">
+                      Browse more templates</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 d-flex">
+              <div class="card w-100">
+                <div class="card-body p-lg-4">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                    <h5 class="card-title fw-bold mb-0">Platform Integrations</h5>
+
+                    <img src="icon/icon-platform.svg" class="img-fluid" alt="" />
+                  </div>
+
+                  <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+                    <a href="#" target="_blank">
+                      <img src="icon/icon-linkedin.svg" class="img-fluid" alt="" />
+                    </a>
+                    <a href="#" target="_blank">
+                      <img src="icon/icon-twitter.svg" class="img-fluid" alt="" />
+                    </a>
+                    <a href="#" target="_blank">
+                      <img src="icon/icon-instagram.svg" class="img-fluid" alt="" />
+                    </a>
+                    <a href="#" target="_blank">
+                      <img src="icon/icon-tiktok.svg" class="img-fluid" alt="" />
+                    </a>
+                  </div>
+
+                  <div>
+                    <a href="#" class="btn">View all integrations</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4 mt-0">
+            <div class="col-lg-12">
+              <ul class="nav nav-tabs nav-tabs-light nav-fill" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="recentActivity" data-bs-toggle="tab"
+                    data-bs-target="#recentActivity-pane" type="button" role="tab" aria-controls="recentActivity-pane"
+                    aria-selected="true">Recent Activity</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="aiTools-tab" data-bs-toggle="tab" data-bs-target="#aiTools-tab-pane"
+                    type="button" role="tab" aria-controls="aiTools-tab-pane" aria-selected="false">AI Tools</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="tutorials-tab" data-bs-toggle="tab" data-bs-target="#tutorials-tab-pane"
+                    type="button" role="tab" aria-controls="tutorials-tab-pane" aria-selected="false">Tutorials</button>
+                </li>
+              </ul>
+              <div class="tab-content mt-4 pt-2" id="myTabContent">
+                <div class="tab-pane fade show active" id="recentActivity-pane" role="tabpanel"
+                  aria-labelledby="home-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body p-lg-4">
+                          <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+                            <h5 class="card-title fw-bold mb-0">Recent Activity</h5>
+
+                            <p class="heading-06 text-light flex-grow-0 w-100">Your latest videos and actions</p>
+                          </div>
+
+                          <div class="d-flex flex-column gap-lg-5 gap-4">
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-product-demo-video.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Product Demo Video</h6>
+                                <p class="heading-06 text-light">Video created and published to your dashboard</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">2 hours ago</p>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-marketing-explainer.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Marketing Explainer</h6>
+                                <p class="heading-06 text-light">Video edited and updated with new voiceover</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">Yesterday</p>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-social-media-ad.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Social Media Ad</h6>
+                                <p class="heading-06 text-light">Video shared to LinkedIn and Twitter</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">2 days ago</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="d-inline-flex mt-4">
+                            <a href="#" class="btn mn-width-auto">View All Activity</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="aiTools-tab-pane" role="tabpanel" aria-labelledby="aiTools-tab"
+                  tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body p-lg-4">
+                          <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+                            <h5 class="card-title fw-bold mb-0">AI Tools</h5>
+
+                            <p class="heading-06 text-light flex-grow-0 w-100">Your latest videos and actions</p>
+                          </div>
+
+                          <div class="d-flex flex-column gap-lg-5 gap-4">
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-product-demo-video.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Product Demo Video</h6>
+                                <p class="heading-06 text-light">Video created and published to your dashboard</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">2 hours ago</p>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-marketing-explainer.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Marketing Explainer</h6>
+                                <p class="heading-06 text-light">Video edited and updated with new voiceover</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">Yesterday</p>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-social-media-ad.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Social Media Ad</h6>
+                                <p class="heading-06 text-light">Video shared to LinkedIn and Twitter</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">2 days ago</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="d-inline-flex mt-4">
+                            <a href="#" class="btn mn-width-auto">View All</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="tutorials-tab-pane" role="tabpanel" aria-labelledby="tutorials-tab"
+                  tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body p-lg-4">
+                          <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+                            <h5 class="card-title fw-bold mb-0">Tutorials</h5>
+
+                            <p class="heading-06 text-light flex-grow-0 w-100">Your latest videos and actions</p>
+                          </div>
+
+                          <div class="d-flex flex-column gap-lg-5 gap-4">
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-product-demo-video.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Product Demo Video</h6>
+                                <p class="heading-06 text-light">Video created and published to your dashboard</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">2 hours ago</p>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-marketing-explainer.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Marketing Explainer</h6>
+                                <p class="heading-06 text-light">Video edited and updated with new voiceover</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">Yesterday</p>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                              <div class="icon">
+                                <img src="icon/icon-social-media-ad.svg" class="img-fluid" alt="" />
+                              </div>
+
+                              <div class="">
+                                <h6 class="heading-05 fw-medium mb-1">Social Media Ad</h6>
+                                <p class="heading-06 text-light">Video shared to LinkedIn and Twitter</p>
+                              </div>
+
+                              <div class="ms-md-auto align-self-start">
+                                <p class="heading-06 text-light">2 days ago</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="d-inline-flex mt-4">
+                            <a href="#" class="btn mn-width-auto">View All Tutorial</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4 mt-0">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body p-lg-4">
+                  <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+                    <img src="icon/icon-performance-overview.svg" class="img-fluid dark-white" alt="" />
+                    <h5 class="card-title fw-bold mb-0">Performance Overview</h5>
+
+                    <p class="heading-06 text-light flex-grow-0 w-100">A summary of your video performance metrics</p>
+                  </div>
+
+                  <div class="row gy-3 mt-0">
+                    <div class="col-lg-3">
+                      <div class="position-relative">
+                        <p class="heading-06 text-light">Total Views</p>
+                        <h6 class="heading-02 fw-bold my-2">1,548</h6>
+                        <div class="d-flex align-items-center gap-1">
+                          <img src="icon/icon-up-arrow-green.svg" class="img-fluid" />
+                          <p class="heading-06 text-success">12% from last month</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                      <div class="position-relative">
+                        <p class="heading-06 text-light">Engagement Rate</p>
+                        <h6 class="heading-02 fw-bold my-2">4.7%</h6>
+                        <div class="d-flex align-items-center gap-1">
+                          <img src="icon/icon-up-arrow-green.svg" class="img-fluid" />
+                          <p class="heading-06 text-success">2.1% from last month</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                      <div class="position-relative">
+                        <p class="heading-06 text-light">Avg. Watch Time</p>
+                        <h6 class="heading-02 fw-bold my-2">1:32</h6>
+                        <div class="d-flex align-items-center gap-1">
+                          <img src="icon/icon-down-arrow-red.svg" class="img-fluid" />
+                          <p class="heading-06 text-danger">0.3% from last month</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                      <div class="position-relative">
+                        <p class="heading-06 text-light">Click-Through Rate</p>
+                        <h6 class="heading-02 fw-bold my-2">3.2%</h6>
+                        <div class="d-flex align-items-center gap-1">
+                          <img src="icon/icon-up-arrow-green.svg" class="img-fluid" />
+                          <p class="heading-06 text-success">0.8% from last month</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-center gap-2 mt-4">
+                    <a href="#" class="btn btn-outline-light">
+                      <img src="icon/icon-view-detail-analytics.svg" class="img-fluid" />
+                      View Detailed Analytics</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<!-- <body class="dark-theme"> -->
+
+<body>
+  <div class="editor-container">
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <button class="back-button dark-white">
+          <img src="icon/Main-Back.svg" alt="" class="img-fluid" />
+        </button>
+        <div class="logo-container">
+          <div class="logo-circle">
+            <img src="icon/Play.svg" alt="" class="img-fluid" />
+          </div>
+          <div class="logo-text">
+            <div class="logo-title">united Video</div>
+            <div class="logo-subtitle">FaceClip AI Video Editor</div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-center">
+        <div class="landscape-left">
+          <button class="history-button" id="undo-button">
+            <img src="icon/Landscape-Left.svg" alt="" class="img-fluid dark-white" />
+          </button>
+          <button class="redo-button" id="redo-button">
+            <img src="icon/Landscape-Right.svg" alt="" class="img-fluid dark-white" />
+          </button>
+        </div>
+        <div class="aspect-ratio-selector" id="aspect-ratio-dropdown">
+          <span>Landscape (16:9)</span>
+          <img src="icon/Landscape-Dropdown.svg" alt="" class="img-fluid dark-white" />
+          <div class="dropdown-menu">
+            <div class="dropdown-item">Landscape (16:9)</div>
+            <div class="dropdown-item">Portrait (9:16)</div>
+            <div class="dropdown-item">Square (1:1)</div>
+            <div class="dropdown-item">Widescreen (21:9)</div>
+          </div>
+        </div>
+        <div class="landscape-right">
+          <button class="redo-button reset" id="redo-button">
+            <img src="icon/Landscape-Reset.svg" alt="" class="img-fluid dark-white" />
+          </button>
+        </div>
+        <button class="zoom-button" id="zoom-dropdown">
+          <span>50%</span>
+          <img src="icon/Landscape-Dropdown.svg" alt="" class="img-fluid dark-white" />
+          <div class="dropdown-menu">
+            <div class="dropdown-item">25%</div>
+            <div class="dropdown-item">50%</div>
+            <div class="dropdown-item">75%</div>
+            <div class="dropdown-item">100%</div>
+            <div class="dropdown-item">150%</div>
+          </div>
+        </button>
+      </div>
+      <div class="nav-right">
+        <button class="upload-button" id="upload-video-btn">
+          Upload Video
+          <img src="icon/Upload-Video.svg" alt="" class="img-fluid dark-white" />
+        </button>
+        <button class="icon-button" title="Projects">
+          <img src="icon/Save.svg" alt="" class="img-fluid dark-white" />
+        </button>
+        <button class="icon-button" title="Download">
+          <img src="icon/Download.svg" alt="" class="img-fluid dark-white" />
+        </button>
+        <button class="icon-button" title="Share">
+          <img src="icon/Share.svg" alt="" class="img-fluid dark-white" />
+        </button>
+        <button class="icon-button" id="theme-toggle" title="Toggle Theme">
+          <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white" />
+        </button>
+        <button class="icon-button" title="Settings">
+          <img src="icon/Settings.svg" alt="" class="img-fluid dark-white" />
+        </button>
+        <button class="icon-button" title="Help">
+          <img src="icon/Help.svg" alt="" class="img-fluid dark-white" />
+        </button>
+      </div>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button class="tool-button" data-tool="collapse">
+        <img src="icon/collapse.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="file">
+        <img src="icon/File.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="magic">
+        <img src="icon/Magic.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="cut">
+        <img src="icon/Camera.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="image">
+        <img src="icon/Image.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button active" data-tool="crop">
+        <img src="icon/Crop.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="layout">
+        <img src="icon/Layout.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="full">
+        <img src="icon/Full.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="grid">
+        <img src="icon/Grid.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="text">
+        <img src="icon/Text.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <!-- <button class="tool-button" data-tool="boardbox">
+        <img src="icon/Board-Box.svg" alt="" class="img-fluid dark-white" />
+      </button> -->
+      <a href="index-add-caption.html" class="tool-button" data-tool="boardbox">
+        <img src="icon/Board-Box.svg" alt="" class="img-fluid dark-white" />
+      </a>
+      <button class="tool-button" data-tool="boxgrid">
+        <img src="icon/Box-Grid.png" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="page">
+        <img src="icon/Page.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="voice">
+        <img src="icon/Voice.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="music">
+        <img src="icon/Music.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="ai">
+        <img src="icon/ai.svg" alt="" class="img-fluid dark-white" />
+      </button>
+      <button class="tool-button" data-tool="filter">
+        <img src="icon/Filter.svg" alt="" class="img-fluid dark-white" />
+      </button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <!-- AI Editor Sidebar -->
+      <div class="ai-sidebar">
+        <div class="ai-content">
+          <div class="ai-header">
+            <h2>AI Editor</h2>
+            <button class="refresh-button" id="refresh-ai">
+              <img src="icon/Landscape-Reset.svg" alt="" class="img-fluid dark-white" />
+            </button>
+          </div>
+          <div class="ai-content-box">
+            <div class="ai-icon">
+              <img src="icon/Al-Editor.svg" alt="" class="img-fluid">
+            </div>
+            <p class="ai-instruction">Use AI to edit your video with natural language commands</p>
+          </div>
+
+          <div class="ai-input-container">
+            <textarea placeholder="Type your editing instructions here..." id="ai-input"></textarea>
+            <div class="ai-buttons">
+              <button class="btn btn-outline-primary example-button" id="example-btn">
+                <img src="icon/Example.svg" alt="" class="img-fluid dark-white" />
+                Example
+              </button>
+              <button class="btn btn-primary send-button" id="send-btn">
+                <img src="icon/Send.svg" alt="" class="img-fluid" />
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-sidebar ai-sidebar-details ai-sidebar-videocut">
+        <div class="ai-content">
+          <div class="ai-header">
+            <img src="icon/icon-cut-video.svg" alt="" class="img-fluid dark-white">
+            <h3 class="fw-bold">Cut Video</h3>
+          </div>
+
+          <div class="ai-body">
+            <label class="form-label mb-3">Video Length: 0:20</label>
+
+            <div class="ai-video-form">
+              <div class="mb-3">
+                <label for="videocutfrom" class="form-label fw-normal">Cut From:</label>
+                <input type="text" class="form-control" id="videocutfrom" placeholder="00:00:00">
+              </div>
+              <div class="mb-3">
+                <label for="videocutto" class="form-label fw-normal">Cut From:</label>
+                <input type="text" class="form-control" id="videocutto" placeholder="00:20:00">
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-footer">
+            <div class="ai-buttons">
+              <button class="btn btn-sm btn-full btn-primary" id="btn-cut-video">
+                <img src="icon/icon-cut-video-white.svg" alt="" class="img-fluid">
+                Cut Video
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Preview Area -->
+      <div class="video-preview">
+        <div class="video-container" id="video-container">
+          <div class="upload-placeholder" id="upload-placeholder">
+            <div class="upload-icon">
+              <img src="icon/Video-Upload.svg" alt="" class="img-fluid" />
+            </div>
+            <p>Upload Your Video</p>
+          </div>
+          <video id="video-player" style="display: none; max-width: 100%; max-height: 100%;" controls></video>
+        </div>
+
+        <!-- Video Controls -->
+        <div class="video-controls">
+          <div class="video-progress-container">
+            <div class="progress-dot-container">
+              <div class="progress-dot" id="progress-dot"></div>
+            </div>
+            <div class="progress-bar" id="video-progress">
+              <div class="progress-track" id="progress-track"></div>
+            </div>
+            <div class="time-count">
+              <img src="icon/Time.svg" alt="" class="img-fluid dark-white" />
+              <div class="time-display" id="time-display">00:00 / 00:16</div>
+            </div>
+
+          </div>
+          <div class="controls-container">
+            <div class="left-controls">
+              <button class="control-button" id="prev-frame">
+                <img src="icon/Pre-btn.svg" alt="" class="img-fluid dark-white" />
+              </button>
+              <button class="play-button" id="play-pause">
+                <img src="icon/Play.svg" alt="" class="img-fluid">
+              </button>
+              <button class="control-button" id="next-frame">
+                <img src="icon/Next-btn.svg" alt="" class="img-fluid dark-white" />
+              </button>
+            </div>
+            <div class="right-controls">
+              <button class="zoom-out" id="zoom-out">
+                <img src="icon/Plus.svg" alt="" class="img-fluid dark-white" />
+              </button>
+              <input type="range" class="zoom-slider" id="zoom-slider" min="50" max="150" value="50">
+              <button class="zoom-in" id="zoom-in">
+                <img src="icon/Mins.svg" alt="" class="img-fluid dark-white" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline Section -->
+    <div class="timeline-section">
+      <div class="timeline-header">
+        <h3>Timeline</h3>
+        <div class="timeline-time-container">
+          <div class="time-count">
+            <img src="icon/Time.svg" alt="" class="img-fluid dark-white" />
+            <div class="timeline-time" id="timeline-time">00:00 / 00:16</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-tools">
+        <button class="timeline-tool" id="cut-tool" title="Cut">
+          <img src="icon/Scissors.svg" alt="" class="img-fluid dark-white" />
+        </button>
+        <button class="timeline-tool" id="duplicate-tool" title="Duplicate">
+          <img src="icon/Clone.svg" alt="" class="img-fluid dark-white" />
+        </button>
+        <button class="timeline-tool" id="link-tool" title="Link">
+          <img src="icon/Link.svg" alt="" class="img-fluid dark-white" />
+        </button>
+      </div>
+      <div class="timeline-content">
+
+        <div class="timeline-main">
+          <div class="timeline-ruler">
+            <div class="timeline-playhead-container">
+              <div class="timeline-playhead" id="timeline-playhead"></div>
+            </div>
+            <div class="time-markers" id="time-markers">
+              <div class="time-marker">00:00</div>
+              <div class="time-marker">00:00:05:00</div>
+              <div class="time-marker">00:00:10:00</div>
+              <div class="time-marker">00:00:15:00</div>
+              <div class="time-marker">00:00:20:00</div>
+              <div class="time-marker">00:00:25:00</div>
+              <div class="time-marker">00:00:30:00</div>
+              <div class="time-marker">00:00:35:00</div>
+              <div class="time-marker">00:00:40:00</div>
+              <div class="time-marker">00:00:45:00</div>
+              <div class="time-marker">00:00:50:00</div>
+              <div class="time-marker">00:00:55:00</div>
+            </div>
+          </div>
+
+          <div class="timeline-tracks" id="timeline-tracks">
+            <!-- Video Tracks -->
+            <div class="track custom-height">
+              <div class="track-content video-track" id="video-track-1">
+                <div class="clip" data-start="0" data-end="2">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">you have hig</span>
+                </div>
+                <div class="clip" data-start="2" data-end="4">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">but probal</span>
+                </div>
+                <div class="clip" data-start="4" data-end="6">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">the need</span>
+                </div>
+                <div class="clip" data-start="6" data-end="8">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">but it'll help</span>
+                </div>
+                <div class="clip" data-start="8" data-end="10">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">3</span>
+                </div>
+                <div class="clip" data-start="10" data-end="12">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">5% improvement</span>
+                </div>
+                <div class="clip" data-start="12" data-end="14">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">like this</span>
+                </div>
+                <div class="clip" data-start="14" data-end="16">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">in betw</span>
+                </div>
+                <div class="clip" data-start="16" data-end="18">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">ideally you're</span>
+                </div>
+                <div class="clip" data-start="18" data-end="20">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">intentional</span>
+                </div>
+                <div class="clip" data-start="20" data-end="22">
+                  <span class="clip-icon">
+                    <img src="icon/Timeline.svg" alt="" class="img-fluid" />
+                  </span>
+                  <span class="clip-text">you have hig</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="track">
+              <div class="track-label">Video 1</div>
+              <div class="track-content video-track-image">
+                <div class="clip" data-start="0" data-end="2">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="2" data-end="4">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="2" data-end="4">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="4" data-end="6">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="6" data-end="8">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="8" data-end="10">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="10" data-end="12">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="12" data-end="14">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="14" data-end="16">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="16" data-end="18">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="18" data-end="20">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="20" data-end="22">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="22" data-end="24">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+                <div class="clip" data-start="24" data-end="26">
+                  <img src="assets/images/video-clip.png" alt="" class="img-fluid" />
+                </div>
+              </div>
+            </div>
+
+            <div class="track">
+              <div class="track-label">Video 1</div>
+              <div class="track-content video-track-empty"></div>
+            </div>
+
+            <!-- Audio Tracks -->
+            <div class="track">
+              <div class="track-label">Audio</div>
+              <div class="track-content audio-track-empty"></div>
+            </div>
+
+            <div class="track audio-height">
+              <div class="track-label">Audio</div>
+              <div class="track-content audio-track">
+                <div class="audio-waveform">
+                  <div class="waveform-icon">
+                    <img src="icon/Audio-Icon.svg" alt="" class="img-fluid" />
+                  </div>
+                  <div class="waveform-visual">
+                    <div class="waveform-bars"></div>
+                  </div>
+                  <div class="waveform-time">01:02:56</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- File input for video upload (hidden) -->
+  <input type="file" id="video-upload" accept="video/*" style="display: none;">
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>

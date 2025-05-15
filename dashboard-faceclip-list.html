@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left">
+            <h2 class="heading-01 fw-bold">Faceclips</h2>
+            <p class="text-light">Manage your FaceClip videos and create new ones.</p>
+          </div>
+        </div>
+
+        <div class="content-header pt-0">
+          <div class="content-header-left d-flex flex-wrap align-items-center justify-content-between gap-2 w-100">
+            <div>
+              <h2 class="heading-02 fw-bold">My Faceclips</h2>
+              <p class="text-light">Your personal video library. Manage, download, or share your FaceClip videos.</p>
+            </div>
+            <div class="d-flex justify-content-end align-items-center gap-2">
+              <button type="button" class="btn btn-sm btn-primary mn-width-auto">
+                <img src="icon/Play.svg" class="img-fluid">
+                Create New Video
+              </button>
+
+              <div class="header-search-filter-list bg-light border rounded-3 py-1 px-2 d-flex align-items-center">
+                <button class="btn btn-sm h-auto active shadow-none p-2 border-0 mn-width-auto">
+                  <img src="icon/icon-grid.svg" alt="Search Icon" class="img-fluid dark-white">
+                </button>
+                <button class="btn btn-sm h-auto shadow-none p-2 border-0  mn-width-auto">
+                  <img src="icon/icon-list.svg" alt="Search Icon" class="img-fluid dark-white">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+                <div>
+                  <input type="text" class="form-control form-control-sm" placeholder="Search by title" />
+                </div>
+                <div>
+                  <select class="form-select form-select-sm">
+                    <option selected>All</option>
+                    <option value="1">Faceclips</option>
+                    <option value="2">Videos</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="form-select form-select-sm">
+                    <option selected>All</option>
+                    <option value="1">Faceclips</option>
+                    <option value="2">Videos</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="form-select form-select-sm">
+                    <option selected>All</option>
+                    <option value="1">Faceclips</option>
+                    <option value="2">Videos</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="form-select form-select-sm">
+                    <option selected>All</option>
+                    <option value="1">Faceclips</option>
+                    <option value="2">Videos</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="form-select form-select-sm">
+                    <option selected>Newest</option>
+                    <option value="1">Recent</option>
+                    <option value="2">Old</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center flex-wrap gap-2 mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="myfaceclipselected">
+                  <label class="form-check-label" for="myfaceclipselected">
+                    0 selected
+                  </label>
+                </div>
+
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto" disabled>
+                  <img src="icon/icon-trash.svg" class="img-fluid">
+                  Delete
+                </button>
+
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto" disabled>
+                  <img src="icon/icon-download-alt.svg" class="img-fluid">
+                  Download
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-xxl-4 col-lg-6">
+              <div class="card card-faceclip-video">
+                <div class="card-body">
+                  <div class="form-check position-absolute top-0 start-0 mt-2 ms-2 z-1">
+                    <input class="form-check-input border" type="checkbox" value="" id="myfaceclipselected01">
+                    <label class="form-check-label" for="myfaceclipselected01"></label>
+                  </div>
+
+                  <div class="d-flex flex-column align-items-center gap-3">
+                    <div class="flex-shrink-0 w-100">
+                      <!-- <img src="assets/images/video-placeholder.png" class="img-fluid w-100 rounded-4" alt=""> -->
+
+                      <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                        <video controls>
+                          <source src="assets/video/video1.mp4" type="video/mp4">
+                          <source src="assets/video/video1.mp4" type="video/ogg">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+
+                    <div class="w-100">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <h5 class="heading-06 fw-semibold mb-0">Social Campaign Tips</h5>
+
+                        <a href="#">
+                          <img src="icon/icon-edit-alt.svg" class="img-fluid dark-white" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">2:05</p>
+                        <span class="badge bg-primary-light text-primary">Processing</span>
+                        <p class="heading-06">Rahul Voice Clone</p>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">Apr 22, 2025</p>
+                        <span class="badge border">16:9</span>
+                        <span class="badge border rounded-pill">Social</span>
+                        <span
+                          class="badge border border-success text-success bg-success-light rounded-pill">Public</span>
+                      </div>
+
+                      <p class="heading-06 text-light">Shared: Twitter</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <div class="d-flex align-items-center flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-play-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-download.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-upload-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-linkedin-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-youtube-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-twitter-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn mn-width-auto ms-sm-auto">
+                      <img src="icon/icon-transh-danger.svg" class="img-fluid" alt="">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-4 col-lg-6">
+              <div class="card card-faceclip-video">
+                <div class="card-body">
+                  <div class="form-check position-absolute top-0 start-0 mt-2 ms-2 z-1">
+                    <input class="form-check-input border" type="checkbox" value="" id="myfaceclipselected01">
+                    <label class="form-check-label" for="myfaceclipselected01"></label>
+                  </div>
+
+                  <div class="d-flex flex-column align-items-center gap-3">
+                    <div class="flex-shrink-0 w-100">
+                      <!-- <img src="assets/images/video-placeholder.png" class="img-fluid w-100 rounded-4" alt=""> -->
+
+                      <div class="ratio ratio-9x16 rounded-3 overflow-hidden">
+                        <video controls>
+                          <source src="assets/video/video3.mp4" type="video/mp4">
+                          <source src="assets/video/video3.mp4" type="video/ogg">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+
+                    <div class="w-100">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <h5 class="heading-06 fw-semibold mb-0">Welcome Video</h5>
+
+                        <a href="#">
+                          <img src="icon/icon-edit-alt.svg" class="img-fluid dark-white" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">2:05</p>
+                        <span class="badge bg-success-light text-success">Completed</span>
+                        <p class="heading-06">Rahul Voice Clone</p>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">Apr 22, 2025</p>
+                        <span class="badge border">9:16</span>
+                        <span class="badge border rounded-pill">Intro</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <div class="d-flex align-items-center flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-play-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-download.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-upload-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-linkedin-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-youtube-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-twitter-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn mn-width-auto ms-sm-auto">
+                      <img src="icon/icon-transh-danger.svg" class="img-fluid" alt="">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-4 col-lg-6">
+              <div class="card card-faceclip-video">
+                <div class="card-body">
+                  <div class="form-check position-absolute top-0 start-0 mt-2 ms-2 z-1">
+                    <input class="form-check-input border" type="checkbox" value="" id="myfaceclipselected01">
+                    <label class="form-check-label" for="myfaceclipselected01"></label>
+                  </div>
+
+                  <div class="d-flex flex-column align-items-center gap-3">
+                    <div class="flex-shrink-0 w-100">
+                      <!-- <img src="assets/images/video-placeholder.png" class="img-fluid w-100 rounded-4" alt=""> -->
+
+                      <div class="ratio ratio-4x5 rounded-3 overflow-hidden">
+                        <video controls>
+                          <source src="assets/video/video4.mp4" type="video/mp4">
+                          <source src="assets/video/video4.mp4" type="video/ogg">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+
+                    <div class="w-100">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <h5 class="heading-06 fw-semibold mb-0">Welcome Video</h5>
+
+                        <a href="#">
+                          <img src="icon/icon-edit-alt.svg" class="img-fluid dark-white" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">2:05</p>
+                        <span class="badge bg-success-light text-success">Completed</span>
+                        <p class="heading-06">Rahul Voice Clone</p>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">Apr 22, 2025</p>
+                        <span class="badge border">4:5</span>
+                        <span class="badge border rounded-pill">Treser</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <div class="d-flex align-items-center flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-play-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-download.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-upload-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-linkedin-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-youtube-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-twitter-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn mn-width-auto ms-sm-auto">
+                      <img src="icon/icon-transh-danger.svg" class="img-fluid" alt="">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-4 col-lg-6">
+              <div class="card card-faceclip-video">
+                <div class="card-body">
+                  <div class="form-check position-absolute top-0 start-0 mt-2 ms-2 z-1">
+                    <input class="form-check-input border" type="checkbox" value="" id="myfaceclipselected01">
+                    <label class="form-check-label" for="myfaceclipselected01"></label>
+                  </div>
+
+                  <div class="d-flex flex-column align-items-center gap-3">
+                    <div class="flex-shrink-0 w-100">
+                      <!-- <img src="assets/images/video-placeholder.png" class="img-fluid w-100 rounded-4" alt=""> -->
+
+                      <div class="ratio ratio-1x1 rounded-3 overflow-hidden">
+                        <video controls>
+                          <source src="assets/video/video5.mp4" type="video/mp4">
+                          <source src="assets/video/video5.mp4" type="video/ogg">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+
+                    <div class="w-100">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <h5 class="heading-06 fw-semibold mb-0">Social Campaign Tips</h5>
+
+                        <a href="#">
+                          <img src="icon/icon-edit-alt.svg" class="img-fluid dark-white" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">2:05</p>
+                        <span class="badge bg-primary-light text-primary">Processing</span>
+                        <p class="heading-06">Rahul Voice Clone</p>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">Apr 22, 2025</p>
+                        <span class="badge border">1:1</span>
+                        <span class="badge border rounded-pill">Social</span>
+                        <span
+                          class="badge border border-success text-success bg-success-light rounded-pill">Public</span>
+                      </div>
+
+                      <p class="heading-06 text-light">Shared: Twitter</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <div class="d-flex align-items-center flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-play-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-download.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-upload-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-linkedin-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-youtube-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-twitter-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn mn-width-auto ms-sm-auto">
+                      <img src="icon/icon-transh-danger.svg" class="img-fluid" alt="">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-4 col-lg-6">
+              <div class="card card-faceclip-video">
+                <div class="card-body">
+                  <div class="form-check position-absolute top-0 start-0 mt-2 ms-2 z-1">
+                    <input class="form-check-input border" type="checkbox" value="" id="myfaceclipselected01">
+                    <label class="form-check-label" for="myfaceclipselected01"></label>
+                  </div>
+
+                  <div class="d-flex flex-column align-items-center gap-3">
+                    <div class="flex-shrink-0 w-100">
+                      <!-- <img src="assets/images/video-placeholder.png" class="img-fluid w-100 rounded-4" alt=""> -->
+
+                      <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                        <video controls>
+                          <source src="assets/video/video5.mp4" type="video/mp4">
+                          <source src="assets/video/video5.mp4" type="video/ogg">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+
+                    <div class="w-100">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <h5 class="heading-06 fw-semibold mb-0">Welcome Video</h5>
+
+                        <a href="#">
+                          <img src="icon/icon-edit-alt.svg" class="img-fluid dark-white" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">2:05</p>
+                        <span class="badge bg-success-light text-success">Completed</span>
+                        <p class="heading-06">Rahul Voice Clone</p>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">Apr 22, 2025</p>
+                        <span class="badge border">16:9</span>
+                        <span class="badge border rounded-pill">Intro</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <div class="d-flex align-items-center flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-play-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-download.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-upload-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-linkedin-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-youtube-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-twitter-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn mn-width-auto ms-sm-auto">
+                      <img src="icon/icon-transh-danger.svg" class="img-fluid" alt="">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-4 col-lg-6">
+              <div class="card card-faceclip-video">
+                <div class="card-body">
+                  <div class="form-check position-absolute top-0 start-0 mt-2 ms-2 z-1">
+                    <input class="form-check-input border" type="checkbox" value="" id="myfaceclipselected01">
+                    <label class="form-check-label" for="myfaceclipselected01"></label>
+                  </div>
+
+                  <div class="d-flex flex-column align-items-center gap-3">
+                    <div class="flex-shrink-0 w-100">
+                      <!-- <img src="assets/images/video-placeholder.png" class="img-fluid w-100 rounded-4" alt=""> -->
+
+                      <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                        <video controls>
+                          <source src="assets/video/video5.mp4" type="video/mp4">
+                          <source src="assets/video/video5.mp4" type="video/ogg">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+
+                    <div class="w-100">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <h5 class="heading-06 fw-semibold mb-0">Welcome Video</h5>
+
+                        <a href="#">
+                          <img src="icon/icon-edit-alt.svg" class="img-fluid dark-white" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">2:05</p>
+                        <span class="badge bg-success-light text-success">Completed</span>
+                        <p class="heading-06">Rahul Voice Clone</p>
+                      </div>
+
+                      <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mb-2">
+                        <p class="heading-06 text-light">Apr 22, 2025</p>
+                        <span class="badge border">16:9</span>
+                        <span class="badge border rounded-pill">Treser</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <div class="d-flex align-items-center flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-play-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-download.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-upload-alt.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-linkedin-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-youtube-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mn-width-auto">
+                      <img src="icon/icon-twitter-line.svg" class="img-fluid" alt="">
+                    </button>
+                    <button type="button" class="btn mn-width-auto ms-sm-auto">
+                      <img src="icon/icon-transh-danger.svg" class="img-fluid" alt="">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

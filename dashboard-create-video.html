@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-feed.svg" class="img-fluid dark-white" alt="" />
+            Feed
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-store.svg" class="img-fluid dark-white" alt="" />
+            Store
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-business-suite.svg" class="img-fluid dark-white" alt="" />
+            Business Suite
+          </a>
+        </div>
+        <div class="sidebar-menu-divider"></div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            Video New
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="dashboard-create-video.html" class="sidebar-menu-link">
+            <img src="icon/icon-create-video.svg" class="img-fluid dark-white" alt="" />
+            Create Video
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-images.svg" class="img-fluid dark-white" alt="" />
+            My Images
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-images-editor.svg" class="img-fluid dark-white" alt="" />
+            Image Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-faceclips.svg" class="img-fluid dark-white" alt="" />
+            FaceClips
+          </a>
+        </div>
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-analytics.svg" class="img-fluid dark-white" alt="" />
+            Analytics
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-activity.svg" class="img-fluid dark-white" alt="" />
+            Activity
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integrations.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-chrome-extension.svg" class="img-fluid dark-white" alt="" />
+            Chrome Extension
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-tools.svg" class="img-fluid dark-white" alt="" />
+            Tools
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-more.svg" class="img-fluid dark-white" alt="" />
+            More
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan">
+        <div class="sidebar-plan-header">
+          <p class="heading-06 fw-bold">Your Plan</p>
+          <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+              src="icon/icon-chev-right-sm-primary.svg" /></a>
+        </div>
+
+        <div class="sidebar-plan-body">
+          <p>
+            <span class="sidebar-plan-status"></span>
+            Current Plan: <span class="fw-medium">Free</span>
+          </p>
+          <a href="#" class="heading-06 text-primary">Manage subscription</a>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">JD</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">John Doe</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-left navbar-top-back">
+          <a href="#" class="">
+            <img src="icon/icon-chev-left.svg" alt="Back Icon" class="img-fluid dark-white" />
+            Back to Wiral</a>
+        </div>
+
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left d-flex align-items-center justify-content-between gap-2 w-100">
+            <h2 class="heading-02 fw-bold mb-0">Create a New Video</h2>
+            <button type="button" class="btn btn-primary">Pro Plan</button>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="faceclip-video-create">
+                <div class="faceclip-video-tabs mw-100" id="createVideoTabs" role="tablist">
+                  <div class="faceclip-video-tabs-item">
+                    <div class="faceclip-video-tabs-link active">
+                      <span>1</span>
+                      <p>Enter Text</p>
+                    </div>
+                  </div>
+                  <div class="faceclip-video-tabs-item">
+                    <div class="faceclip-video-tabs-link">
+                      <span>2</span>
+                      <p>Select Voice</p>
+                    </div>
+                  </div>
+                  <div class="faceclip-video-tabs-item">
+                    <div class="faceclip-video-tabs-link">
+                      <span>3</span>
+                      <p>Choose Type</p>
+                    </div>
+                  </div>
+                  <div class="faceclip-video-tabs-item">
+                    <div class="faceclip-video-tabs-link">
+                      <span>4</span>
+                      <p>Choose Image</p>
+                    </div>
+                  </div>
+                  <div class="faceclip-video-tabs-item">
+                    <div class="faceclip-video-tabs-link">
+                      <span>5</span>
+                      <p>Adjust Settings</p>
+                    </div>
+                  </div>
+                  <div class="faceclip-video-tabs-item">
+                    <div class="faceclip-video-tabs-link">
+                      <span>6</span>
+                      <p>Generate Video</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faceclip-video-tabs-progress mw-100">
+                  <div class="progress w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100">
+                    <div class="progress-bar" style="width: 16.6667%"></div>
+                  </div>
+                </div>
+
+                <div class="faceclip-video-content tab-content" id="createVideoTabContent">
+                  <div class="faceclip-video-content-item tab-pane fade show active" id="entertext-tab-pane">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-say">
+                          <div class="faceclip-video-create-text">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-video-say.svg" class="img-fluid" alt="">
+                              <h5 class="heading-02 fw-semibold mb-0">What should your video say?</h5>
+                            </div>
+                            <p>Enter or paste the text for your talking video. Be clear and concise for best results.
+                            </p>
+                          </div>
+
+                          <div>
+                            <textarea class="form-control"
+                              rows="4">Hi there! I'm excited to share with you how our product can transform your business. In just a few minutes, I'll walk you through the key features and benefits.</textarea>
+                          </div>
+
+                          <div class="faceclip-video-say-bottom">
+                            <div class="faceclip-video-say-bottom-counter">
+                              <span>29 / 1000 words</span>
+                              <div class="progress w-100 mt-1" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <div class="progress-bar" style="width: 3%"></div>
+                              </div>
+                            </div>
+                            <div class="faceclip-video-say-bottom-btn">
+                              <img src="icon/icon-ai-suggestion.svg" class="img-fluid" />
+                              AI Suggest Ideas
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row gy-4">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-create-text">
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-video-title.svg" class="img-fluid" alt="">
+                            <h5 class="heading-05 fw-medium mb-0">Video Title</h5>
+                          </div>
+                          <p class="border p-3 rounded-3 mb-2">Hi there! I'm excited to share with you how our product
+                            can
+                            transform your busin</p>
+                          <p class="text-warning text-end small my-0">80/80 characters</p>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-create-text">
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-info.svg" class="img-fluid" alt="">
+                            <h5 class="heading-05 fw-medium mb-0">Video Description</h5>
+                          </div>
+                          <p>Add a description for SEO and sharing on social media (optional)</p>
+                          <p class="border p-3 rounded-3 mb-2">A dynamic, modern scene showcasing a young, diverse
+                            person
+                            using a sleek smartphone in a bright,<br />
+                            minimal apartment. Smooth camera transitions show the user opening a new social media app.
+                          </p>
+                          <p class="text-warning text-end small my-0">188/200 characters</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-guide bg-primary-light">
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-warning.svg" class="img-fluid dark-white" alt="">
+                            <h5 class="heading-05 fw-medium mb-0">Tips for great results</h5>
+                          </div>
+
+                          <ul class="text-light heading-06 mt-3 d-flex flex-column gap-2">
+                            <li>Keep sentences natural and conversational</li>
+                            <li>Add pauses with commas and periods</li>
+                            <li>For emphasis, use exclamation marks!</li>
+                            <li>Check for spelling and grammar</li>
+                            <li>Add pauses [2s] for dramatic effect</li>
+                            <li>Title and description help with SEO when sharing your video</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faceclip-video-content-item tab-pane fade" id="selectvoice-tab-pane">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-say">
+                          <div class="faceclip-video-create-text">
+                            <div class="d-flex align-items-center gap-2">
+                              <h5 class="heading-02 fw-semibold mb-0">Select a voice for your video</h5>
+                            </div>
+                            <p>Choose your cloned voice or select from our premium AI voices</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-your-text">
+                          <p class="fw-medium">Preview with your text</p>
+
+                          <div
+                            class="faceclip-video-your-text-pause d-flex align-items-center justify-content-between gap-3">
+                            <p class="heading-06 text-light">"Hi there! I'm excited to share with you how o…</p>
+                            <button type="button" class="btn btn-outline-light mn-width-auto shadow-none">
+                              <img src="icon/icon-pause.svg" class="img-fluid" />
+                              Pause
+                            </button>
+                          </div>
+
+                          <div class="faceclip-video-your-text-sound">
+                            <div class="d-flex align-items-center gap-3">
+                              <a class="p-1" href="javascript:void(0)">
+                                <img src="icon/icon-volumn.svg" class="img-fluid dark-white" alt="" />
+                              </a>
+
+                              <div class="volume-slider-wrapper">
+                                <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeRange">
+                                <!-- <span id="volumeValue">50</span> -->
+                              </div>
+                            </div>
+
+                            <div class="faceclip-video-your-text-sound-wave">
+                              <img src="icon/icon-wave.svg" class="img-fluid" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-voice-select">
+                          <div class="faceclip-video-voice-select-item">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="clonevideo" id="clonevideo1"
+                                autocomplete="off">
+                              <label class="form-check-label heading-05 fw-medium" for="clonevideo1">
+                                My Cloned Voice
+                              </label>
+                            </div>
+                            <div class="ps-3 ms-2">
+                              <p class="heading-06 text-light mt-2 mb-3">Use your own voice that you've
+                                previously trained</p>
+                              <button type="button" class="btn btn-outline-light shadow-none mn-width-auto">
+                                <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                                Preview
+                              </button>
+                            </div>
+                          </div>
+
+                          <div class="faceclip-video-voice-select-item">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="clonevideo" id="clonevideo2"
+                                autocomplete="off">
+                              <label class="form-check-label heading-05 fw-medium" for="clonevideo2">
+                                AI-Generated Voices
+                              </label>
+                            </div>
+
+                            <div class="ps-3 ms-2">
+                              <p class="heading-06 text-light mt-2 mb-3">Choose from our library of professional
+                                AI voices</p>
+                              <select class="form-select mb-3">
+                                <option>Professional Female</option>
+                                <option>Professional Male</option>
+                              </select>
+                              <button type="button" class="btn btn-outline-light shadow-none mn-width-auto">
+                                <img src="icon/icon-pause.svg" class="img-fluid" />
+                                Pause
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faceclip-video-content-item tab-pane fade" id="choseetype-tab-pane">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-choose-type">
+                          <div class="faceclip-video-say">
+                            <div class="faceclip-video-create-text">
+                              <div class="d-flex align-items-center gap-2">
+                                <h5 class="heading-02 fw-semibold mb-0">Choose how to generate your video</h5>
+                              </div>
+                              <p>Select the type of video you want to create</p>
+                            </div>
+                          </div>
+
+                          <div class="faceclip-video-choose-type-item">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                              <div class="form-check">
+                                <input class="form-check-input mt-2" type="radio" name="choosetypeVideo"
+                                  id="choosetypeVideo1" autocomplete="off">
+                                <label class="heading-03 form-check-label fw-semibold" for="choosetypeVideo1">
+                                  Talking Image Video
+                                </label>
+                                <img src="icon/icon-image.svg" class="img-fluid align-top ms-2" />
+                              </div>
+
+                              <label class="d-inline-flex align-items-center gap-2 p-2 heading-06 text-primary"
+                                data-bs-toggle="modal" data-bs-target="#professionalheadshot">
+                                <img src="icon/icon-play-primary.svg" class="img-fluid" />
+                                See sample video
+                                <img src="icon/icon-video-primary.svg" class="img-fluid" />
+                              </label>
+                            </div>
+                            <div class="ps-3 ms-2">
+                              <p class="text-light mt-2 mb-3">Create a video with a still image that talks
+                                with lip-sync animation</p>
+
+                              <div class="d-flex align-items-center flex-wrap gap-2">
+                                <span class="badge">
+                                  <img src="icon/icon-simple.svg" class="img-fluid" alt="" />
+                                  Simple to create
+                                </span>
+                                <span class="badge">
+                                  <img src="icon/icon-image-sm.svg" class="img-fluid" alt="" />
+                                  Use any image
+                                </span>
+                                <span class="badge">
+                                  <img src="icon/icon-quick.svg" class="img-fluid" alt="" />
+                                  Quick generation
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="faceclip-video-choose-type-item">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                              <div class="form-check">
+                                <input class="form-check-input mt-2" type="radio" name="choosetypeVideo"
+                                  id="choosetypeVideo2" autocomplete="off">
+                                <label class="heading-03 form-check-label fw-semibold" for="choosetypeVideo2">
+                                  AI Video Avatar
+                                </label>
+                                <img src="icon/icon-video-circle.svg" class="img-fluid align-top ms-2" />
+                                <img src="icon/icon-question.svg" class="img-fluid dark-white align-middle ms-2" />
+                              </div>
+                            </div>
+                            <div class="ps-3 ms-2">
+                              <p class="text-light mt-2 mb-3">Create a realistic video with a moving, talking AI avatar
+                                based on your video</p>
+
+                              <div class="d-flex align-items-center flex-wrap gap-2">
+                                <span class="badge">
+                                  <img src="icon/icon-quick.svg" class="img-fluid" alt="" />
+                                  More realistic
+                                </span>
+                                <span class="badge">
+                                  <img src="icon/icon-camare-primary-sm.svg" class="img-fluid" alt="" />
+                                  Full facial expressions
+                                </span>
+                                <span class="badge">
+                                  <img src="icon/icon-simple.svg" class="img-fluid" alt="" />
+                                  Higher engagement
+                                </span>
+                              </div>
+
+                              <div class="faceclip-video-choose-type-avatar">
+                                <div class="d-flex align-items-center gap-1">
+                                  <img src="icon/icon-camare-primary-sm.svg" class="img-fluid" width="16" />
+                                  <h5 class="heading-06 mb-0 fw-medium text-primary">You need to create a video avatar
+                                    first</h5>
+                                </div>
+                                <p class="small text-primary opacity-75 mt-2 mb-3">Record a short video to create your
+                                  AI avatar with our guidelines</p>
+
+                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                  <button type="button" class="btn btn-outline-light shadow-none mn-width-auto">Skip for
+                                    Now</button>
+                                  <button type="button" id="recordingguidelines" class="btn btn-primary mn-width-auto">
+                                    Recording Guidelines
+                                    <img src="icon/icon-chev-right-sm.svg" class="img-fluid" />
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="faceclip-video-recording d-none">
+                          <div class="faceclip-video-say">
+                            <div class="faceclip-video-create-text">
+                              <div class="d-flex align-items-center gap-2">
+                                <a href="#" id="recordingguidelinesback" class="text-light heading-06"><img
+                                    src="icon/icon-chev-left.svg" class="img-fluid dark-white" alt="" />
+                                  Back</a>
+                                <h5 class="heading-02 fw-semibold mb-0">Recording Your Video Avatar</h5>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-lg-7">
+                              <div class="faceclip-video-recording-left">
+                                <div class="faceclip-video-recording-option">
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-bulb-primary.svg" class="img-fluid dark-white" alt="">
+                                    <h5 class="heading-03 fw-semibold mb-0">Recording Options</h5>
+                                  </div>
+
+                                  <div class="faceclip-video-recording-option-item">
+                                    <div class="faceclip-video-recording-option-counter">1</div>
+                                    <div class="faceclip-video-recording-option-content">
+                                      <h6 class="heading-05 fw-medium text-primary mb-2">Sitting</h6>
+                                      <p class="heading-06 text-primary">Record while sitting in a well-lit environment
+                                        with a neutral background</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="faceclip-video-recording-option-item">
+                                    <div class="faceclip-video-recording-option-counter">2</div>
+                                    <div class="faceclip-video-recording-option-content">
+                                      <h6 class="heading-05 fw-medium text-primary mb-2">Standing</h6>
+                                      <p class="heading-06 text-primary">Record while standing, moving naturally but
+                                        with
+                                        minimal movements</p>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="faceclip-video-guide faceclip-video-guide-icon my-4">
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-bulb-primary.svg" class="img-fluid dark-white" alt="">
+                                    <h5 class="heading-03 fw-semibold mb-0">Best Practices</h5>
+                                  </div>
+
+                                  <ul class="heading-06 mt-3 d-flex flex-column gap-3">
+                                    <li data-image="icon-done">Face the camera directly with good lighting on your face
+                                    </li>
+                                    <li data-image="icon-done">Use minimal hand gestures and natural head movements</li>
+                                    <li data-image="icon-done">Speak naturally with clear pronunciation</li>
+                                    <li data-image="icon-done">Avoid rapid movements or excessive gesturing</li>
+                                    <li data-image="icon-close">Add pauses [2s] for dramatic effect</li>
+                                    <li data-image="icon-close">Avoid wearing reflective glasses or busy patterns</li>
+                                  </ul>
+                                </div>
+
+                                <button type="button" class="btn btn-primary">Start Recording
+                                  <img src="icon/icon-chev-right-sm.svg" class="img-fluid" />
+                                </button>
+                              </div>
+                            </div>
+                            <div class="col-lg-5">
+                              <div class="faceclip-video-recording-right">
+                                <div class="faceclip-video-sample">
+                                  <h6 class="heading-03 fw-semibold mb-4">Sample Avatar Video</h6>
+
+                                  <div class="faceclip-video-sample-image text-center">
+                                    <img src="assets/images/image01.png" class="img-fluid rounded-4" alt="">
+                                  </div>
+                                </div>
+
+                                <div class="faceclip-video-guide">
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-movement.svg" class="img-fluid" alt="">
+                                    <h5 class="heading-03 fw-semibold mb-0">Movement Tips</h5>
+                                  </div>
+                                  <p class="heading-06 mt-2">Natural movements create better avatars, but too much
+                                    movement can reduce quality.</p>
+
+                                  <ul class="heading-06 mt-3 d-flex flex-column gap-2 ps-3">
+                                    <li>Small head movements are good (nodding, slight, turns)</li>
+                                    <li>Keep hand gestures minimal and slow</li>
+                                    <li>Maintain a consistent distance from the camera</li>
+                                    <li>If standing, stay within the frame at all times</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faceclip-video-content-item tab-pane fade" id="choseeimage-tab-pane">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-say">
+                          <div class="faceclip-video-create-text">
+                            <div class="d-flex align-items-center gap-2">
+                              <h5 class="heading-02 fw-semibold mb-0">Choose an image for your video</h5>
+                            </div>
+                            <p>Select one or multiple images to create an interactive video story</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row" id="savedImage">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-saved-images">
+                          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                            <p class="heading-06 fw-medium">Your saved images</p>
+
+                            <button type="button"
+                              class="btn btn-outline-light mn-width-auto py-1 px-2 h-auto shadow-none rounded-pill">
+                              <img src="icon/icon-refresh.svg" class="img-fluid" alt="" />
+                              Refresh
+                            </button>
+                          </div>
+
+                          <div class="row g-3">
+                            <div class="col-lg-3">
+                              <div class="faceclip-video-saved-images-card">
+                                <div class="faceclip-video-saved-images-card-img">
+                                  <img src="assets/images/image02.png" class="img-fluid w-100" alt="" />
+                                </div>
+
+                                <div class="faceclip-video-saved-images-card-content">
+                                  Profile 1
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                              <div class="faceclip-video-saved-images-card">
+                                <div class="faceclip-video-saved-images-card-img">
+                                  <img src="assets/images/image03.png" class="img-fluid w-100" alt="" />
+                                </div>
+
+                                <div class="faceclip-video-saved-images-card-content">
+                                  Profile 2
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                              <div class="faceclip-video-saved-images-card">
+                                <div class="faceclip-video-saved-images-card-img">
+                                  <img src="assets/images/image04.png" class="img-fluid w-100" alt="" />
+                                </div>
+
+                                <div class="faceclip-video-saved-images-card-content">
+                                  Profile 3
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="faceclip-video-add-images">
+                          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                            <p class="heading-06 fw-medium">Add a new image</p>
+
+                            <button type="button"
+                              class="btn btn-outline-light mn-width-auto py-1 px-2 h-auto shadow-none rounded-pill">
+                              <img src="icon/icon-refresh.svg" class="img-fluid" alt="" />
+                              Refresh
+                            </button>
+                          </div>
+
+                          <div class="faceclip-video-add-images-tabs">
+                            <ul class="nav nav-pills gap-2 mb-3" id="newImageTab" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="mobileCamera" data-bs-toggle="tab"
+                                  data-bs-target="#mobileCamera-pane" type="button" role="tab"
+                                  aria-controls="mobileCamera-pane" aria-selected="true">
+                                  <span>
+                                    <img src="icon/icon-mobile-white.svg" class="img-fluid" />
+                                  </span>
+                                  Mobile Camera
+                                </button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="uploadImage-tab" data-bs-toggle="tab"
+                                  data-bs-target="#uploadImage-tab-pane" type="button" role="tab"
+                                  aria-controls="uploadImage-tab-pane" aria-selected="false">
+                                  <span>
+                                    <img src="icon/icon-upload.svg" class="img-fluid" />
+                                  </span>
+                                  Upload Image
+                                </button>
+                              </li>
+                            </ul>
+
+                            <div class="tab-content" id="newImageTabContent">
+                              <div class="tab-pane fade show active" id="mobileCamera-pane" role="tabpanel"
+                                aria-labelledby="mobileCamera" tabindex="0">
+                                <div class="faceclip-video-add-mobile-camera">
+                                  <div class="faceclip-video-add-mobile-camera-inner">
+                                    <div class="faceclip-video-add-mobile-camera-image">
+                                      <img src="icon/icon-camera-circle-lg.svg" class="img-fluid" alt="" />
+                                    </div>
+
+                                    <h6 class="heading-03 fw-medium mt-4 mb-3 text-dark">Take High-Quality Photo with
+                                      Your Phone
+                                    </h6>
+                                    <p class="text-light heading-06 mb-3">Use your phone's camera for higher quality
+                                      photos:</p>
+
+                                    <ol class="heading-06 text-light text-start d-flex flex-column gap-2">
+                                      <li>Scan the QR code with your phone camera</li>
+                                      <li>Take a high-quality photo directly on your phone</li>
+                                      <li>Tap <span class="text-primary fw-bold">"Use This Photo"</span> after taking
+                                      </li>
+                                      <li>The photo will automatically appear here</li>
+                                    </ol>
+
+                                    <div class="faceclip-video-add-mobile-camera-qr">
+                                      <img src="assets/images/qr.png" class="img-fluid" />
+                                    </div>
+
+                                    <div class="d-flex align-items-center mb-3 gap-2 text-start">
+                                      <img src="icon/icon-mobile.svg" class="img-fluid" />
+                                      <p class="heading-06 text-light">Open your phone's camera and point it at the QR
+                                        code above</p>
+                                    </div>
+
+                                    <button class="btn btn-outline-light shadow-none">
+                                      <img src="icon/icon-refresh.svg" class="img-fluid" alt="" />
+                                      Check for new photo
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="tab-pane fade" id="uploadImage-tab-pane" role="tabpanel"
+                                aria-labelledby="uploadImage-tab" tabindex="0">
+                                <div class="faceclip-video-add-upload-image">
+                                  <div class="faceclip-add-image-left p-0 border-0">
+                                    <div class="faceclip-add-image-upload">
+                                      <input type="file" id="facelipaddimageupload" class="form-control">
+
+                                      <div class="faceclip-add-image-upload-icon">
+                                        <img src="icon/icon-upload-file.svg" class="img-fluid">
+                                      </div>
+
+                                      <h6 class="text-primary mb-1 mt-2 pt-1">Drop images here</h6>
+                                      <p class="text-light small text-uppercase">PNG, JPG, JPEG</p>
+
+                                      <div class="faceclip-add-image-upload-img">
+                                        <div class="faceclip-add-image-upload-img-item">
+
+                                        </div>
+                                        <div class="faceclip-add-image-upload-img-item">
+
+                                        </div>
+                                        <div class="faceclip-add-image-upload-img-item">
+
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="faceclip-add-image-list">
+                                      <div class="faceclip-add-image-item" data-bs-toggle="modal"
+                                        data-bs-target="#scanqrcode">
+                                        <div class="faceclip-add-image-item-icon">
+                                          <img src="icon/icon-qr.svg" class="img-fluid" alt="">
+                                        </div>
+                                        <p>Scan QR Code</p>
+                                      </div>
+
+                                      <div class="faceclip-add-image-item" id="savedImageAnimationBtn">
+                                        <div class="faceclip-add-image-item-icon">
+                                          <img src="icon/icon-camera.svg" class="img-fluid" alt="">
+                                        </div>
+                                        <p>Take Picture</p>
+                                      </div>
+
+                                      <div class="faceclip-add-image-item">
+                                        <div class="faceclip-add-image-item-icon">
+                                          <img src="icon/icon-gallery.svg" class="img-fluid" alt="">
+                                        </div>
+                                        <p>Browse Files</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-2 mt-4">
+                              <img src="icon/icon-question.svg" class="img-fluid dark-white" />
+                              <p class="small text-light">Images will be automatically formatted to 9:16 ratio for
+                                optimal video quality.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row d-none" id="savedImageAnimation">
+                      <div class="col-lg-6">
+                        <div class="faceclip-video-animation-control-list">
+                          <p class="heading-06 fw-medium mb-4">Animation Controls</p>
+
+                          <div class="faceclip-video-animation-control-wrap">
+                            <div class="faceclip-video-animation-control-item">
+                              <div class="faceclip-video-animation-control-card">
+                                <div class="faceclip-video-animation-control-card-icon">
+                                  <img src="icon/icon-drag.svg" class="img-fluid dark-white" alt="">
+                                </div>
+                                <div class="faceclip-video-animation-control-card-image">
+                                  <img src="assets/images/image02.png" class="img-fluid" alt="" />
+                                </div>
+                                <div class="faceclip-video-animation-control-card-content small text-light">
+                                  <p>Image 1</p>
+                                  <p>(Primary)</p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="faceclip-video-animation-control-item">
+                              <div class="faceclip-video-animation-control-card">
+                                <div class="faceclip-video-animation-control-card-icon">
+                                  <img src="icon/icon-drag.svg" class="img-fluid dark-white" alt="">
+                                </div>
+                                <div class="faceclip-video-animation-control-card-image">
+                                  <img src="assets/images/image02.png" class="img-fluid" alt="" />
+                                </div>
+                                <div class="faceclip-video-animation-control-card-content small text-light">
+                                  <p>Image 1</p>
+                                  <p>(Primary)</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <button type="button" class="btn btn-outline-secondary shadow-none">Add More Images
+                            <img src="icon/icon-plus-dark.svg" class="img-fluid" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="faceclip-video-animation-control">
+                          <p class="heading-06 fw-medium mb-4">Animation Controls</p>
+
+                          <div class="faceclip-video-animation-control-options">
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                              <p class="text-light heading-06 mb-0">
+                                <img src="icon/icon-movement-alt.svg" class="img-fluid me-1 dark-white" alt="">
+                                Head Movement
+                              </p>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="headmovement">
+                                <label class="form-check-label" for="headmovement"></label>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                              <p class="text-light heading-06 mb-0">
+                                <img src="icon/icon-eye-blink.svg" class="img-fluid me-1 dark-white" alt="">
+                                Eye Blinking
+                              </p>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="headmovement">
+                                <label class="form-check-label" for="headmovement"></label>
+                              </div>
+                            </div>
+
+                            <div class="d-flex flex-column gap-2 mb-3">
+                              <p class="heading-06 fw-medium">Lip Sync Intensity</p>
+
+                              <div class="d-flex align-items-center flex-wrap gap-2">
+                                <button class="btn btn-sm btn-primary shadow-none mn-width-auto">Normal</button>
+                                <button
+                                  class="btn btn-sm btn-outline-secondary shadow-none mn-width-auto">Emphasized</button>
+                                <button
+                                  class="btn btn-sm btn-outline-secondary shadow-none mn-width-auto">Expressive</button>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-2 pt-3">
+                              <img src="icon/icon-multi-image.svg" class="img-fluid dark-white" alt="">
+                              <h5 class="heading-05 fw-medium mb-0">Multi-Image Mode</h5>
+                              <img src="icon/icon-question.svg" class="img-fluid dark-white" alt="">
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between gap-2 mt-3">
+                              <p class="heading-06">Enable Multi-Image Video</p>
+
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="headmovement">
+                                <label class="form-check-label" for="headmovement"></label>
+                              </div>
+                            </div>
+
+                            <div class="faceclip-video-guide bg-primary-light my-4">
+                              <div class="d-flex align-items-center gap-2">
+                                <img src="icon/icon-info.svg" class="img-fluid dark-white" alt="">
+                                <h5 class="heading-05 fw-medium mb-0">Multi-image video benefits:</h5>
+                              </div>
+
+                              <ul class="text-light heading-06 mt-3 d-flex flex-column gap-2">
+                                <li>Create dynamic scene transitions</li>
+                                <li>Tell more engaging visual stories</li>
+                                <li>Showcase multiple products or locations</li>
+                                <li>Higher viewer retention and engagement</li>
+                              </ul>
+                            </div>
+
+                            <div class="faceclip-video-guide bg-primary-light my-4">
+                              <div class="d-flex align-items-center gap-2">
+                                <img src="icon/icon-multi-image.svg" class="img-fluid dark-white" alt="">
+                                <h5 class="heading-05 fw-medium mb-0">Video Sequence</h5>
+                              </div>
+
+                              <p class="small my-2 text-light">Your video will play through these 2 scenes in sequence.
+                                Each image represents a separate scene in your video.</p>
+
+                              <div class="d-flex align-items-center flex-wrap gap-2">
+                                <button type="button"
+                                  class="btn btn-sm btn-outline-light shadow-none mn-width-auto">Scene 1
+                                  <img src="icon/icon-right-arrow-dark.svg" class="img-fluid" alt="" />
+                                </button>
+                                <button type="button"
+                                  class="btn btn-sm btn-outline-light shadow-none mn-width-auto">Scene 2
+                                  <img src="icon/icon-right-arrow-dark.svg" class="img-fluid" alt="" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-guide bg-primary-light my-4">
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-multi-image.svg" class="img-fluid dark-white" alt="">
+                            <h5 class="heading-05 fw-medium mb-0">Multi-Image Video Tips</h5>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <h6 class="heading-06 mb-2 mt-4 fw-medium">For best results:</h6>
+
+                              <ul class="text-light heading-06 mt-3 d-flex flex-column gap-2">
+                                <li>Use similar image styles for consistent transitions</li>
+                                <li>Use 3-5 images for optimal engagement</li>
+                                <li>Order images to tell a logical visual story</li>
+                              </ul>
+                            </div>
+
+                            <div class="col-lg-6">
+                              <h6 class="heading-06 mb-2 mt-4 fw-medium">Video creation:</h6>
+
+                              <ul class="text-light heading-06 mt-3 d-flex flex-column gap-2">
+                                <li>Each image becomes a separate scene in your video</li>
+                                <li>Smooth transitions will be added automatically</li>
+                                <li>Your narration will play across all scenes</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faceclip-video-content-item tab-pane fade" id="adjustsetting-tab-pane">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-say">
+                          <div class="faceclip-video-create-text">
+                            <div class="d-flex align-items-center gap-2">
+                              <h5 class="heading-02 fw-semibold mb-0">Fine-tune your video</h5>
+                            </div>
+                            <p>Adjust voice emotion and speed for your talking image video</p>
+                          </div>
+                        </div>
+
+                        <div class="faceclip-video-guide bg-primary-light my-4 p-3">
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-multi-image.svg" class="img-fluid dark-white" alt="">
+                            <h5 class="heading-05 fw-medium mb-0">Talking Image Video Settings</h5>
+                          </div>
+
+                          <p class="small ps-4 mt-2 text-light">Customize how your still image comes to life</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-emotion-list">
+                          <p class="heading-06 fw-medium mb-3">Voice Emotion</p>
+
+                          <div class="row g-3">
+                            <div class="col-lg-4">
+                              <div class="faceclip-video-emotion-card">
+                                <div class="faceclip-video-emotion-card-icon">
+                                  <img src="icon/icon-neutral.svg" class="img-fluid dark-white" alt="">
+                                </div>
+                                <p class="heading-06 fw-medium">Neutral</p>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="faceclip-video-emotion-card">
+                                <div class="faceclip-video-emotion-card-icon">
+                                  <img src="icon/icon-happy.svg" class="img-fluid dark-white" alt="">
+                                </div>
+                                <p class="heading-06 fw-medium">Happy</p>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="faceclip-video-emotion-card">
+                                <div class="faceclip-video-emotion-card-icon">
+                                  <img src="icon/icon-sad.svg" class="img-fluid dark-white" alt="">
+                                </div>
+                                <p class="heading-06 fw-medium">Sad</p>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="faceclip-video-emotion-card">
+                                <div class="faceclip-video-emotion-card-icon">
+                                  <img src="icon/icon-exited.svg" class="img-fluid dark-white" alt="">
+                                </div>
+                                <p class="heading-06 fw-medium">Excited</p>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="faceclip-video-emotion-card">
+                                <div class="faceclip-video-emotion-card-icon">
+                                  <img src="icon/icon-angry.svg" class="img-fluid dark-white" alt="">
+                                </div>
+                                <p class="heading-06 fw-medium">Angry</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-emotion-list">
+                          <p class="heading-06 fw-medium mb-3">Speech Speed</p>
+
+                          <div class="row g-3">
+                            <div class="col-lg-4">
+                              <div class="faceclip-video-emotion-card">
+                                <p class="heading-06 fw-medium">Slow</p>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="faceclip-video-emotion-card">
+                                <p class="heading-06 fw-medium">Normal</p>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="faceclip-video-emotion-card">
+                                <p class="heading-06 fw-medium">Fast</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-animation-control border p-3 rounded-3">
+                          <p class="heading-06 fw-medium mb-3">Animation Controls</p>
+
+                          <div class="faceclip-video-animation-control-options">
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                              <p class="heading-06 fw-medium mb-0">
+                                Head Movement
+                              </p>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="headmovement">
+                                <label class="form-check-label" for="headmovement"></label>
+                              </div>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                              <p class="heading-06 fw-medium mb-0">
+                                Eye Blinking
+                              </p>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="headmovement">
+                                <label class="form-check-label" for="headmovement"></label>
+                              </div>
+                            </div>
+
+                            <div class="d-flex flex-column gap-2 mb-3">
+                              <p class="heading-06 fw-medium">Lip Sync Intensity</p>
+
+                              <div class="d-flex align-items-center flex-wrap gap-2">
+                                <button class="btn btn-sm btn-primary shadow-none flex-fill">Normal</button>
+                                <button class="btn btn-sm btn-outline-light shadow-none flex-fill">Emphasized</button>
+                                <button class="btn btn-sm btn-outline-light shadow-none flex-fill">Expressive</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faceclip-video-content-item tab-pane fade" id="generatevideo-tab-pane">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="faceclip-video-say">
+                          <div class="faceclip-video-create-text">
+                            <div class="d-flex align-items-center gap-2">
+                              <h5 class="heading-02 fw-semibold mb-0">Generate Your Video</h5>
+                            </div>
+                            <p>Review your settings and generate your video</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-5">
+                        <div class="faceclip-video-generate-image">
+                          <div class="faceclip-video-sample">
+                            <h6 class="heading-06 fw-medium mb-3">
+                              <img src="icon/icon-image-sm.svg" class="img-fluid me-2" width="16" alt="">Talking Image
+                              Video
+                            </h6>
+
+                            <div class="faceclip-video-sample-image text-center">
+                              <img src="assets/images/image05.png" class="img-fluid rounded-4" alt="">
+
+                              <div class="mt-3">
+                                <button class="btn btn-primary w-100">
+                                  <img src="icon/icon-ai-white.svg" class="img-fluid" alt="" />
+                                  Generate Video
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-7">
+                        <div class="faceclip-video-generate-summary">
+                          <h6 class="heading-06 fw-medium mb-3">Video Summary</h6>
+
+                          <div class="mb-3">
+                            <p class="small text-light mb-2">Title</p>
+                            <p class="heading-06">Hi there! I'm excited to share with you how our product can transform
+                              your busin</p>
+                          </div>
+
+                          <div class="mb-3">
+                            <p class="small text-light mb-2">Description</p>
+                            <p class="heading-06">A dynamic, modern scene showcasing a young, diverse person using a
+                              sleek smartphone in a bright, minimal apartment. Smooth camera transitions show the user
+                              opening a new social media app.</p>
+                          </div>
+
+                          <div class="mb-3">
+                            <p class="small text-light mb-2">Voice</p>
+                            <div class="heading-06 d-flex align-items-center gap-2">My Cloned Voice
+
+                              <span class="btn btn-sm btn-outline-secondary shadow-none mn-width-auto rounded-5">Normal
+                                Speed</span>
+                            </div>
+                          </div>
+
+                          <div class="mb-3">
+                            <p class="small text-light mb-2">Emotion</p>
+                            <p class="heading-06 d-flex align-items-center gap-2">neutral
+                              <img src="icon/icon-neutral.svg" class="img-fluid dark-white" width="20" alt="" />
+                            </p>
+                          </div>
+
+                          <div class="mb-3">
+                            <p class="small text-light mb-2">Text Script</p>
+                            <div class="mb-3">
+                              <input type="text" class="form-control" placeholder=""
+                                value="Hi there! I'm excited to share with you how our product can transform your business. In just a few minutes, I'll walk you through the key features and..." />
+                            </div>
+                          </div>
+
+                          <div class="mb-3">
+                            <p class="small text-light mb-2">Animation</p>
+                            <div class="heading-06 d-flex align-items-center flex-wrap gap-2 mb-3">
+                              <span class="btn btn-sm btn-outline-secondary shadow-none mn-width-auto rounded-5">Head
+                                Movement</span>
+                              <span class="btn btn-sm btn-outline-secondary shadow-none mn-width-auto rounded-5">Eye
+                                Blinking</span>
+                              <span class="btn btn-sm btn-outline-secondary shadow-none mn-width-auto rounded-5">normal
+                                Lip Sync</span>
+                            </div>
+                          </div>
+
+                          <div class="mb-3">
+                            <p class="small text-light mb-2">Scenes</p>
+                            <div class="heading-06 d-flex align-items-center flex-wrap gap-2 mb-3">
+                              <span
+                                class="btn btn-sm bg-primary-light text-primary shadow-none mn-width-auto rounded-5">2
+                                images as separate scenes</span>
+                            </div>
+                          </div>
+
+                          <div class="faceclip-video-guide bg-primary-light my-4 p-3">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-ai.svg" class="img-fluid dark-white" width="16" alt="">
+                              <h5 class="heading-05 fw-medium mb-0">Pro Quality Video</h5>
+                            </div>
+
+                            <p class="small ps-4 mt-2 text-light">Your video will be generated in the highest quality
+                              with all premium features enabled.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faceclip-video-button">
+                  <button id="faceclip-video-button-prev" type="button" class="btn btn-primary me-auto">
+                    <img src="icon/icon-left-arrow-white.svg" class="img-fluid" alt="" />
+                    Previous
+                  </button>
+
+                  <div class="faceclip-video-step-text">
+                    Step 1/6
+                  </div>
+
+                  <button id="faceclip-video-button-next" type="button" class="btn btn-primary ms-auto">Next
+                    <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="professionalheadshot" tabindex="-1" aria-labelledby="professionalheadshotLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header align-items-start">
+          <h4 class="modal-title" id="professionalheadshotLabel">Professional Headshot
+            <p class="heading-06 text-light fw-normal mt-1">Turn your portrait into a dynamic speaking video for
+              presentations and introductions</p>
+          </h4>
+          <button type="button" class="btn-close mt-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="assets/video/video.mp4" title="YouTube video" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="scanqrcode" tabindex="-1" aria-labelledby="scanqrcodeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header align-items-start">
+          <h4 class="modal-title" id="scanqrcodeLabel">Scan QR Code</h4>
+          <button type="button" class="btn-close mt-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="faceclip-video-add-mobile-camera">
+            <div class="faceclip-video-add-mobile-camera-inner">
+              <div class="faceclip-video-add-mobile-camera-image">
+                <img src="icon/icon-camera-circle-lg.svg" class="img-fluid" alt="">
+              </div>
+
+              <h6 class="heading-03 fw-medium mt-4 mb-3 text-dark">Take High-Quality Photo with Your Phone
+              </h6>
+              <p class="text-light heading-06 mb-3">Use your phone's camera for higher quality
+                photos:</p>
+
+              <ol class="heading-06 text-light text-start d-flex flex-column gap-2">
+                <li>Scan the QR code with your phone camera</li>
+                <li>Take a high-quality photo directly on your phone</li>
+                <li>Tap <span class="text-primary fw-bold">"Use This Photo"</span> after taking
+                </li>
+                <li>The photo will automatically appear here</li>
+              </ol>
+
+              <div class="faceclip-video-add-mobile-camera-qr">
+                <img src="assets/images/qr.png" class="img-fluid">
+              </div>
+
+              <div class="d-flex align-items-center mb-3 gap-2 text-start">
+                <img src="icon/icon-mobile.svg" class="img-fluid">
+                <p class="heading-06 text-light">Open your phone's camera and point it at the QR
+                  code above</p>
+              </div>
+
+              <button class="btn btn-outline-light shadow-none mx-auto">
+                <img src="icon/icon-refresh.svg" class="img-fluid" alt="">
+                Check for new photo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

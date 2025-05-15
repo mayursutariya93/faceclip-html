@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left w-100">
+            <div class="d-flex align-items-center gap-2 bg-primary-light p-3 rounded-4">
+              <div>
+                <img src="icon/icon-billing-usage.svg" class="img-fluid" alt="">
+              </div>
+              <div>
+                <h2 class="heading-02 fw-bold mb-1">Billing & Usage</h2>
+                <p class="text-light">Manage your subscription and monitor usage</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-center mt-lg-5 mt-4">
+                <ul class="nav nav-tabs nav-plans-tabs nav-pills p-2 bg-primary-light" id="billingUsageTab"
+                  role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="subscription-tab" data-bs-toggle="tab"
+                      data-bs-target="#subscription-tab-pane" type="button" role="tab"
+                      aria-controls="subscription-tab-pane" aria-selected="true">
+                      <span class="nav-plans-tabs-icon">
+                        <img src="icon/icon-subscription.svg" class="img-fluid" alt="">
+                      </span>
+                      Subscription
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="usage-tab" data-bs-toggle="tab" data-bs-target="#usage-tab-pane"
+                      type="button" role="tab" aria-controls="usage-tab-pane" aria-selected="false" tabindex="-1">
+                      <span class="nav-plans-tabs-icon">
+                        <img src="icon/icon-usage.svg" class="img-fluid" alt="">
+                      </span>
+                      Usage
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="credithistory-tab" data-bs-toggle="tab"
+                      data-bs-target="#credithistory-tab-pane" type="button" role="tab"
+                      aria-controls="credithistory-tab-pane" aria-selected="false" tabindex="-1">
+                      <span class="nav-plans-tabs-icon">
+                        <img src="icon/icon-pay-you-go.svg" class="img-fluid" alt="">
+                      </span>
+                      Credit History
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="invoicetax-tab" data-bs-toggle="tab"
+                      data-bs-target="#invoicetax-tab-pane" type="button" role="tab" aria-controls="invoicetax-tab-pane"
+                      aria-selected="false" tabindex="-1">
+                      <span class="nav-plans-tabs-icon">
+                        <img src="icon/icon-invoice-tax.svg" class="img-fluid" alt="">
+                      </span>
+                      Invoices & Tax
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card mt-4">
+                <div class="card-body p-lg-4">
+                  <div class="pb-4 mb-4 border-bottom">
+                    <h6 class="heading-02 fw-bold mb-2">Usage Summary</h6>
+                    <p class="heading-06 text-light">View your current billing cycle and credit usage</p>
+                  </div>
+
+                  <div class="row g-3 align-items-center">
+                    <div class="col-xxl-9 col-lg-8">
+                      <div class="row g-3">
+                        <div class="col-xxl-3 col-lg-6 d-flex">
+                          <div class="card w-100">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center gap-2">
+                                <img src="icon/icon-calendar-primary.svg" class="img-fluid" alt="">
+                                <p class="text-light">Current Billing Cycle</p>
+                              </div>
+                              <h6 class="heading-03 fw-semibold mt-3 mb-0">Apr 8 – May 8, 2025</h6>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-lg-6 d-flex">
+                          <div class="card w-100">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center gap-2">
+                                <img src="icon/icon-dollar-primary.svg" class="img-fluid" alt="">
+                                <p class="text-light">Total Spend</p>
+                              </div>
+                              <h6 class="heading-03 fw-semibold mt-3 mb-0">$32.50</h6>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-lg-6 d-flex">
+                          <div class="card w-100">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center gap-2">
+                                <img src="icon/icon-creadits.svg" class="img-fluid" alt="" />
+                                <p class="text-light">Credits Used</p>
+                              </div>
+                              <h6 class="heading-03 fw-semibold mt-3 mb-0">3,250 credits</h6>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-lg-6 d-flex">
+                          <div class="card w-100">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center gap-2">
+                                <img src="icon/icon-plan-type.svg" class="img-fluid" alt="">
+                                <p class="text-light">Plan Type</p>
+                              </div>
+                              <h6 class="heading-03 fw-semibold mt-3 mb-0">Pro Creator (Monthly)</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xxl-3 col-lg-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div>
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                              <p class="heading-06 text-light">
+                                <img src="icon/icon-plan-type.svg" class="img-fluid" width="16" alt="" />
+                                Credits Remaining
+                              </p>
+                              <span class="heading-06 fw-semibold">1425 / 4675</span>
+                            </div>
+
+                            <div class="progress progress-lg w-100 mt-2" role="progressbar" aria-valuenow="0"
+                              aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar" style="width: 16.6667%"></div>
+                            </div>
+                          </div>
+
+                          <div class="d-flex align-items-center mt-3 gap-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary flex-grow-1 mn-width-auto">
+                              <img src="icon/icon-plus-dark.svg" class="img-fluid" width="16" alt="" />
+                              Add Credits
+                            </button>
+                            <button type="button" class="btn btn-sm btn-primary flex-grow-1 mn-width-auto">
+                              <img src="icon/icon-arrow-rotate-up.svg" class="img-fluid" alt="" />
+                              Upgrade
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="tab-content mt-4" id="billingUsageTabContent">
+                <div class="tab-pane fade active show" id="subscription-tab-pane" role="tabpanel"
+                  aria-labelledby="subscription-tab" tabindex="0">
+                  <div class="row g-3">
+                    <div class="col-lg-8 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body p-lg-4">
+                          <div class="mb-4">
+                            <h6 class="heading-02 fw-bold mb-2">Current Plan</h6>
+                            <p class="heading-06 text-light">Your current subscription plan and details</p>
+                          </div>
+
+                          <div class="row g-3">
+                            <div class="col-lg-6">
+                              <div>
+                                <p class="heading-06 fw-semibold mb-1 text-light">Plan</p>
+                                <h6 class="heading-03 fw-semibold">Pro Creator <span
+                                    class="heading-06 text-light fw-normal">$59.99/mo</span></h6>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div>
+                                <p class="heading-06 fw-semibold mb-1 text-light">Credits/Month</p>
+                                <h6 class="heading-03 fw-semibold">4,675</h6>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div>
+                                <p class="heading-06 fw-semibold mb-1 text-light">Renewal Date</p>
+                                <h6 class="heading-03 fw-semibold">May 8, 2025</h6>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div>
+                                <p class="heading-06 fw-semibold mb-1 text-light">Payment Method</p>
+                                <h6 class="heading-03 fw-semibold">Visa **** 4444</h6>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="d-flex align-items-center mt-3 gap-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary flex-grow-1 mn-width-auto">
+                              Cancel / Downgrade
+                            </button>
+                            <button type="button" class="btn btn-sm btn-primary flex-grow-1 mn-width-auto">
+                              View Plans
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 d-flex">
+                      <div class="card w-100">
+                        <div class="card-body p-lg-4">
+                          <div class="mb-4">
+                            <h6 class="heading-02 fw-bold mb-2">Usage Breakdown</h6>
+                            <p class="heading-06 text-light">Credit usage by video type</p>
+                          </div>
+
+                          <div class="d-flex flex-column gap-3">
+                            <div>
+                              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <p class="heading-05 fw-semibold d-flex align-items-center gap-2">
+                                  <span class="d-inline-block bg-primary-light p-2 rounded-circle"></span>
+                                  Ultra Realistic
+                                </p>
+                                <span class="heading-06">60%</span>
+                              </div>
+
+                              <div class="progress progress-lg w-100 mt-2" role="progressbar" aria-valuenow="0"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: 60%"></div>
+                              </div>
+
+                              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-2">
+                                <p class="small text-light">1950 credits</p>
+                                <p class="small text-light">~17 videos left</p>
+                              </div>
+                            </div>
+
+                            <div>
+                              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <p class="heading-05 fw-semibold d-flex align-items-center gap-2">
+                                  <span class="d-inline-block bg-primary p-2 rounded-circle"></span>
+                                  Realistic
+                                </p>
+                                <span class="heading-06">25%</span>
+                              </div>
+
+                              <div class="progress progress-lg w-100 mt-2" role="progressbar" aria-valuenow="0"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: 25%"></div>
+                              </div>
+
+                              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-2">
+                                <p class="small text-light">813 credits</p>
+                                <p class="small text-light">~28 videos left</p>
+                              </div>
+                            </div>
+
+                            <div>
+                              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <p class="heading-05 fw-semibold d-flex align-items-center gap-2">
+                                  <span class="d-inline-block bg-success p-2 rounded-circle"></span>
+                                  Talking Image
+                                </p>
+                                <span class="heading-06">15%</span>
+                              </div>
+
+                              <div class="progress progress-lg w-100 mt-2" role="progressbar" aria-valuenow="0"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: 15%"></div>
+                              </div>
+
+                              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-2">
+                                <p class="small text-light">487 credits</p>
+                                <p class="small text-light">~95 videos left</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="mt-3">
+                            <button type="button" class="btn btn-sm btn-outline-primary mx-auto mn-width-auto">
+                              View Detailed Report
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="usage-tab-pane" role="tabpanel" aria-labelledby="usage-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div
+                        class="d-flex align-items-center justify-content-between gap-2 flex-wrap position-relative pb-4 mb-4 border-bottom">
+                        <div>
+                          <h6 class="heading-02 fw-bold mb-2">Video Generation History</h6>
+                          <p class="heading-06 text-light">View your current billing cycle and credit usage</p>
+                        </div>
+
+                        <div class="d-flex align-items-center flex-wrap gap-4">
+                          <div class="d-flex align-items-center gap-2 flex-nowrap">
+                            <label class="form-label mb-0 flex-shrink-0">Date Range:</label>
+                            <select class="form-select form-select-sm fw-medium">
+                              <option>All Time</option>
+                              <option>All Time</option>
+                              <option>All Time</option>
+                            </select>
+                          </div>
+
+                          <div class="d-flex align-items-center gap-2 flex-nowrap">
+                            <label class="form-label mb-0 flex-shrink-0">Video Type:</label>
+                            <select class="form-select form-select-sm fw-medium">
+                              <option>All Types</option>
+                              <option>All Types</option>
+                              <option>All Types</option>
+                            </select>
+                          </div>
+
+                          <button type="button" class="btn btn-md btn-outline-secondary mn-width-auto heading-06">
+                            More Filters
+                            <img src="icon/icon-filter-alt.svg" class="img-fluid" alt="" />
+                          </button>
+                          <button type="button" class="btn btn-md btn-outline-secondary mn-width-auto heading-06">Export
+                            CSV
+                            <img src="icon/icon-download.svg" class="img-fluid" alt="" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="table-responsive">
+                        <table class="table border mb-0">
+                          <thead>
+                            <tr>
+                              <th scope="col">Type</th>
+                              <th scope="col">Style</th>
+                              <th scope="col">Job ID</th>
+                              <th scope="col">Duration</th>
+                              <th scope="col">Credits</th>
+                              <th scope="col">Cost</th>
+                              <th scope="col">Created</th>
+                              <th scope="col" class="text-end">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-3">
+                                  <img src="icon/icon-circle-ultra-realistic.svg" class="img-fluid" alt="" />
+                                  <p>Ultra Realistic</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>Portrait Mode</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <p>$VID-12345</p>
+                                  <img src="icon/icon-job-id.svg" class="img-fluid dark-white" alt="" />
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <img src="icon/icon-time-sm.svg" class="img-fluid dark-white" alt="" />
+                                  <p>30s</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>80 credits</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>$0.80</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>2025-04-16 14:32</p>
+                                </div>
+                              </td>
+                              <td scope="row" class="text-end">
+                                <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                  <a href="#">
+                                    <img src="icon/icon-view.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                  <a href="#">
+                                    <img src="icon/icon-download.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-3">
+                                  <img src="icon/icon-circle-realistic.svg" class="img-fluid" alt="" />
+                                  <p>Realistic</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>Landscape</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <p>$VID-12345</p>
+                                  <img src="icon/icon-job-id.svg" class="img-fluid dark-white" alt="" />
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <img src="icon/icon-time-sm.svg" class="img-fluid dark-white" alt="" />
+                                  <p>30s</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>80 credits</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>$0.80</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>2025-04-16 14:32</p>
+                                </div>
+                              </td>
+                              <td scope="row" class="text-end">
+                                <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                  <a href="#">
+                                    <img src="icon/icon-view.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                  <a href="#">
+                                    <img src="icon/icon-download.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-3">
+                                  <img src="icon/icon-circle-talking-image.svg" class="img-fluid" alt="" />
+                                  <p>Taking Image</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>Standard</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <p>$VID-12345</p>
+                                  <img src="icon/icon-job-id.svg" class="img-fluid dark-white" alt="" />
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <img src="icon/icon-time-sm.svg" class="img-fluid dark-white" alt="" />
+                                  <p>30s</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>80 credits</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>$0.80</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>2025-04-16 14:32</p>
+                                </div>
+                              </td>
+                              <td scope="row" class="text-end">
+                                <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                  <a href="#">
+                                    <img src="icon/icon-view.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                  <a href="#">
+                                    <img src="icon/icon-download.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-3">
+                                  <img src="icon/icon-circle-ultra-realistic.svg" class="img-fluid" alt="" />
+                                  <p>Ultra Realistic</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>Close-up</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <p>$VID-12345</p>
+                                  <img src="icon/icon-job-id.svg" class="img-fluid dark-white" alt="" />
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <img src="icon/icon-time-sm.svg" class="img-fluid dark-white" alt="" />
+                                  <p>30s</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>80 credits</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>$0.80</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>2025-04-16 14:32</p>
+                                </div>
+                              </td>
+                              <td scope="row" class="text-end">
+                                <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                  <a href="#">
+                                    <img src="icon/icon-view.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                  <a href="#">
+                                    <img src="icon/icon-download.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-3">
+                                  <img src="icon/icon-circle-realistic.svg" class="img-fluid" alt="" />
+                                  <p>Realistic</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>Widescreen</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <p>$VID-12345</p>
+                                  <img src="icon/icon-job-id.svg" class="img-fluid dark-white" alt="" />
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <img src="icon/icon-time-sm.svg" class="img-fluid dark-white" alt="" />
+                                  <p>30s</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>80 credits</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>$0.80</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>2025-04-16 14:32</p>
+                                </div>
+                              </td>
+                              <td scope="row" class="text-end">
+                                <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                  <a href="#">
+                                    <img src="icon/icon-view.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                  <a href="#">
+                                    <img src="icon/icon-download.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-3">
+                                  <img src="icon/icon-circle-talking-image.svg" class="img-fluid" alt="" />
+                                  <p>Taking Image</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>Portrait Mode</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <p>$VID-12345</p>
+                                  <img src="icon/icon-job-id.svg" class="img-fluid dark-white" alt="" />
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="heading-06 d-flex align-items-center gap-1">
+                                  <img src="icon/icon-time-sm.svg" class="img-fluid dark-white" alt="" />
+                                  <p>30s</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>80 credits</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>$0.80</p>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div>
+                                  <p>2025-04-16 14:32</p>
+                                </div>
+                              </td>
+                              <td scope="row" class="text-end">
+                                <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                  <a href="#">
+                                    <img src="icon/icon-view.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                  <a href="#">
+                                    <img src="icon/icon-download.svg" class="img-fluid dark-white" width="16" alt="" />
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div
+                        class="d-flex align-items-center justify-content-between gap-2 flex-wrap position-relative pt-3 mt-4 border-top">
+                        <div>
+                          <p class="heading-06 text-light">Showing 6 of 24 videos</p>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-4">
+                          <button type="button" class="btn btn-md btn-outline-secondary mn-width-auto heading-06">
+                            Previous
+                          </button>
+                          <button type="button" class="btn btn-md btn-outline-secondary mn-width-auto heading-06">Next
+                            <img src="icon/icon-chev-right-dark.svg" class="img-fluid" alt="">
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="credithistory-tab-pane" role="tabpanel"
+                  aria-labelledby="credithistory-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <div
+                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap position-relative pb-4">
+                            <div>
+                              <h6 class="heading-02 fw-bold mb-2">Credit Purchase History</h6>
+                              <p class="heading-06 text-light">Track your credit purchases and top-ups</p>
+                            </div>
+
+                            <div class="d-flex align-items-center flex-wrap gap-4">
+                              <button type="button" class="btn btn-md btn-outline-secondary mn-width-auto heading-06">
+                                More Filters
+                                <img src="icon/icon-filter-alt.svg" class="img-fluid" alt="" />
+                              </button>
+                              <button type="button"
+                                class="btn btn-md btn-outline-secondary mn-width-auto heading-06">Export
+                                CSV
+                                <img src="icon/icon-download.svg" class="img-fluid" alt="" />
+                              </button>
+                            </div>
+                          </div>
+
+                          <div class="table-responsive">
+                            <table class="table border mb-0">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Date</th>
+                                  <th scope="col">Pack</th>
+                                  <th scope="col">Creadits Added</th>
+                                  <th scope="col">Price Paid</th>
+                                  <th scope="col">Payment Method</th>
+                                  <th scope="col" class="text-end">Receipt</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td scope="row">
+                                    <div class="heading-06 d-flex align-items-center gap-2">
+                                      <img src="icon/icon-calendar.svg" class="img-fluid dark-white" alt="" />
+                                      <p>2025-04-05</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>Pro Pack (1300 credits)</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p class="text-success fw-medium">+1300 credits</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>$19.99</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>Visa **** 4444</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row" class="text-end">
+                                    <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                      <img src="icon/icon-receipt.svg" class="img-fluid dark-white" width="16" alt="" />
+                                      <p>View</p>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td scope="row">
+                                    <div class="heading-06 d-flex align-items-center gap-2">
+                                      <img src="icon/icon-calendar.svg" class="img-fluid dark-white" alt="" />
+                                      <p>2025-04-05</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>Pro Pack (1300 credits)</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p class="text-success fw-medium">+1300 credits</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>$19.99</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>Visa **** 4444</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row" class="text-end">
+                                    <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                      <img src="icon/icon-receipt.svg" class="img-fluid dark-white" width="16" alt="" />
+                                      <p>View</p>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td scope="row">
+                                    <div class="heading-06 d-flex align-items-center gap-2">
+                                      <img src="icon/icon-calendar.svg" class="img-fluid dark-white" alt="" />
+                                      <p>2025-04-05</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>Pro Pack (1300 credits)</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p class="text-success fw-medium">+1300 credits</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>$19.99</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row">
+                                    <div>
+                                      <p>Visa **** 4444</p>
+                                    </div>
+                                  </td>
+                                  <td scope="row" class="text-end">
+                                    <div class="heading-06 d-flex align-items-center justify-content-end gap-2">
+                                      <img src="icon/icon-receipt.svg" class="img-fluid dark-white" width="16" alt="" />
+                                      <p>View</p>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card mt-4">
+                        <div class="card-body">
+                          <div
+                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap position-relative pb-4">
+                            <div>
+                              <h6 class="heading-02 fw-bold mb-2">Credit Estimator</h6>
+                              <p class="heading-06 text-light">Estimate how many credits you need for your videos</p>
+                            </div>
+                          </div>
+
+                          <div class="row g-3">
+                            <div class="col-lg-4">
+                              <div class="card">
+                                <div class="card-body p-3">
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-circle-ultra-realistic.svg" class="img-fluid" alt="">
+                                    <p class="heading-06">Ultra Realistic</p>
+                                  </div>
+
+                                  <div class="my-3">
+                                    <label class="form-label">Duration (seconds)</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                      placeholder="Enter Duration" />
+                                  </div>
+
+                                  <div class="p-3 rounded-3 border text-center bg-purple-light">
+                                    <p class="heading-06 text-light fw-medium">Estimated Credits</p>
+                                    <h6 class="heading-03 fw-bold my-2 text-dark">80 credits</h6>
+                                    <p class="heading-06 text-light fw-medium">($0.80)</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="card">
+                                <div class="card-body p-3">
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-circle-realistic.svg" class="img-fluid" alt="">
+                                    <p class="heading-06">Realistic</p>
+                                  </div>
+
+                                  <div class="my-3">
+                                    <label class="form-label">Duration (seconds)</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                      placeholder="Enter Duration" />
+                                  </div>
+
+                                  <div class="p-3 rounded-3 border text-center bg-blue-light">
+                                    <p class="heading-06 text-light fw-medium">Estimated Credits</p>
+                                    <h6 class="heading-03 fw-bold my-2 text-dark">50 credits</h6>
+                                    <p class="heading-06 text-light fw-medium">($0.50)</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="card">
+                                <div class="card-body p-3">
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-circle-talking-image.svg" class="img-fluid" alt="">
+                                    <p class="heading-06">Talking Image</p>
+                                  </div>
+
+                                  <div class="my-3">
+                                    <label class="form-label">Duration (seconds)</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                      placeholder="Enter Duration" />
+                                  </div>
+
+                                  <div class="p-3 rounded-3 border text-center bg-success-light">
+                                    <p class="heading-06 text-light fw-medium">Estimated Credits</p>
+                                    <h6 class="heading-03 fw-bold my-2 text-dark">15 credits</h6>
+                                    <p class="heading-06 text-light fw-medium">($0.15)</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="pt-3 mt-3 border-top">
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <p class="heading-06 fw-semibold mb-3">Credit Rate Reference</p>
+                              </div>
+
+                              <div class="col-lg-4">
+                                <div class="d-flex align-items-center gap-2">
+                                  <span class="p-1 rounded-circle bg-purple"></span>
+                                  <p class="heading-06">Ultra Realistic: 2.67 credits/sec</p>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-4">
+                                <div class="d-flex align-items-center gap-2">
+                                  <span class="p-1 rounded-circle bg-primary"></span>
+                                  <p class="heading-06">Realistic: 1.67 credits/sec</p>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-4">
+                                <div class="d-flex align-items-center gap-2">
+                                  <span class="p-1 rounded-circle bg-success"></span>
+                                  <p class="heading-06">Talking Image: 0.5 credits/sec</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="invoicetax-tab-pane" role="tabpanel" aria-labelledby="invoicetax-tab"
+                  tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card w-100">
+                        <div class="card-body p-lg-4">
+                          <div class="mb-4">
+                            <h6 class="heading-02 fw-bold mb-2">Invoices & Tax Information </h6>
+                            <p class="heading-06 text-light">Manage your billing information and download invoices </p>
+                          </div>
+
+                          <form autocomplete="off">
+                            <div class="row gx-3">
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label class="form-label">Full Name / Company </label>
+                                  <input type="text" class="form-control" placeholder="Enter Full Name / Company" />
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label class="form-label">Address </label>
+                                  <input type="text" class="form-control" placeholder="Enter Address " />
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label class="form-label">Email </label>
+                                  <input type="text" class="form-control" placeholder="Enter Email " />
+                                </div>
+                              </div>
+                              <div class="col-lg-3">
+                                <div class="mb-3">
+                                  <label class="form-label">City </label>
+                                  <input type="text" class="form-control" placeholder="Enter City " />
+                                </div>
+                              </div>
+                              <div class="col-lg-3">
+                                <div class="mb-3">
+                                  <label class="form-label">ZIP/Postal Code </label>
+                                  <input type="text" class="form-control" placeholder="Enter ZIP/Postal Code" />
+                                </div>
+                              </div>
+                              <div class="col-lg-3">
+                                <button type="button" class="btn btn-sm btn-primary">Save Billing Information </button>
+                              </div>
+                            </div>
+
+                            <div class="pt-3 mt-3 border-top"></div>
+
+                            <div class="row gx-3">
+                              <div class="col-lg-12">
+                                <p class="heading-05 text-light mb-3">Tax Information</p>
+                              </div>
+
+                              <div class="col-lg-6">
+                                <div class="mb-3">
+                                  <label class="form-label">Tax ID/VAT Number (Optional) </label>
+                                  <input type="text" class="form-control"
+                                    placeholder="Enter your Tax ID or VAT number " />
+                                </div>
+                                <p class="heading-06 text-light">For business customers, adding a valid Tax ID may
+                                  exempt you from certain takes.</p>
+                              </div>
+                            </div>
+                          </form>
+
+                          <div class="pt-3 mt-3 border-top"></div>
+
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <p class="heading-05 text-light mb-3">Tax Information</p>
+
+                              <div class="table-responsive">
+                                <table class="table border mb-0">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Invoice #</th>
+                                      <th scope="col">Date</th>
+                                      <th scope="col">Amount</th>
+                                      <th scope="col">Status</th>
+                                      <th scope="col" class="text-end">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td scope="row">
+                                        <div>
+                                          <p class="heading-06">INV-2025-001 </p>
+                                        </div>
+                                      </td>
+                                      <td scope="row">
+                                        <div>
+                                          <p class="heading-06">April 8, 2025 </p>
+                                        </div>
+                                      </td>
+                                      <td scope="row">
+                                        <div>
+                                          <p class="heading-06">$59.99 </p>
+                                        </div>
+                                      </td>
+                                      <td scope="row">
+                                        <div>
+                                          <p class="heading-06 d-flex align-items-center gap-1">
+                                            <span class="d-inline-block p-1 bg-success rounded-circle"></span>
+                                            Paid
+                                          </p>
+                                        </div>
+                                      </td>
+                                      <td scope="row" class="text-end">
+                                        <div>
+                                          <p class="heading-06 d-flex align-items-center justify-content-end gap-1">
+                                            <img src="icon/icon-download.svg" class="img-fluid" alt="" />
+                                            PDF
+                                          </p>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td scope="row">
+                                        <div>
+                                          <p class="heading-06">INV-2025-000 </p>
+                                        </div>
+                                      </td>
+                                      <td scope="row">
+                                        <div>
+                                          <p class="heading-06">March B. 2025 </p>
+                                        </div>
+                                      </td>
+                                      <td scope="row">
+                                        <div>
+                                          <p class="heading-06">$59.99 </p>
+                                        </div>
+                                      </td>
+                                      <td scope="row">
+                                        <div>
+                                          <p class="heading-06 d-flex align-items-center gap-1">
+                                            <span class="d-inline-block p-1 bg-success rounded-circle"></span>
+                                            Paid
+                                          </p>
+                                        </div>
+                                      </td>
+                                      <td scope="row" class="text-end">
+                                        <div>
+                                          <p class="heading-06 d-flex align-items-center justify-content-end gap-1">
+                                            <img src="icon/icon-download.svg" class="img-fluid" alt="" />
+                                            PDF
+                                          </p>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left">
+            <h2 class="heading-02 fw-bold">Settings</h2>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row g-xl-5 mt-0 justify-content-between">
+            <div class="col-lg-auto">
+              <div class="sidebar-setting">
+                <div class="sidebar-setting-header">
+                  <div class="sidebar-setting-menu-more">
+                    <a href="#">
+                      <span>
+                        <img src="icon/icon-more.svg" class="img-fluid dark-white" alt="" />
+                      </span>
+                      More
+                    </a>
+                  </div>
+                </div>
+                <div class="sidebar-setting-body">
+                  <div class="sidebar-setting-menu">
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-profile.html" class="active">
+                        <span>
+                          <img src="icon/icon-profile-settting.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Profile Settings
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-account-security.html">
+                        <span>
+                          <img src="icon/icon-account-setting.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Account & Security
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-preferences.html">
+                        <span>
+                          <img src="icon/icon-ai-preferance.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        AI Preferences
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="#">
+                        <span>
+                          <img src="icon/icon-voice-clone.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Voice Clones
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-subscription-billing.html">
+                        <span>
+                          <img src="icon/icon-subscription-billing.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Subscription & Billing
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-team-management.html">
+                        <span>
+                          <img src="icon/icon-team-management.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Team Management
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-notification.html">
+                        <span>
+                          <img src="icon/icon-notification.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Notifications
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-integration.html">
+                        <span>
+                          <img src="icon/icon-integrations-alt.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Integrations
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-help-support.html">
+                        <span>
+                          <img src="icon/icon-help-support.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Help & Support
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg">
+              <div class="setting-right ms-xxl-5">
+                <div class="card card-setting-profile">
+                  <div class="card-header d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                    <div>
+                      <h5 class="heading-04 fw-bold mb-0">Profile Settings</h5>
+                    </div>
+
+                    <button type="button" id="btneditprofile" class="btn btn-sm btn-primary">Edit Profile</button>
+                  </div>
+
+                  <div class="card-body">
+                    <form autocomplete="off">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="card-profile-user-detail d-flex align-items-center gap-md-4 gap-2 mb-lg-5 mb-4">
+                            <div class="card-profile-image flex-shrink-0">
+                              <img id="userprofileimage" src="assets/images/user-profile.png" class="img-fluid" />
+
+                              <div class="card-profile-image-edit">
+                                <input type="file" id="uploadphoto" accept="image/*" />
+                                <label for="uploadphoto" class="btn">
+                                  <img src="icon/icon-camera-alt.svg" class="img-fluid" alt="" />
+                                </label>
+                                <label class="btn" id="removephoto">
+                                  <img src="icon/icon-upload-image.svg" class="img-fluid" alt="" />
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="card-profile-text">
+                              <h6 class="heading-05 fw-medium mb-2">John Doe</h6>
+                              <p class="text-light">@johndoe</p>
+                              <p id="uploadphototext" class="small d-none text-light mt-1">Upload a square image at
+                                least 400x400 pixels for best results</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="mb-lg-5 mb-4">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Full Name" value="John Doe"
+                              disabled />
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="mb-lg-5 mb-4">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control" placeholder="Enter Username" value="johndoe"
+                              disabled />
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="mb-lg-5 mb-4">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="Enter Email Address"
+                              value="john.doe@example.com" disabled />
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="mb-lg-5 mb-4">
+                            <label class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" placeholder="Enter Phone Number"
+                              value="+1 (555) 123-4567" disabled />
+                          </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                          <div class="mb-lg-5 mb-4">
+                            <label class="form-label">Bio</label>
+                            <textarea class="form-control" rows="3"
+                              disabled>Video content creator specializing in AI-generated explainer videos.</textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="border-bottom pb-3 mb-3">
+                            <h5 class="card-title fw-medium mb-0">Content Libraries</h5>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4">
+                          <div class="card-content-library">
+                            <h6 class="heading-05 fw-medium">Saved Images</h6>
+                            <p class="heading-06 text-light my-2">12 images available for video generation</p>
+                            <a href="#" class="btn btn-sm d-inline-flex btn-outline-light mn-width-auto">Manage
+                              Images</a>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                          <div class="card-content-library">
+                            <h6 class="heading-05 fw-medium">Default Voice</h6>
+                            <p class="heading-06 text-light my-2">Using "Professional Male" voice</p>
+                            <a href="#" class="btn btn-sm d-inline-flex btn-outline-light mn-width-auto">Change
+                              Voice</a>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="card-footer d-none align-items-center flex-wrap gap-2 justify-content-end">
+                    <a href="#" class="btn btn-sm  btn-primary">
+                      <img src="icon/icon-save.svg" class="img-fluid" alt="" /> Save Changes
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

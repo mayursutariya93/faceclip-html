@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left">
+            <h2 class="heading-02 fw-bold">Settings</h2>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row g-xl-5 mt-0 justify-content-between">
+            <div class="col-lg-auto">
+              <div class="sidebar-setting">
+                <div class="sidebar-setting-header">
+                  <div class="sidebar-setting-menu-more">
+                    <a href="#">
+                      <span>
+                        <img src="icon/icon-more.svg" class="img-fluid dark-white" alt="" />
+                      </span>
+                      More
+                    </a>
+                  </div>
+                </div>
+                <div class="sidebar-setting-body">
+                  <div class="sidebar-setting-menu">
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-profile.html">
+                        <span>
+                          <img src="icon/icon-profile-settting.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Profile Settings
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-account-security.html">
+                        <span>
+                          <img src="icon/icon-account-setting.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Account & Security
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-preferences.html" class="active">
+                        <span>
+                          <img src="icon/icon-ai-preferance.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        AI Preferences
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="#">
+                        <span>
+                          <img src="icon/icon-voice-clone.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Voice Clones
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-subscription-billing.html">
+                        <span>
+                          <img src="icon/icon-subscription-billing.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Subscription & Billing
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-team-management.html">
+                        <span>
+                          <img src="icon/icon-team-management.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Team Management
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-notification.html">
+                        <span>
+                          <img src="icon/icon-notification.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Notifications
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-integration.html">
+                        <span>
+                          <img src="icon/icon-integrations-alt.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Integrations
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-help-support.html">
+                        <span>
+                          <img src="icon/icon-help-support.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Help & Support
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg">
+              <div class="setting-right ms-xxl-5">
+                <div class="card card-setting-preference">
+                  <div class="card-header d-flex flex-wrap gap-2 justify-content-between">
+                    <div>
+                      <h5 class="heading-04 fw-bold mb-1">
+                        <img src="icon/icon-ai-primary.svg" class="img-fluid me-1" alt="" /> Preferences
+                      </h5>
+
+                      <p class="text-light w-100">Customize how AI generates and processes your content</p>
+                    </div>
+                    <a href="#" class="btn btn-sm  btn-primary">
+                      <img src="icon/icon-save.svg" class="img-fluid" alt="" /> Save Preferences
+                    </a>
+                  </div>
+
+                  <div class="card-body">
+                    <form autocomplete="off">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="d-flex align-items-center gap-2 mb-3">
+                            <img src="icon/icon-default-voice.svg" class="img-fluid" alt="" />
+                            <h5 class="heading-04 fw-medium mb-0">Default Voice</h5>
+                          </div>
+
+                          <div class="d-flex flex-column gap-1 mb-4">
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input class="form-check-input mt-0" type="radio" name="defaultvoice" id="myclonedvoice"
+                                autocomplete="off">
+                              <label class="form-check-label heading-05 fw-medium" for="myclonedvoice">
+                                My Cloned Voice
+                              </label>
+                              <span class="badge text-primary bg-primary-light">Recommended</span>
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input class="form-check-input mt-0" type="radio" name="defaultvoice"
+                                id="perofessionalmale" autocomplete="off">
+                              <label class="form-check-label heading-05 fw-medium" for="perofessionalmale">
+                                Professional Male
+                              </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input class="form-check-input mt-0" type="radio" name="defaultvoice"
+                                id="perofessionalfemale" autocomplete="off">
+                              <label class="form-check-label heading-05 fw-medium" for="perofessionalfemale">
+                                Professional Female
+                              </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input class="form-check-input mt-0" type="radio" name="defaultvoice" id="casualmale"
+                                autocomplete="off">
+                              <label class="form-check-label heading-05 fw-medium" for="casualmale">
+                                Casual Male
+                              </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input class="form-check-input" type="radio" name="defaultvoice" id="casualfemale"
+                                autocomplete="off">
+                              <label class="form-check-label heading-05 fw-medium" for="casualfemale">
+                                Casual Female
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="d-flex align-items-center gap-2 mb-3">
+                            <img src="icon/icon-video-lg.svg" class="img-fluid" alt="" />
+                            <h5 class="heading-04 fw-medium mb-0">Video Resolution</h5>
+                          </div>
+
+                          <div class="video-resolution-list">
+                            <div class="video-resolution-item">
+                              <h6 class="heading-06 fw-medium">720p</h6>
+                              <p class="small text-light fw-medium">HD</p>
+                            </div>
+                            <div class="video-resolution-item active">
+                              <h6 class="heading-06 fw-medium">1080p</h6>
+                              <p class="small text-light fw-medium">Full HD</p>
+                            </div>
+                            <div class="video-resolution-item">
+                              <h6 class="heading-06 fw-medium">4K</h6>
+                              <p class="small text-light fw-medium">Ultra HD</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="d-flex align-items-center gap-2 mb-3">
+                            <img src="icon/icon-image-lg.svg" class="img-fluid" alt="" />
+                            <h5 class="heading-04 fw-medium mb-0">Image Processing</h5>
+                          </div>
+
+                          <div>
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-4">
+                              <div>
+                                <h6 class="heading-06 fw-medium mb-1">Auto-Enhance Images</h6>
+                                <p class="small text-light">Automatically improve quality of uploaded images</p>
+
+                              </div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="autoenhanceimages">
+                                <label class="form-check-label" for="autoenhanceimages"></label>
+                              </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-4">
+                              <div>
+                                <h6 class="heading-06 fw-medium mb-1">Auto Background Removal</h6>
+                                <p class="small text-light">Remove backgrounds from images for video creation</p>
+
+                              </div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                  id="autobackgroundremoveal">
+                                <label class="form-check-label" for="autobackgroundremoveal"></label>
+                              </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-4">
+                              <div>
+                                <h6 class="heading-06 fw-medium mb-1">Allow Auto-Adjustments</h6>
+                                <p class="small text-light">Let AI make small adjustments to improve results</p>
+
+                              </div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="allowautoadjustments">
+                                <label class="form-check-label" for="allowautoadjustments"></label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                          <div class="border-top pt-3">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                              <div class="d-flex align-items-center gap-2">
+                                <img src="icon/icon-advance-setting.svg" class="img-fluid" alt="" />
+                                <h4 class="heading-04 fw-sm-medium mb-0">Advanced Settings</h4>
+                              </div>
+                              <a href="#" class="btn mn-width-auto">Configure</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="card-footer d-flex align-items-center flex-wrap gap-2 justify-content-end border-0 pt-0">
+                    <a href="#" class="btn btn-sm  btn-primary">
+                      <img src="icon/icon-save.svg" class="img-fluid" alt="" /> Save Changes
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

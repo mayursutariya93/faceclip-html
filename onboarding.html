@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body class="">
+  <div class="header-top">
+    <nav class="navbar navbar-expand-lg py-0" aria-label="Navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/logo.svg" class="img-fluid" alt="Logo">
+        </a>
+
+        <div class="dropdown">
+          <button class="btn border-0 d-flex align-items-center p-0 ms-auto mn-width-auto" type="button"
+            id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="me-2 text-start d-lg-block d-none">
+              <div class="fw-medium mb-1">John Doe</div>
+              <div class="small text-light">john.doe@example.com</div>
+            </div>
+            <div class="rounded-circle bg-primary-light border d-flex align-items-center justify-content-center"
+              style="width: 40px; height: 40px;">
+              <span class="text-black fw-bold">JD</span>
+            </div>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item text-danger" href="sign-in.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="section-onboarding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <div class="faceclip-video-tabs-progress flex-column">
+            <div class="progress progress-lg w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+              aria-valuemax="100">
+              <div class="progress-bar" style="width: 33.3333%;"></div>
+            </div>
+            <p class="text-primary mt-2">Step 1 of 3</p>
+          </div>
+
+          <div class="onboarding-tab-content tab-content" id="onboardingTabContent">
+            <div class="onboarding-content-item tab-pane fade show active" id="onboarding-yourvoice-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <h3 class="heading-01 fw-bold mb-2">Your Voice = Your Brand</h3>
+                    <h5 class="heading-03 fw-normal text-light mb-2">Make sure your videos truly sound like YOU</h5>
+                    <p class="text-light">No robotic voices. No fake AI. Just your real voice, making your videos
+                      personal and authentic.
+                      Record once. Use anytime for your videos.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6 d-flex">
+                  <div class="card card-record-voice mt-4 w-100">
+                    <div class="card-body p-4">
+                      <h6 class="heading-03 fw-bold mb-2">Record Your Voice</h6>
+                      <p class="text-light">Find a quiet place and speak naturally in your normal conversational tone
+                      </p>
+
+                      <form autocomplete="off" class="mt-5">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="recordmyvideo" id="recordmyvideo1"
+                            autocomplete="off">
+                          <label class="form-check-label text-light heading-05 fw-medium" for="recordmyvideo1">
+                            I confirm this recording is my own voice, and I give permission to use it for creating
+                            personalized videos on this platform.
+                          </label>
+                        </div>
+
+                        <div class="card-record-voice-player d-none">
+                          <div class="audio-player rounded-2 border">
+                            <button class="play-btn">▶</button>
+
+                            <span class="small text-light flex-shrink-0">0:00</span>
+
+                            <div class="progress w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                              aria-valuemax="100">
+                              <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+
+                            <button class="volume-btn flex-shrink-0">
+                              <img src="icon/icon-volumn-alt.svg" class="img-fluid" alt="Volume Icon">
+                            </button>
+
+                            <button class="dots-btn flex-shrink-0">
+                              <img src="icon/icon-dots.svg" class="img-fluid" width="16" alt="Volume Icon">
+                            </button>
+                          </div>
+                          <p class="mt-3 text-light">Recording Duration: 1.6 Seconds</p>
+                        </div>
+
+                        <div class="mt-4">
+                          <button type="button" class="btn btn-sm btn-primary w-100" id="btnstartrecordingvoice"
+                            disabled>
+                            <img src="icon/icon-mic-primary.svg" class="img-fluid" alt="">
+                            Record My Voice
+                          </button>
+
+                          <button type="button" class="btn btn-sm btn-danger w-100 d-none" id="btnstoprecordingvoice">
+                            <img src="icon/icon-stop.svg" class="img-fluid" alt="">
+                            Record My Voice
+                          </button>
+
+                          <button type="button" class="btn btn-sm btn-primary w-100 d-none" id="btnagaincordingvoice">
+                            <img src="icon/icon-refresh-white.svg" class="img-fluid" alt="">
+                            Record My Voice
+                          </button>
+                        </div>
+                      </form>
+
+                      <p class="text-light d-flex align-items-start gap-2 mt-4">
+                        <img src="icon/icon-lock.svg" class="img-fluid" alt="">
+                        Your voice is securely used only for your videos on FaceClip
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 d-flex">
+                  <div class="card mt-4 w-100">
+                    <div class="card-body p-4">
+                      <h6 class="heading-03 fw-bold mb-2 d-flex align-imtems-center gap-2">
+                        Sample Script
+                        <img src="icon/icon-warning.svg" class="img-fluid dark-white" alt="">
+                      </h6>
+                      <p class="text-light">Read this sample script to help us capture your natural tone, or customize
+                        it to make it more personal.</p>
+
+                      <div class="card card-language mt-4">
+                        <div class="card-body p-4">
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="common-dropdown dropdown w-100">
+                              <img src="icon/icon-language.svg" alt="" class="img-fluid dark-white" />
+                              <span>English</span>
+                              <img src="icon/Landscape-Dropdown.svg" alt="" class="img-fluid ms-auto dark-white" />
+
+                              <div class="dropdown-menu">
+                                <div class="dropdown-item">English</div>
+                                <div class="dropdown-item">Porto</div>
+                                <div class="dropdown-item">Chiniess</div>
+                              </div>
+                            </div>
+
+                            <div class="flex-shrink-0 ms-4">
+                              <img src="icon/icon-reload.svg" alt="" class="img-fluid dark-white" />
+                            </div>
+                          </div>
+
+                          <div class="card-language-content text-light">
+                            <p>I remember my first day in the city. The tall buildings seemed to touch the clouds, and
+                              the streets were alive with people rushing to their destinations.</p>
+                            <p>A street musician played a beautiful melody on his guitar, while nearby, children laughed
+                              as they chased pigeons in the park.</p>
+                            <p>I remember my first day in the city. The tall buildings seemed to touch the clouds, and
+                              the streets were alive with people rushing to their destinations.</p>
+                            <p>A street musician played a beautiful melody on his guitar, while nearby, children laughed
+                              as they chased pigeons in the park.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card-warning mt-4">
+                    <h5 class="heading-03 text-dark fw-semibold mb-0">Tips for best results :</h5>
+                    <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                      <li>Record in a quiet environment with minimal background noise</li>
+                      <li>Speak at your natural pace and tone</li>
+                      <li>Keep a consistent distance from your microphone</li>
+                      <li>Read the script naturally, as if talking to a friend</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="onboarding-content-item tab-pane fade" id="onboarding-yourface-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <h3 class="heading-01 fw-bold mb-2">Your face builds trust</h3>
+                    <p class="text-light">Upload or record a simple video of you talking — we'll use this as your base
+                      for future videos</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <p class="text-center text-primary mt-3 mb-4">See video examples </p>
+                </div>
+              </div>
+
+              <div class="row gy-3">
+                <div class="col-lg-4">
+                  <div class="card card-your-face" data-bs-toggle="modal" data-bs-target="#recordYourBaseVideoContent">
+                    <div class="card-body text-center">
+                      <div class="card-your-face-icon">
+                        <img src="icon/icon-video-lg.svg" class="img-fluid" width="24" alt="" />
+                      </div>
+                      <p class="fw-semibold mt-3">Record Video</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="card card-your-face card-your-face-upload">
+                    <div class="card-body text-center" id="card-your-face-uploaded">
+                      <div class="card-your-face-icon">
+                        <img src="icon/icon-download-primary.svg" class="img-fluid" width="24" alt="" />
+                      </div>
+                      <p class="fw-semibold mt-3">Upload Video File</p>
+                      <input type="file" id="card-your-face-upload" accept="video/*" />
+                    </div>
+                    <div class="card-body d-none" id="card-your-face-upload-preview">
+                      <div class="ratio ratio-16x9 overflow-hidden rounded-3">
+                        <video controls>
+                          <source src="assets/video/video1.mp4" type="video/mp4">
+                          <source src="assets/video/video1.mp4" type="video/ogg">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <div class="mt-3">
+                        <button type="button" class="btn btn-sm btn-outline-secondary w-100" id="btnremoveuploadvideo">
+                          Choose Another Video
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="card card-your-face" data-bs-toggle="modal" data-bs-target="#recordYourBaseVideoQR">
+                    <div class="card-body text-center">
+                      <div class="card-your-face-icon">
+                        <img src="icon/icon-qr.svg" class="img-fluid" width="24" alt="" />
+                      </div>
+                      <p class="fw-semibold mt-3">Scan QR Code</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card-warning mt-4">
+                    <h5 class="heading-03 text-dark fw-semibold mb-0">Pro Tips :</h5>
+                    <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                      <li>Position yourself in the center of the frame</li>
+                      <li>Ensure your face is well-lit, preferably with natural light</li>
+                      <li>Choose a clean, uncluttered background</li>
+                      <li>Test your audio to ensure clear sound quality</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="onboarding-content-item tab-pane fade" id="onboarding-yourprofile-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <h3 class="heading-01 fw-bold mb-2">Add Your Profile Picture</h3>
+                    <p class="text-light">Turn your photo into simple, engaging videos</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <p class="text-center text-primary mt-3 mb-4">See picture to video examples </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card card-your-profilepicture text-center">
+                    <div class="card-body p-4">
+                      <div class="card-your-profilepicture-img">
+                        <img src="assets/images/image07.png" class="img-fluid" alt="">
+                      </div>
+
+                      <div class="card-your-profilepicture-upload text-center mt-4">
+                        <button type="button" class="btn btn-primary position-relative mx-auto">
+                          <img src="icon/icon-upload.svg" class="img-fluid" alt="">
+                          Upload Photo
+
+                          <input type="file" id="card-your-profilepicture-upload" accept="image/*" />
+                        </button>
+                        <p class="heading-06 text-light mt-3">Supports JPG, PNG, WEBP</p>
+                      </div>
+
+                      <div class="card-your-profilepicture-change d-none mt-4">
+                        <button type="button" class="btn btn-outline-secondary mx-auto" id="btnchoosedifferentphoto">
+                          Choose different Photo
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card-warning mt-4">
+                    <h5 class="heading-03 text-dark fw-semibold mb-0">Tips for a great profile picture:</h5>
+                    <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                      <li>Use a high-resolution, clear photo</li>
+                      <li>Ensure your face is well-lit and centered</li>
+                      <li>Choose a clean, simple background</li>
+                      <li>Show your natural smile</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="onboarding-button-bottom-sticky">
+            <div class="onboarding-button d-flex align-items-center justify-content-between gap-2">
+              <button id="onboarding-button-skip" type="button" class="btn border-0 w-100">
+                Skip For Now
+              </button>
+
+              <button id="onboarding-button-prev" type="button" class="btn border-0 w-100">
+                <img src="icon/icon-left-arrow-dark.svg" class="img-fluid" alt="">
+                Prev
+              </button>
+
+              <button id="onboarding-button-next" type="button" class="btn btn-primary w-100">
+                Save & Continue
+                <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">
+              </button>
+
+              <a id="onboarding-button-landing" href="dashboard-user-create-video.html" class="btn btn-primary w-100"
+                style="display: none;">
+                Create my first video <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="footer-info">
+            <div class="footer-logo mb-3">
+              <img src="assets/images/logo.svg" alt="Logo">
+            </div>
+            <p class="text-light">Effortless video creation with your real face and voice. Just type → get a video →
+              post to grow your brand.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-9">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="footer-links">
+                <h5 class="heading-04 fw-bold mb-3 footer-title">Product</h5>
+                <ul class="list-unstyled d-flex flex-column gap-2">
+                  <li><a href="#">Ultra Realistic Video</a></li>
+                  <li><a href="#">Realistic Video</a></li>
+                  <li><a href="#">Talking Image</a></li>
+                  <li><a href="#">Chrome Extension </a></li>
+                  <li><a href="#">Remove Sub-titles </a></li>
+                  <li><a href="#">Monetize with FaceClip </a></li>
+                  <li><a href="#">Pricing </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="footer-links">
+                <h5 class="heading-04 fw-bold mb-3 footer-title">Resources </h5>
+                <ul class="list-unstyled d-flex flex-column gap-2">
+                  <li><a href="#">Blog </a></li>
+                  <li><a href="#">Personal Branding </a></li>
+                  <li><a href="#">What is Personal Branding </a></li>
+                  <li><a href="#">Personal Branding with Video </a></li>
+                  <li><a href="#">FaceClip for Personal Branding </a></li>
+                  <li><a href="#">Success Stories </a></li>
+                  <li><a href="#">FaceClip Academy </a><span
+                      class="badge rounded-pill bg-primary-light text-primary py-1 px-2 small">Soon</span></li>
+                  <li><a href="#">Help Center </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="footer-links">
+                <h5 class="heading-04 fw-bold mb-3 footer-title">Product</h5>
+                <ul class="list-unstyled d-flex flex-column gap-2">
+                  <li><a href="#">Refer a Friend </a><span
+                      class="badge rounded-pill bg-primary-light text-primary py-1 px-2 small">Earn Credits</span></li>
+                  <li><a href="#">Tag & Earn </a></li>
+                  <li><a href="#">Become an Affiliate </a></li>
+                  <li><a href="#">About Us </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="footer-links">
+                <h5 class="heading-04 fw-bold mb-3 footer-title">Explore </h5>
+                <ul class="list-unstyled d-flex flex-column gap-2">
+                  <li><a href="#">How It Works </a></li>
+                  <li><a href="#">Examples </a></li>
+                  <li><a href="#">My Brand Page</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <p class="heading-06 text-light text-lg-start text-center mb-0 mb-3">© 2025 FaceClip. All rights reserved
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <ul class="list-unstyled d-flex justify-content-center justify-content-lg-end gap-2">
+              <li><a href="#">Privacy Policy </a></li>
+              <li><a href="#">Terms of Service </a></li>
+              <li><a href="#">Contact Us </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideoContent" tabindex="-1"
+    aria-labelledby="recordYourBaseVideoContentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoContentLabel">Record Your Base Video </h4>
+        </div>
+        <div class="modal-body py-0">
+          <div class="card border-danger">
+            <div class="card-body">
+              <p class="fw-semibold">Camera Access Error </p>
+              <p class="text-light my-3">Camera stream not available. Please ensure you've granted camera permission</p>
+              <button type="button" class="btn btn-sm bg-white border-danger text-danger" id="btnallowcameraaccess">
+                <img src="icon/icon-reload-danger.svg" class="img-fluid" alt="">
+                Retry Camera Access</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center border-0">
+          <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+            data-bs-target="#recordYourBaseVideo">
+            <img src="icon/icon-camera-white.svg" class="img-fluid" alt="">
+            Start Recording</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideo" tabindex="-1" aria-labelledby="recordYourBaseVideoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoLabel">Record Your Base Video </h4>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="card border-0">
+            <div class="card-body p-0">
+              <div class="ratio ratio-16x9">
+                <img src="assets/images/image06.png" class="img-fluid" alt="">
+              </div>
+              <div class="position-absolute top-50 start-50 translate-middle">
+                <button type="button" class="btn btn-sm btn-primary">
+                  <img src="icon/icon-camera-white.svg" class="img-fluid" alt="">
+                  Start Recording</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideoQR" tabindex="-1" aria-labelledby="recordYourBaseVideoQRLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoQRLabel">Scan QR Code to Record
+            <p class="heading-06 text-light fw-normal">Use your phone camera to scan this QR code and record with your
+              mobile camera</p>
+          </h4>
+          <button type="button" class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="text-center">
+                <div class="qr-code-image">
+                  <img src="assets/images/qr.png" class="img-fluid" alt="">
+                </div>
+                <p class="heading-06 text-light mt-4 mb-3">Scan this QR code with your phone's camera</p>
+                <button type="button" class="btn btn-sm btn-primary w-100" disabled>
+                  <img src="icon/icon-refresh-white.svg" class="img-fluid" alt="">
+                  Check for Video
+                </button>
+                <div class="mb-4">
+                  <p class="heading-06 mt-3 mb-2">Waiting for recording...</p>
+                  <div class="progress progress-lg w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100">
+                    <div class="progress-bar" style="width: 33.3333%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="p-3 border border-danger rounded-3 text-danger">
+                <h6 class="heading-05 fw-semibold d-flex align-items-center gap-2">
+                  <img src="icon/icon-warning-red.svg" class="img-fluid" alt="">
+                  Error
+                </h6>
+                <p class="heading-06">Error checking for video: TypeError: Failed to fetch</p>
+              </div>
+
+              <div class="mt-4">
+                <h5 class="heading-05 fw-semibold mb-0">How to record:</h5>
+                <ol class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Open your phone's camera app</li>
+                  <li>Point at this QR code</li>
+                  <li>Tap the notification to open the link</li>
+                  <li>Allow camera and microphone permissions when prompted</li>
+                  <li>Record your video</li>
+                  <li>Tap upload after recording</li>
+                </ol>
+              </div>
+
+              <div class="card-warning p-3 mt-4">
+                <h5 class="heading-05 text-dark fw-semibold mb-0">If you're having permission issues:</h5>
+                <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Check that your browser supports camera access</li>
+                  <li>Make sure permissions are enabled in your phone settings</li>
+                  <li>Try using Chrome or Safari on your mobile device</li>
+                  <li>Some mobile browsers have restrictions on camera access</li>
+                </ul>
+              </div>
+
+              <div class="card-primary p-3 mt-4">
+                <h5 class="heading-05 text-dark fw-semibold mb-0">Tips for best results:</h5>
+                <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Position yourself in the center of the frame</li>
+                  <li>Ensure your face is well-lit, preferably with natural light</li>
+                  <li>Choose a clean, uncluttered background</li>
+                  <li>Test your audio to ensure clear sound quality</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src=" assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

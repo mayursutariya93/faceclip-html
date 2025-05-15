@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left">
+            <h2 class="heading-02 fw-bold">Settings</h2>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row g-xl-5 mt-0 justify-content-between">
+            <div class="col-lg-auto">
+              <div class="sidebar-setting">
+                <div class="sidebar-setting-header">
+                  <div class="sidebar-setting-menu-more">
+                    <a href="#">
+                      <span>
+                        <img src="icon/icon-more.svg" class="img-fluid dark-white" alt="" />
+                      </span>
+                      More
+                    </a>
+                  </div>
+                </div>
+                <div class="sidebar-setting-body">
+                  <div class="sidebar-setting-menu">
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-profile.html">
+                        <span>
+                          <img src="icon/icon-profile-settting.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Profile Settings
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-account-security.html">
+                        <span>
+                          <img src="icon/icon-account-setting.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Account & Security
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-preferences.html">
+                        <span>
+                          <img src="icon/icon-ai-preferance.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        AI Preferences
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="#">
+                        <span>
+                          <img src="icon/icon-voice-clone.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Voice Clones
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-subscription-billing.html">
+                        <span>
+                          <img src="icon/icon-subscription-billing.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Subscription & Billing
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-team-management.html" class="active">
+                        <span>
+                          <img src="icon/icon-team-management.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Team Management
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-notification.html">
+                        <span>
+                          <img src="icon/icon-notification.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Notifications
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-integration.html">
+                        <span>
+                          <img src="icon/icon-integrations-alt.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Integrations
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-help-support.html">
+                        <span>
+                          <img src="icon/icon-help-support.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Help & Support
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg">
+              <div class="setting-right ms-xxl-5">
+                <div class="card card-setting-team-management">
+                  <div class="card-header d-flex flex-wrap gap-2 justify-content-between">
+                    <div>
+                      <h5 class="heading-04 fw-bold mb-1">Team Management</h5>
+
+                      <p class="text-light w-100">Manage team members and permissions</p>
+                    </div>
+                    <button type="button" class="btn btn-sm  btn-primary" data-bs-toggle="modal"
+                      data-bs-target="#inviteteammember">
+                      <img src="icon/icon-invite-member.svg" class="img-fluid" alt="" /> Invite Member
+                    </button>
+                  </div>
+
+                  <div class="card-body">
+                    <ul class="nav nav-tabs nav-tabs-light" id="teammemberTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="teammember-tab" data-bs-toggle="tab"
+                          data-bs-target="#teammember-tab-pane" type="button" role="tab" aria-controls="teammember-pane"
+                          aria-selected="true">Team Members</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="rolespermissions-tab" data-bs-toggle="tab"
+                          data-bs-target="#rolespermissions-tab-pane" type="button" role="tab"
+                          aria-controls="rolespermissions-tab-pane" aria-selected="false" tabindex="-1">Roles &
+                          Permissions</button>
+                      </li>
+                    </ul>
+
+                    <div class="tab-content mt-4 pt-2" id="teammemberTabContent">
+                      <div class="tab-pane fade active show" id="teammember-tab-pane" role="tabpanel"
+                        aria-labelledby="home-tab" tabindex="0">
+                        <div class="card">
+                          <div class="card-header d-flex flex-wrap gap-2 justify-content-between">
+                            <div>
+                              <h5 class="card-title fw-bold mb-0">Team Members</h5>
+
+                              <p class="heading-06 text-light flex-grow-0 w-100">3 of 3 included members (additional
+                                seats for $5/member)
+                                <img src="icon/icon-warning.svg" class="img-fluid align-text-top dark-white" alt="" />
+                              </p>
+                            </div>
+
+                            <div>
+                              <span class="badge bg-primary-light text-primary p-3 border">Standard Plan</span>
+                            </div>
+                          </div>
+
+                          <div class="card-body">
+                            <div class="d-flex flex-column gap-3">
+                              <div
+                                class="d-flex border rounded-3 p-3 align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                                <div
+                                  class="icon align-self-start bg-primary-light text-primary p-2 heading-05 fw-medium rounded-circle">
+                                  JO
+                                </div>
+
+                                <div class="">
+                                  <h6 class="heading-05 fw-medium mb-1">John Doe</h6>
+                                  <p class="heading-06 text-light">john.doe@example.com</p>
+                                </div>
+
+                                <div class="ms-md-auto">
+                                  <span class="badge bg-primary-light text-primary">Admin</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="d-flex border rounded-3 p-3 align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                                <div
+                                  class="icon align-self-start bg-primary-light text-primary p-2 heading-05 fw-medium rounded-circle">
+                                  JS
+                                </div>
+
+                                <div class="">
+                                  <h6 class="heading-05 fw-medium mb-1">Jane Smith</h6>
+                                  <p class="heading-06 text-light">jane.smith@example.com</p>
+                                </div>
+
+                                <div class="ms-md-auto">
+                                  <span class="badge bg-primary-light text-primary">Editor</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="d-flex border rounded-3 p-3 align-items-lg-center flex-md-row flex-column flex-md-nowrap flex-wrap gap-3">
+                                <div
+                                  class="icon align-self-start bg-primary-light text-primary p-2 heading-05 fw-medium rounded-circle">
+                                  AJ
+                                </div>
+
+                                <div class="">
+                                  <h6 class="heading-05 fw-medium mb-1">Alex Johnson</h6>
+                                  <p class="heading-06 text-light">alex@example.com</p>
+                                </div>
+
+                                <div class="ms-md-auto">
+                                  <div class="d-flex align-items-center flex-wrap justify-content-md-end gap-1">
+                                    <a href="#" class="badge fw-medium text-danger">
+                                      <img src="icon/icon-warning-red.svg" class="img-fluid" />
+                                      Pending
+                                    </a>
+                                    <span class="badge bg-primary-light text-primary">Editor</span>
+                                    <a href="#" class="badge fw-medium text-black">
+                                      <img src="icon/icon-email.svg" class="img-fluid dark-white" />Resend
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="card-footer d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                            <p class="heading-06 text-light">You can add 3 more team members at $5/member/month</p>
+                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                              data-bs-target="#addExtraMemberSeat">Add Extra Member Seat</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="tab-pane fade" id="rolespermissions-tab-pane" role="tabpanel"
+                        aria-labelledby="aiTools-tab" tabindex="0">
+                        <div class="card">
+                          <div class="card-header d-flex flex-wrap gap-2 justify-content-between">
+                            <div>
+                              <h5 class="card-title fw-bold mb-0">Roles & Permissions </h5>
+
+                              <p class="heading-06 text-light flex-grow-0 w-100">Understand what each team role can
+                                access</p>
+                            </div>
+                          </div>
+
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th class="bg-transparent" scope="col">Permission</th>
+                                    <th class="bg-transparent text-center" scope="col">Admin</th>
+                                    <th class="bg-transparent text-center" scope="col">Editor</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="row">
+                                      <p>Manage Team Members </p>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-danger.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">
+                                      <p>Manage Billing & Subscription </p>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-danger.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">
+                                      <p>Create & Edit Videos </p>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">
+                                      <p>Delete Videos </p>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">
+                                      <p>View Analytics </p>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">
+                                      <p>Share & Publish Videos </p>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">
+                                      <p>Manage API Keys </p>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-danger.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">
+                                      <p>Custom Branding </p>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="text-center">
+                                        <img src="icon/icon-done-circle-success.svg" class="img-fluid" alt="" />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL -->
+  <div class="modal fade" id="inviteteammember" tabindex="-1" aria-labelledby="inviteteammemberLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header pb-2 align-items-start">
+          <h4 class="modal-title" id="professionalheadshotLabel">Invite Team Member
+            <p class="heading-06 text-light fw-normal mt-1">Send an invitation to join your team in FaceClip </p>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <form autocomplete="off">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control" placeholder="colleague@example.com ">
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label class="form-label">Name (optional) </label>
+                  <input type="email" class="form-control" placeholder="John Doe ">
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label class="form-label">Role</label>
+                  <select class="form-select">
+                    <option selected>Choose a role</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Editor</option>
+                    <option value="3">Viewer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <p class="heading-06 text-light">Editor can edit videos but cannot manage team settings </p>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer border-0 pt-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto"
+            data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-sm btn-primary mn-width-auto">Send Invitation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addExtraMemberSeat" tabindex="-1" aria-labelledby="addExtraMemberSeatLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header pb-2 align-items-start">
+          <h4 class="modal-title" id="addExtraMemberSeatLabel">
+            <img src="icon/icon-more-teams-member.svg" class="img-fluid" />
+            Need More Team Members?
+            <p class="heading-06 text-light fw-normal mt-1">Your plan supports limited team members. Choose an option
+              below to expand your team. </p>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex flex-column gap-3">
+            <div class="p-3 border rounded-3">
+              <div class="d-flex flex-md-row flex-column gap-3">
+                <div class="icon flex-grow-0">
+                  <img src="icon/icon-upgrade-team-member.svg" class="img-fluid" alt="" />
+                </div>
+                <div>
+                  <h6 class="heading-05 fw-semibold mb-2">Upgrade to Pro Plan </h6>
+                  <p class="heading-06 text-light mb-2">Get 5 team members plus extra features </p>
+                  <button type="button" class="btn btn-sm btn-primary">Upgrade Now
+                    <img src="icon/icon-right-arrow-white.svg" class="img-fluid" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 border rounded-3">
+              <div class="d-flex flex-md-row flex-column gap-3">
+                <div class="icon flex-grow-0">
+                  <img src="icon/icon-extra-team-member.svg" class="img-fluid" alt="" />
+                </div>
+                <div>
+                  <h6 class="heading-05 fw-semibold mb-2">Add Extra Team Members </h6>
+                  <p class="heading-06 text-light mb-2">Keep your current plan but add extra members at $5/member </p>
+                  <button type="button" class="btn btn-sm btn-outline-light">Add Extra Members</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto"
+            data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-sm text-primary mn-width-auto">View All Plans</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

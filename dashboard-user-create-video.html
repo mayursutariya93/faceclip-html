@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left">
+            <h2 class="heading-02 fw-bold">Create New Video</h2>
+            <p class="text-light">Follow these steps to create your video. No editing skills required!</p>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row gy-4 mt-0">
+            <div class="col-lg-12">
+              <div class="progress-video-create">
+                <div class="progress-video-create-list">
+                  <div class="progress-video-create-item active">
+                    <p>
+                      <span>1</span>
+                      Choose Video Type
+                    </p>
+                  </div>
+                  <div class="progress-video-create-item">
+                    <p>
+                      <span>2</span>
+                      Write Script
+                    </p>
+                  </div>
+                  <div class="progress-video-create-item">
+                    <p>
+                      <span>3</span>
+                      Select Voice
+                    </p>
+                  </div>
+                  <div class="progress-video-create-item">
+                    <p>
+                      <span>4</span>
+                      Pick Base Video
+                    </p>
+                  </div>
+                  <div class="progress-video-create-item">
+                    <p>
+                      <span>5</span>
+                      Review & Confirm
+                    </p>
+                  </div>
+                </div>
+                <div class="progress progress-lg w-100 mt-2" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100">
+                  <div class="progress-bar" style="width: 20%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="tab-content" id="createNewVideoTabContent">
+                <div class="tab-pane fade show active" id="choosetype-video-tab-pane" role="tabpanel"
+                  aria-labelledby="choosevideotype" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="new-video-header mb-lg-5 mb-4">
+                        <h3 class="heading-02 fw-bold mb-2">What kind of video do you want to create today?</h3>
+                        <p class="heading-06 text-light">Choose the style that best fits your needs and budget</p>
+                      </div>
+
+                      <div class="new-video-body">
+                        <div class="row gy-4">
+                          <div class="col-lg-4">
+                            <div class="card new-video-type-card">
+                              <div class="position-absolute top-0 end-0 mt-1 me-1" data-bs-toggle="tooltip"
+                                data-bs-title="Default tooltip">
+                                <img src="icon/icon-question.svg" class="img-fluid dark-white" width="20"
+                                  alt="Question Icon" />
+                              </div>
+                              <div class="card-body p-4">
+                                <div class="new-video-type-card-header" style="background-color: #A855F7;">
+                                  <p>Ultra Realistic </p>
+                                </div>
+                                <div class="new-video-type-card-body mt-4">
+                                  <h6 class="heading-04 fw-bold mb-2">Ultra Realistic </h6>
+                                  <p class="heading-05 text-light">Highest quality - fully humanlike video </p>
+                                  <p class="heading-05 fw-bold mt-4">200 credits per minute </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="card new-video-type-card">
+                              <div class="position-absolute top-0 end-0 mt-1 me-1" data-bs-toggle="tooltip"
+                                data-bs-title="Default tooltip">
+                                <img src="icon/icon-question.svg" class="img-fluid dark-white" width="20"
+                                  alt="Question Icon" />
+                              </div>
+                              <div class="card-body p-4">
+                                <div class="new-video-type-card-header" style="background-color: #3B82F6;">
+                                  <p>Realistic </p>
+                                </div>
+                                <div class="new-video-type-card-body mt-4">
+                                  <h6 class="heading-04 fw-bold mb-2">Realistic </h6>
+                                  <p class="heading-05 text-light">Natural feel, slightly faster, affordable </p>
+                                  <p class="heading-05 fw-bold mt-4">100 credits per minute </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="card new-video-type-card">
+                              <div class="position-absolute top-0 end-0 mt-1 me-1" data-bs-toggle="tooltip"
+                                data-bs-title="Default tooltip">
+                                <img src="icon/icon-question.svg" class="img-fluid dark-white" width="20"
+                                  alt="Question Icon" />
+                              </div>
+                              <div class="card-body p-4">
+                                <div class="new-video-type-card-header" style="background-color: #22C55E;">
+                                  <p>Talking Image </p>
+                                </div>
+                                <div class="new-video-type-card-body mt-4">
+                                  <h6 class="heading-04 fw-bold mb-2">Talking Image </h6>
+                                  <p class="heading-05 text-light">Lip-sync from photo-budget-friendly </p>
+                                  <p class="heading-05 fw-bold mt-4">50 credits per minute</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade show active" id="writescript-video-tab-pane" role="tabpanel"
+                  aria-labelledby="uploadImage-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="new-video-header mb-lg-5 mb-4">
+                        <h3 class="heading-02 fw-bold mb-2">What do you want to say?</h3>
+                        <p class="heading-06 text-light">Write or paste your script below. Be natural and
+                          conversational.</p>
+                      </div>
+
+                      <div class="new-video-body">
+                        <div class="row gy-3">
+                          <div class="col-lg-8">
+                            <div class="mb-2">
+                              <textarea class="form-control" rows="12"
+                                placeholder="Start typing your script here..."></textarea>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                              <p class="heading-06 text-light">0 Seconds</p>
+                              <p class="heading-06 text-light">1440 characters remaining</p>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="card-warning mt-lg-0 mt-3">
+                              <h5 class="heading-03 text-dark fw-semibold mb-0">Writing Tips :</h5>
+                              <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                                <li>Write like you talk — be natural, clear, and direct</li>
+                                <li>Short sentences improve clarity.</li>
+                                <li>Use active voice: "I help founders grow…"</li>
+                                <li>Avoid complex words or industry jargon.</li>
+                                <li>Read your script out loud to test flow.</li>
+                                <li>For Realistic videos, aim for 120 seconds or less.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade show active" id="selectvoice-video-tab-pane" role="tabpanel"
+                  aria-labelledby="uploadImage-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="new-video-header mb-4">
+                                <h3 class="heading-02 fw-bold mb-2">Choose your voice for this video</h3>
+                                <p class="heading-06 text-light">Select which voice you'd like to use for your video
+                                  narration
+                                </p>
+                              </div>
+
+                              <div class="new-video-body">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <div class="select-voice-video-option">
+                                      <div class="select-voice-video-option-item">
+                                        <div class="select-voice-video-option-icon">
+                                          <img src="icon/icon-clone-voice.svg" class="img-fluid dark-white" />
+                                        </div>
+                                        <div class="select-voice-video-option-content">
+                                          <h5 class="heading-03 fw-medium mb-1 d-flex align-items-center gap-1">My
+                                            Cloned Voice <span class="badge bg-primary text-white">Recommended</span>
+                                          </h5>
+                                          <p class="heading-06 text-light fw-medium mb-3">Use your own voice for a more
+                                            authentic, personal touch. This helps build
+                                            trust with your audience. </p>
+                                          <button type="button"
+                                            class="btn p-0 h-auto border-0 mn-width-auto text-primary">
+                                            <img src="icon/icon-voice-primary.svg" class="img-fluid" />
+                                            Preview your voice
+                                          </button>
+                                        </div>
+                                        <div class="select-voice-video-option-check">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" role="switch"
+                                              id="myclonedvideocheckbox">
+                                            <label class="form-check-label" for="myclonedvideocheckbox"></label>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div id="selectchoosestockvoiceModal" class="select-voice-video-option-item"
+                                        data-bs-toggle="modal" data-bs-target="#choosestockvoiceModal">
+                                        <div class="select-voice-video-option-icon">
+                                          <img src="icon/icon-stock-voice.svg" class="img-fluid dark-white" />
+                                        </div>
+                                        <div class="select-voice-video-option-content">
+                                          <h5 class="heading-03 fw-medium mb-1 d-flex align-items-center gap-1">Stock
+                                            Voice Library <span class="badge bg-orange text-white">30+ Credits</span>
+                                          </h5>
+                                          <p class="heading-06 text-light fw-medium mb-3">Choose from our collection of
+                                            professional voice actors. Additional credits
+                                            will be applied.</p>
+
+                                          <div id="selectchoosestockvoice" class="d-none">
+                                            <h5 class="heading-06 fw-medium mb-2 d-flex align-items-center gap-2">
+                                              <img src="icon/icon-done-green.svg" class="img-fluid" alt="" />
+                                              Roger
+                                            </h5>
+                                            <p class="heading-06 text-light fw-medium mb-3">Professional and confident
+                                              male voice</p>
+                                          </div>
+                                          <button type="button"
+                                            class="btn p-0 h-auto border-0 mn-width-auto text-primary"
+                                            data-bs-toggle="modal" data-bs-target="#choosestockvoicechangeModal">
+                                            Change Voice
+                                          </button>
+                                        </div>
+                                        <div class="select-voice-video-option-check">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" role="switch"
+                                              id="stockvoicelibrarycheckbox">
+                                            <label class="form-check-label" for="stockvoicelibrarycheckbox"></label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="bg-primary-light p-3 rounded-3 border border-primary">
+                                      <h5 class="heading-03 fw-medium mb-2">Why your own voice matters:</h5>
+                                      <p class="heading-06 text-light">Using your own voice creates a more authentic
+                                        connection with your audience.
+                                        Studies show that viewers are more likely to trust content that features the
+                                        creator's natural voice. Your unique voice is part of your personal brand!</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade show active" id="pickbase-video-tab-pane" role="tabpanel"
+                  aria-labelledby="uploadImage-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="new-video-header mb-4">
+                        <h3 class="heading-02 fw-bold mb-2">Pick Your Base Video</h3>
+                        <p class="heading-06 text-light">Choose a base video that will be synchronized with your voice
+                        </p>
+                      </div>
+
+                      <div class="new-video-body">
+                        <div class="row gy-4">
+                          <div class="col-lg-12">
+                            <ul class="nav nav-tabs nav-plans-tabs-white nav-fill p-2 bg-primary-light w-100"
+                              id="pickyourbasevideoTab" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="myassets-tab" data-bs-toggle="tab"
+                                  data-bs-target="#myassets-tab-pane" type="button" role="tab"
+                                  aria-controls="myassets-tab-pane" aria-selected="true">
+                                  My Assets
+                                </button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="uploadnew-tab" data-bs-toggle="tab"
+                                  data-bs-target="#uploadnew-tab-pane" type="button" role="tab"
+                                  aria-controls="uploadnew-tab-pane" aria-selected="false" tabindex="-1">
+                                  Upload New
+                                </button>
+                              </li>
+                            </ul>
+
+                            <div class="tab-content mt-4 pt-2" id="pickyourbasevideoTabContent">
+                              <div class="tab-pane fade active show" id="myassets-tab-pane" role="tabpanel"
+                                aria-labelledby="myassets-tab" tabindex="0">
+                                <div class="row g-3">
+                                  <div class="col-xxl-4 col-lg-6">
+                                    <div class="card">
+                                      <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center gap-3">
+                                          <div class="flex-shrink-0 w-100 position-relative">
+                                            <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                                            <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                                            <span class="position-absolute bottom-0 end-0 mb-2 me-2">
+                                              <img src="icon/icon-play-lg.svg" class="img-fluid" width="32" alt="" />
+                                            </span>
+
+                                            <!-- <img src="assets/images/video-placeholder.png"
+                                              class="img-fluid w-100 rounded-4" alt=""> -->
+
+                                            <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                              <video controls>
+                                                <source src="assets/video/video1.mp4" type="video/mp4">
+                                                <source src="assets/video/video1.mp4" type="video/ogg">
+                                                Your browser does not support the video tag.
+                                              </video>
+                                            </div>
+                                          </div>
+
+                                          <div class="w-100">
+                                            <h5 class="heading-06 fw-semibold mb-2">Professional Intro </h5>
+                                            <p class="heading-06 text-light">Video </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-xxl-4 col-lg-6">
+                                    <div class="card">
+                                      <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center gap-3">
+                                          <div class="flex-shrink-0 w-100 position-relative">
+                                            <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                                            <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                                            <span class="position-absolute bottom-0 end-0 mb-2 me-2">
+                                              <img src="icon/icon-play-lg.svg" class="img-fluid" width="32" alt="" />
+                                            </span>
+
+                                            <!-- <img src="assets/images/video-placeholder.png"
+                                              class="img-fluid w-100 rounded-4" alt=""> -->
+
+                                            <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                              <video controls>
+                                                <source src="assets/video/video1.mp4" type="video/mp4">
+                                                <source src="assets/video/video1.mp4" type="video/ogg">
+                                                Your browser does not support the video tag.
+                                              </video>
+                                            </div>
+                                          </div>
+
+                                          <div class="w-100">
+                                            <h5 class="heading-06 fw-semibold mb-2">Office Background </h5>
+                                            <p class="heading-06 text-light">Video </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-xxl-4 col-lg-6">
+                                    <div class="card border-primary">
+                                      <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center gap-3">
+                                          <div class="flex-shrink-0 w-100 position-relative">
+                                            <span class="badge-radio top-0 start-0 mt-2 ms-2">16:9</span>
+                                            <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                                            <span class="position-absolute bottom-0 end-0 mb-2 me-2">
+                                              <img src="icon/icon-play-lg.svg" class="img-fluid" width="32" alt="" />
+                                            </span>
+
+                                            <!-- <img src="assets/images/video-placeholder.png"
+                                              class="img-fluid w-100 rounded-4" alt=""> -->
+                                            <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                                              <video controls>
+                                                <source src="assets/video/video1.mp4" type="video/mp4">
+                                                <source src="assets/video/video1.mp4" type="video/ogg">
+                                                Your browser does not support the video tag.
+                                              </video>
+                                            </div>
+                                          </div>
+
+                                          <div class="w-100">
+                                            <h5 class="heading-06 fw-semibold mb-2">Product Demo </h5>
+                                            <p class="heading-06 text-light">Video </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-xxl-4 col-lg-6">
+                                    <div class="card">
+                                      <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center gap-3">
+                                          <div class="flex-shrink-0 w-100 position-relative">
+                                            <span class="badge-radio top-0 start-0 mt-2 ms-2">9:16</span>
+                                            <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                                            <!-- <img src="assets/images/video-placeholder-45-lg.png"
+                                              class="img-fluid w-100 rounded-4" alt=""> -->
+
+                                            <div class="ratio ratio-9x16 rounded-3 overflow-hidden">
+                                              <video controls>
+                                                <source src="assets/video/video.mp4" type="video/mp4">
+                                                <source src="assets/video/video.mp4" type="video/ogg">
+                                                Your browser does not support the video tag.
+                                              </video>
+                                            </div>
+                                          </div>
+
+                                          <div class="w-100">
+                                            <h5 class="heading-06 fw-semibold mb-2">Office Background </h5>
+                                            <p class="heading-06 text-light">Video </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-xxl-4 col-lg-6">
+                                    <div class="card">
+                                      <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center gap-3">
+                                          <div class="flex-shrink-0 w-100 position-relative">
+                                            <span class="badge-radio top-0 start-0 mt-2 ms-2">1:1</span>
+                                            <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                                            <span class="position-absolute bottom-0 end-0 mb-2 me-2">
+                                              <img src="icon/icon-play-lg.svg" class="img-fluid" width="32" alt="" />
+                                            </span>
+
+                                            <!-- <img src="assets/images/video-placeholder-11-lg.png"
+                                              class="img-fluid w-100 rounded-4" alt=""> -->
+
+                                            <div class="ratio ratio-1x1 rounded-3 overflow-hidden">
+                                              <video controls>
+                                                <source src="assets/video/video4.mp4" type="video/mp4">
+                                                <source src="assets/video/video4.mp4" type="video/ogg">
+                                                Your browser does not support the video tag.
+                                              </video>
+                                            </div>
+                                          </div>
+
+                                          <div class="w-100">
+                                            <h5 class="heading-06 fw-semibold mb-2">Product Demo </h5>
+                                            <p class="heading-06 text-light">Video </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-xxl-4 col-lg-6">
+                                    <div class="card">
+                                      <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center gap-3">
+                                          <div class="flex-shrink-0 w-100 position-relative">
+                                            <span class="badge-radio top-0 start-0 mt-2 ms-2">4:5</span>
+                                            <span class="badge-radio bottom-0 start-0 mb-2 ms-2">0:15</span>
+
+                                            <!-- <img src="assets/images/video-placeholder-45-lg.png"
+                                              class="img-fluid w-100 rounded-4" alt=""> -->
+
+                                            <div class="ratio ratio-4x5 rounded-3 overflow-hidden">
+                                              <video controls>
+                                                <source src="assets/video/video4.mp4" type="video/mp4">
+                                                <source src="assets/video/video4.mp4" type="video/ogg">
+                                                Your browser does not support the video tag.
+                                              </video>
+                                            </div>
+                                          </div>
+
+                                          <div class="w-100">
+                                            <h5 class="heading-06 fw-semibold mb-2">Social Story </h5>
+                                            <p class="heading-06 text-light">Video </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="tab-pane fade" id="uploadnew-tab-pane" role="tabpanel"
+                                aria-labelledby="uploadnew-tab" tabindex="0">
+                                <div class="row g-3">
+                                  <div class="col-lg-12">
+                                    <div class="card text-center">
+                                      <div class="card-body my-3">
+                                        <div class="icon">
+                                          <img src="icon/icon-play-circle.svg" class="img-fluid" />
+                                        </div>
+                                        <h5 class="heading-04 fw-bold mt-3 mb-2">Upload New Base Video</h5>
+                                        <p class="heading-06 text-light">Upload a good quality video where you are in
+                                          focus.</p>
+                                        <div class="position-relative mt-3 overflow-hidden">
+                                          <button type="button" id="uploadbasevideoBtn" class="btn btn-primary mx-auto">
+                                            <input type="file" id="uploadbasevideo"
+                                              class="position-absolute top-0 start-0 end-0 mx-auto opacity-0 h-100" />
+                                            <img src="icon/icon-upload.svg" class="img-fluid" alt="" />
+                                            Upload Base Video
+                                          </button>
+                                        </div>
+                                        <p class="small text-light mt-2">Supports MP4, MOV, WEBM (max 100MB)</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="card-warning mt-4">
+                              <h5 class="heading-03 text-dark fw-semibold mb-0">Tips for a great Base Video:</h5>
+                              <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                                <li>Use a good quality video</li>
+                                <li>Ensure you are clearly visible</li>
+                                <li>Choose a video that represents you well</li>
+                                <li>Don't worry too much about perfect framing</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade show active" id="reviewconfirm-video-tab-pane" role="tabpanel"
+                  aria-labelledby="uploadImage-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="new-video-header mb-4">
+                        <h3 class="heading-02 fw-bold mb-2">Review Your Setup</h3>
+                        <p class="heading-06 text-light">Please review your video settings before proceeding</p>
+                      </div>
+
+                      <div class="new-video-body">
+                        <div class="row gy-4">
+                          <div class="col-lg-6 d-flex">
+                            <div class="card w-100">
+                              <div class="card-body">
+                                <p class="heading-03 fw-medium mb-3">Video Type</p>
+
+                                <div class="d-flex align-items-center gap-3">
+                                  <div class="d-flex align-items-center justify-content-center bg-primary circle-text">
+                                    <p class="heading-02 fw-medium text-white">R</p>
+                                  </div>
+                                  <div>
+                                    <h6 class="heading-03 fw-medium">Realistic</h6>
+                                    <p class="heading-06 text-light fw-medium">Natural feel, slightly faster</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 d-flex">
+                            <div class="card w-100">
+                              <div class="card-body">
+                                <p class="heading-03 fw-medium mb-3">Voice Selection</p>
+
+                                <div class="d-flex align-items-center gap-3">
+                                  <div class="flex-shrink-0">
+                                    <div
+                                      class="d-flex align-items-center justify-content-center bg-primary circle-text">
+                                      <p class="heading-02 fw-medium text-white">C</p>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <h6 class="heading-03 fw-medium">My Cloned Voice</h6>
+                                    <p class="heading-06 text-light fw-medium">Your own voice for authenticity</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row gy-4 mt-0">
+                          <div class="col-lg-12">
+                            <div class="card w-100">
+                              <div class="card-body">
+                                <p class="heading-03 fw-medium mb-3">Script</p>
+
+                                <div class="bg-primary-light rounded-3 p-3 mb-3">
+                                  <p class="heading-06 fw-semibold">Add night Background</p>
+                                </div>
+
+                                <p class="heading-06 text-light fw-medium">Estimated duration: ~35 seconds</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row gy-4 mt-0">
+                          <div class="col-lg-6 d-flex">
+                            <div class="card w-100">
+                              <div class="card-body">
+                                <p class="heading-03 fw-medium mb-3">Base Video</p>
+
+                                <div class="d-flex align-items-center gap-3">
+                                  <div class="flex-shrink-0">
+                                    <img src="assets/images/video-placeholder-sm.png" class="img-fluid rounded-2" height="72"
+                                      width="72" alt="" />
+                                  </div>
+                                  <div>
+                                    <h6 class="heading-03 fw-medium">Office Background</h6>
+                                    <p class="heading-06 text-light fw-medium">video</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 d-flex">
+                            <div class="card bg-primary-light w-100 border-primary">
+                              <div class="card-body">
+                                <p class="heading-03 fw-medium mb-3">Credits Required</p>
+
+                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                                  <div>
+                                    <h6 class="heading-01 fw-bold text-primary">59</h6>
+                                    <p class="heading-06 text-light fw-medium">Your own voice for authenticity</p>
+                                  </div>
+                                  <div>
+                                    <span class="badge bg-primary text-white">1,250 credits available </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row gy-4 mt-0">
+                          <div class="col-lg-12">
+                            <div
+                              class="bg-primary-light p-3 rounded-3 border border-primary d-flex align-items-center gap-3">
+                              <div class="flex-shrink-0">
+                                <img src="icon/icon-warning-circle.svg" class="img-fluid" alt="" />
+                              </div>
+                              <div>
+                                <h5 class="heading-03 fw-medium mb-2">Ready to generate your video?</h5>
+                                <p class="heading-06 text-light">Once you click "Generate My Video", we'll start
+                                  processing your request. This may take a few minutes depending on the video type and
+                                  length.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="create-video-buttons d-flex justify-content-between border-top pt-4 mt-5">
+                <button class="btn btn-outline-secondary" id="createvideoprevbtn">
+                  <img src="icon/icon-left-arrow-dark.svg" class="img-fluid" height="16" alt="Left Arrow Icon" />
+                  Back
+                </button>
+                <button class="btn btn-primary" id="createvideonextbtn">
+                  Continue
+                  <img src="icon/icon-right-arrow-white.svg" class="img-fluid" height="16" alt="Right Arrow Icon" />
+                </button>
+                <a class="btn btn-primary d-none" id="redirectvideonextbtn" href="dashboard-user-generate-video.html">
+                  Continue
+                  <img src="icon/icon-right-arrow-white.svg" class="img-fluid" height="16" alt="Right Arrow Icon" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="choosestockvoiceModal" tabindex="-1" aria-labelledby="choosestockvoiceModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header align-items-start">
+          <h4 class="modal-title" id="choosestockvoiceModalLabel">Choose a Stock Voice</h4>
+          <button type="button" class="btn-close mt-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="choose-stock-voice-list">
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Roger</h6>
+                <p class="small text-light">Professional and confident male voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Roger</h6>
+                <p class="small text-light">Professional and confident male voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Sarah</h6>
+                <p class="small text-light">Warm and friendly female voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Brian</h6>
+                <p class="small text-light">Clear and authoritative male voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Sarah</h6>
+                <p class="small text-light">Warm and friendly female voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Brian</h6>
+                <p class="small text-light">Clear and authoritative male voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+          </div>
+
+          <p class="heading-06 text-light text-center mt-3">Note: Using a stock voice will add 30 credits to your video
+            cost.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="choosestockvoicechangeModal" tabindex="-1"
+    aria-labelledby="choosestockvoicechangeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header align-items-start">
+          <h4 class="modal-title" id="choosestockvoicechangeModalLabel">Choose a Stock Voice</h4>
+          <button type="button" class="btn-close mt-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="choose-stock-voice-list">
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap active">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Roger</h6>
+                <p class="small text-light">Professional and confident male voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm text-danger px-2 mn-width-auto border-danger">
+                  <img src="icon/icon-close-circle.svg" class="img-fluid" alt="" />
+                  Remove</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Roger</h6>
+                <p class="small text-light">Professional and confident male voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Sarah</h6>
+                <p class="small text-light">Warm and friendly female voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Brian</h6>
+                <p class="small text-light">Clear and authoritative male voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Sarah</h6>
+                <p class="small text-light">Warm and friendly female voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+
+            <div class="choose-stock-voice-item d-flex align-items-center gap-2 flex-wrap">
+              <div>
+                <h6 class="heading-05 fw-bold mb-1">Brian</h6>
+                <p class="small text-light">Clear and authoritative male voice </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-lg-auto">
+                <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto">
+                  <img src="icon/icon-play-alt.svg" class="img-fluid" />
+                  Preview
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Select</button>
+              </div>
+            </div>
+          </div>
+
+          <p class="heading-06 text-light text-center mt-3">Note: Using a stock voice will add 30 credits to your video
+            cost.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

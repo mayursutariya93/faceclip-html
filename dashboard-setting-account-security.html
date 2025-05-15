@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left">
+            <h2 class="heading-02 fw-bold">Settings</h2>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row g-xl-5 mt-0 justify-content-between">
+            <div class="col-lg-auto">
+              <div class="sidebar-setting">
+                <div class="sidebar-setting-header">
+                  <div class="sidebar-setting-menu-more">
+                    <a href="#">
+                      <span>
+                        <img src="icon/icon-more.svg" class="img-fluid dark-white" alt="" />
+                      </span>
+                      More
+                    </a>
+                  </div>
+                </div>
+                <div class="sidebar-setting-body">
+                  <div class="sidebar-setting-menu">
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-profile.html">
+                        <span>
+                          <img src="icon/icon-profile-settting.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Profile Settings
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-account-security.html" class="active">
+                        <span>
+                          <img src="icon/icon-account-setting.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Account & Security
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-preferences.html">
+                        <span>
+                          <img src="icon/icon-ai-preferance.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        AI Preferences
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="#">
+                        <span>
+                          <img src="icon/icon-voice-clone.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Voice Clones
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-subscription-billing.html">
+                        <span>
+                          <img src="icon/icon-subscription-billing.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Subscription & Billing
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-team-management.html">
+                        <span>
+                          <img src="icon/icon-team-management.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Team Management
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-notification.html">
+                        <span>
+                          <img src="icon/icon-notification.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Notifications
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-integration.html">
+                        <span>
+                          <img src="icon/icon-integrations-alt.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Integrations
+                      </a>
+                    </div>
+                    <div class="sidebar-setting-menu-item">
+                      <a href="dashboard-setting-help-support.html">
+                        <span>
+                          <img src="icon/icon-help-support.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        Help & Support
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg">
+              <div class="setting-right ms-xxl-5">
+                <div class="card card-setting-account">
+                  <div class="card-header d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                    <div>
+                      <h5 class="heading-04 fw-bold mb-1">Account & Security</h5>
+
+                      <p class="text-light w-100">Manage your account security and connected services</p>
+                    </div>
+
+                    <button type="button" id="btnupdatepassowrd" class="btn btn-sm btn-primary">Update Password</button>
+                  </div>
+
+                  <div class="card-body">
+                    <form autocomplete="off" id="formupdatepassword" class="d-none">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="d-flex align-items-center gap-2 mb-4">
+                            <img src="icon/icon-password-auth.svg" class="img-fluid dark-white" alt="" />
+                            <h5 class="heading-04 fw-medium mb-0">Password Authentication</h5>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="mb-lg-5 mb-4">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" class="form-control" placeholder="Enter Full Name" value="password"
+                              disabled />
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="mb-lg-5 mb-4">
+                            <label class="form-label">New Password</label>
+                            <input type="password" class="form-control" placeholder="Enter Full Name" value="password"
+                              disabled />
+                          </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                          <div class="mb-3">
+                            <label class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-control" placeholder="Enter Full Name" value="password"
+                              disabled />
+                          </div>
+                        </div>
+
+                        <div class="col-lg-auto">
+                          <button type="button" class="btn btn-primary w-100">Update Password</button>
+                        </div>
+                      </div>
+                    </form>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="d-flex align-items-center justify-content-between gap-3 my-4">
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-mobile-dark.svg" class="img-fluid dark-white" alt="" />
+                            <div>
+                              <h5 class="heading-05 fw-medium mb-0">Two-Factor Authentication</h5>
+                              <p class="heading-06 text-light">Add an extra layer of security to your account</p>
+                            </div>
+                          </div>
+
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="headmovement">
+                            <label class="form-check-label" for="headmovement"></label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="border-top pt-3">
+                          <h4 class="heading-04 fw-sm-medium mb-0">Connected Devices</h4>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div
+                          class="d-flex align-items-sm-center justify-content-between gap-3 my-3 p-2 border rounded-3 flex-sm-row flex-column">
+                          <div class="d-flex align-items-center gap-3">
+                            <img src="icon/icon-laptop.svg" class="img-fluid dark-white" alt="">
+                            <div>
+                              <h5 class="heading-05 fw-medium mb-0">MacBook Pro <span
+                                  class="badge fw-bold bg-light text-dark rounded-4 p-2 ms-1">Current Device</span>
+                              </h5>
+                              <p class="small text-light">New York, USA • Just now</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          class="d-flex align-items-sm-center justify-content-between gap-3 my-3 p-2 border rounded-3 flex-sm-row flex-column">
+                          <div class="d-flex align-items-center gap-3">
+                            <img src="icon/icon-mobile-dark.svg" class="img-fluid dark-white" alt="">
+                            <div>
+                              <h5 class="heading-05 fw-medium mb-0">iPhone 13</h5>
+                              <p class="small text-light">New York, USA • 2 hours ago</p>
+                            </div>
+                          </div>
+
+                          <a href="#" class="heading-06 fw-medium text-danger">
+                            <img src="icon/icon-logout.svg" class="img-fluid me-1" alt="">Logout
+                          </a>
+                        </div>
+
+                        <div
+                          class="d-flex align-items-sm-center justify-content-between gap-3 my-3 p-2 border rounded-3 flex-sm-row flex-column">
+                          <div class="d-flex align-items-center gap-3">
+                            <img src="icon/icon-tablet.svg" class="img-fluid dark-white" alt="">
+                            <div>
+                              <h5 class="heading-05 fw-medium mb-0">iPad Air</h5>
+                              <p class="small text-light">Boston, USA • 2 days ago</p>
+                            </div>
+                          </div>
+
+                          <a href="#" class="heading-06 fw-medium text-danger">
+                            <img src="icon/icon-logout.svg" class="img-fluid me-1" alt="">Logout
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="border-top pt-3">
+                          <h4 class="heading-04 fw-medium mb-0">Linked Accounts</h4>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="d-flex align-items-center justify-content-between gap-3 my-3 p-2 border rounded-3">
+                          <div class="d-flex align-items-center gap-3">
+                            <img src="icon/icon-google-line.svg" class="img-fluid dark-white" alt="">
+                            <div>
+                              <h5 class="heading-05 fw-medium mb-0">Google</h5>
+                            </div>
+                          </div>
+
+                          <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Disconnect</button>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between gap-3 my-3 p-2 border rounded-3">
+                          <div class="d-flex align-items-center gap-3">
+                            <img src="icon/icon-linkedin-line.svg" class="img-fluid dark-white" alt="">
+                            <div>
+                              <h5 class="heading-05 fw-medium mb-0">LinkedIn</h5>
+                            </div>
+                          </div>
+
+                          <button type="button" class="btn btn-sm btn-outline-light mn-width-auto">Disconnect</button>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between gap-3 my-3 p-2 border rounded-3">
+                          <div class="d-flex align-items-center gap-3">
+                            <img src="icon/icon-twitter-line.svg" class="img-fluid dark-white" alt="">
+                            <div>
+                              <h5 class="heading-05 fw-medium mb-0">Twitter</h5>
+                            </div>
+                          </div>
+
+                          <button type="button" class="btn btn-sm btn-primary mn-width-auto">Connect</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="border-top pt-3 d-flex align-items-center gap-2">
+                          <img src="icon/icon-danger-zone.svg" class="img-fluid" alt="">
+                          <h4 class="heading-04 fw-medium mb-0 text-danger">Danger Zone</h4>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div
+                          class="d-flex flex-wrap align-items-center justify-content-between gap-3 my-3 p-3 border rounded-3 bg-light">
+                          <div class="d-flex align-items-center gap-3">
+                            <div>
+                              <h5 class="heading-05 fw-medium mb-0 text-dark">Delete Account</h5>
+                              <p class="heading-06 text-light mt-1">Permanently delete your account and all associated
+                                data</p>
+                            </div>
+                          </div>
+
+                          <button type="button" class="btn btn-sm btn-danger mn-width-auto" data-bs-toggle="modal"
+                            data-bs-target="#deleteaccount">Delete Account</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL -->
+  <div class="modal fade" id="deleteaccount" tabindex="-1" aria-labelledby="deleteAccountLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header pb-2 align-items-start">
+          <h4 class="modal-title" id="professionalheadshotLabel">Are you absolutely sure?</h4>
+        </div>
+        <div class="modal-body pt-0">
+          <p class="text-light">This action cannot be undone. This will permanently delete your
+            account and remove all of your data from our servers. </p>
+        </div>
+        <div class="modal-footer border-0 pt-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary mn-width-auto" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-sm btn-danger mn-width-auto">Delete Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

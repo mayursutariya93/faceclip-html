@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar sidebar-sticky d-flex flex-column offcanvas-xl offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="sidebar-logo">
+        <img src="assets/images/logo.svg" alt="Faceclip" class="img-fluid" />
+      </div>
+
+      <div class="sidebar-create-btn">
+        <a href="dashboard-create-video.html" class="btn btn-primary w-100">
+          <img src="icon/icon-plus.svg" alt="Plus Icon" class="img-fluid dark-white" />
+          Create
+          <img src="icon/icon-chev-right-sm.svg" alt="Plus Icon" class="img-fluid dark-white ms-auto" />
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-category.svg" class="img-fluid dark-white" alt="" />
+            Dashboard
+          </a>
+        </div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-new.svg" class="img-fluid dark-white" alt="" />
+            My Videos
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-videos.svg" class="img-fluid dark-white" alt="" />
+            Faceclips
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-video-editors.svg" class="img-fluid dark-white" alt="" />
+            Video Editor
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Integrations
+          </a>
+        </div>
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" alt="" />
+            My Plan
+          </a>
+        </div>
+
+
+        <div class="sidebar-menu-divider"></div>
+
+        <div class="sidebar-menu-item">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-integration.svg" class="img-fluid dark-white" alt="" />
+            Settings
+          </a>
+        </div>
+        <div class="sidebar-menu-item sidebar-menu-item-logout">
+          <a href="#" class="sidebar-menu-link">
+            <img src="icon/icon-logout.svg" class="img-fluid" alt="" />
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-plan border-0 mt-lg-auto mt-0">
+        <div class="border rounded-3 mb-3">
+          <div class="sidebar-plan-header">
+            <p class="heading-06 fw-bold">Your Plan</p>
+            <a href="#" class="small text-primary">View all plans <img class="img-fluid ms-1"
+                src="icon/icon-chev-right-sm-primary.svg" /></a>
+          </div>
+
+          <div class="sidebar-plan-body">
+            <p>
+              <span class="sidebar-plan-status"></span>
+              Current Plan: <span class="fw-medium">Free</span>
+            </p>
+            <a href="#" class="heading-06 text-primary">Manage subscription</a>
+          </div>
+        </div>
+
+        <div class="sidebar-plan-footer">
+          <div class="plant-footer-user">
+            <div class="plant-footer-user-image">S</div>
+            <div class="plant-footer-user-name">
+              <p class="heading-05 fw-medium">Sarah</p>
+              <span>Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content-wrapper">
+      <!-- Top Navbar -->
+      <div class="navbar navbar-top">
+        <div class="navbar-top-right navbar-top-button">
+          <button class="btn">
+            <img src="icon/icon-notification.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn" id="theme-toggle">
+            <img src="icon/Theme-Mode.svg" alt="" class="img-fluid dark-white">
+          </button>
+          <button class="btn d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Placeholder -->
+      <div class="content">
+        <div class="content-header">
+          <div class="content-header-left w-100">
+            <div class="d-flex align-items-center gap-2 bg-primary-light p-3 rounded-4">
+              <img src="icon/icon-my-plan-lg.svg" class="img-fluid" alt="" />
+              <h5 class="heading-02 fw-bold mb-0">My Plan</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header bg-light d-flex align-items-center gap-2">
+                  <img src="icon/icon-my-plan.svg" class="img-fluid dark-white" width="20" alt="" />
+                  <h5 class="heading-04 mb-0">Current Plan: <span class="text-primary">Free</span></h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div>
+                        <p class="heading-06 fw-semibold mb-1 text-light">Credits Usage</p>
+                        <h5 class="heading-02 fw-bold mb-0 d-flex align-items-center gap-1">1,250 <span
+                            class="heading-06 fw-normal text-light">/ 2,000</span></h5>
+
+                        <div>
+                          <p class="heading-06 text-light text-end mb-1">67%</p>
+                          <div class="progress progress-lg w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <div class="progress-bar" style="width: 67%"></div>
+                          </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-2 my-3">
+                          <img src="icon/icon-calendar.svg" class="img-fluid dark-white" alt="" />
+                          <p class="heading-06 text-light">Renews automatically on May 15, 2025</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="border rounded-3 p-3">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                          <img src="icon/icon-plan-benefits.svg" class="img-fluid" alt="" />
+                          <h5 class="heading-06 fw-semibold mb-0">Plan Benefits</h5>
+                        </div>
+                        <div class="faceclip-video-guide-icon">
+                          <ul class="heading-06 mb-0 d-flex flex-column gap-2">
+                            <li data-image="icon-done">Access to all video generation features</li>
+                            <li data-image="icon-done">Monthly credits included in your subscription</li>
+                            <li data-image="icon-done">Add more credits at any time</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="mt-3">
+                        <button type="button" class="btn btn-outline-light w-100">Manage subscription
+                          <img src="icon/icon-chev-right-dark.svg" class="img-fluid" width="16" alt="" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-lg-12 text-center">
+              <h5 class="heading-01 fw-bold mb-2">Choose the Perfect Plan for Your Needs</h5>
+              <p class="text-light">From one-time purchases to monthly subscriptions, we have options for creators of
+                all sizes</p>
+            </div>
+          </div>
+
+          <div class="row mt-3 mb-4">
+            <div class="col-lg-12">
+              <div class="perfect-plan-wrap">
+                <div class="d-flex flex-column gap-2 text-center">
+                  <div class="perfect-plan-switch d-none" id="monthlyplanswitch">
+                    <p class="heading-06 text-primary fw-semibold">Monthly</p>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="monthlyperfectplan" autocomplete="off">
+                      <label class="form-check-label" for="monthlyperfectplan"></label>
+                    </div>
+                    <p class="heading-06 text-black fw-semibold">Annual</p>
+                  </div>
+
+                  <div class="perfect-plan-switch d-none" id="teamsenterpriseswitch">
+                    <p class="heading-06 text-primary fw-semibold">Monthly</p>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="teamsenterpriseperfectplan" autocomplete="off">
+                      <label class="form-check-label" for="teamsenterpriseperfectplan"></label>
+                    </div>
+                    <p class="heading-06 text-black fw-semibold">Annual</p>
+                  </div>
+
+                  <ul class="nav nav-tabs nav-plans-tabs" id="perfectPlansTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="payasyougo-tab" data-bs-toggle="tab"
+                        data-bs-target="#payasyougo-tab-pane" type="button" role="tab" aria-controls="payasyougo-pane"
+                        aria-selected="true">
+                        <span class="nav-plans-tabs-icon">
+                          <img src="icon/icon-pay-you-go.svg" class="img-fluid" alt="">
+                        </span>
+                        Pay-As-You-Go
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="monthlyplans-tab" data-bs-toggle="tab"
+                        data-bs-target="#monthlyplans-tab-pane" type="button" role="tab"
+                        aria-controls="monthlyplans-tab-pane" aria-selected="false" tabindex="-1">
+                        <span class="nav-plans-tabs-icon">
+                          <img src="icon/icon-monthly-plans.svg" class="img-fluid" alt="">
+                        </span>
+                        Monthly Plans
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="teamsenterprise-tab" data-bs-toggle="tab"
+                        data-bs-target="#teamsenterprise-tab-pane" type="button" role="tab"
+                        aria-controls="teamsenterprise-tab-pane" aria-selected="false" tabindex="-1">
+                        <span class="nav-plans-tabs-icon">
+                          <img src="icon/icon-teams-enterprise.svg" class="img-fluid" alt="">
+                        </span>
+                        Teams & Enterprise
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="tab-content mt-4 pt-2" id="perfectPlansTabContent">
+                  <div class="tab-pane fade active show" id="payasyougo-tab-pane" role="tabpanel"
+                    aria-labelledby="payasyougo-tab" tabindex="0">
+                    <div class="row align-items-center g-4 mx-xxl-5">
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header bg-primary-light">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Basic</h6>
+                                <p class="heading-06 text-light">Single purchase. No recurring charges.</p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-basic.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$1.99</h4>
+                            <p class="fw-bold">100 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">37s</p>
+                                      <p class="heading-06 text-light">1 video</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">1 min</p>
+                                      <p class="heading-06 text-light">1 video</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">3.3 mins</p>
+                                      <p class="heading-06 text-light">2 video</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>No watermark</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Top up anytime — credits never expire</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Get Basic</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header-popular">
+                            Most Popular
+                          </div>
+                          <div class="card-plans-header bg-primary-light">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Creator Pack</h6>
+                                <p class="heading-06 text-light">Single purchase. No recurring charges.</p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-creator-pack.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$9.99</h4>
+                            <p class="fw-bold">600 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">3.75 mins (≈7 x 30s videos)</p>
+                                      <p class="heading-06 text-light">7 video</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">6 mins (≈12 x 30s videos)</p>
+                                      <p class="heading-06 text-light">12 video</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">20 mins (≈40 x 30s videos)</p>
+                                      <p class="heading-06 text-light">40 video</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Mix and match styles</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>No watermark</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Credits never expire</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Get Creator Peck</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Pro Pack</h6>
+                                <p class="heading-06 text-light">Single purchase. No recurring charges. </p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-starter.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$19.99</h4>
+                            <p class="fw-bold">1300 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">8.1 mins (≈16 x 30s videos)</p>
+                                      <p class="heading-06 text-light">16 videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">13 mins (≈26 x 30s videos)</p>
+                                      <p class="heading-06 text-light">26 videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">43 mins (≈86 x 30s videos)</p>
+                                      <p class="heading-06 text-light">86 videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Full flexibility to mix styles</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Multi-platform export</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Credits never expire</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Get Pro Pack</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="monthlyplans-tab-pane" role="tabpanel"
+                    aria-labelledby="monthlyplans-tab" tabindex="0">
+                    <div class="row align-items-center g-4 mx-xxl-5" id="monthlyplans">
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Starter</h6>
+                                <p class="heading-06 text-light">Perfect for individuals looking to create engaging
+                                  content.</p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-starter.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$29</h4>
+                            <p class="fw-bold">3,000 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">18 minutes</p>
+                                      <p class="heading-06 text-light">(2.67 credits/sec → 1080s × 2.67 = ~2,883
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">30 minutes</p>
+                                      <p class="heading-06 text-light">(1.67 credits/sec → 1800s × 1.67 = ~3,006
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">3 hr 40 minutesurs</p>
+                                      <p class="heading-06 text-light">(0.5 credits/sec → 6000s × 0.5 = 3,000 credits)
+                                      </p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Access to all video generation features</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Monthly credits included in your subscription</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Add more credits at any time</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Priority support</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Upgrade to Pro</button>
+                            <p class="small text-light text-center mt-1">Content Creators</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header-popular">
+                            Most Popular
+                          </div>
+                          <div class="card-plans-header bg-primary-light">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Pro</h6>
+                                <p class="heading-06 text-light">For professionals who need more credits and advanced
+                                  features.</p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-creator-pack.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$59</h4>
+                            <p class="fw-bold">5,500 credits included</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">34 minutes</p>
+                                      <p class="heading-06 text-light">(2.67 credits/sec → 2040s × 2.67 = ~5,447
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">55 minutes</p>
+                                      <p class="heading-06 text-light">(1.67 credits/sec → 3300s × 1.67 = ~5,511
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">3 hours</p>
+                                      <p class="heading-06 text-light">(0.5 credits/sec → 10800s × 0.5 = 5,400 credits)
+                                      </p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Everything in Starter, plus:</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Higher priority support</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Advanced editing tools</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Commercial usage rights</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Upgrade to Pro</button>
+                            <p class="small text-light text-center mt-1">Marketing Teams</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Starter</h6>
+                                <p class="heading-06 text-light">The ultimate plan for businesses looking to scale their
+                                  video content.</p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-starter.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$99</h4>
+                            <p class="fw-bold">12,000 credits included</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">1 hour 14 minutes</p>
+                                      <p class="heading-06 text-light">(2.67 credits/sec → 4440s × 2.67 = ~11,855
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">2 hours</p>
+                                      <p class="heading-06 text-light">(1.67 credits/sec → 7200s × 1.67 = ~12,024
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">6 hours 40 minutes</p>
+                                      <p class="heading-06 text-light">(0.5 credits/sec → 24000s × 0.5 = 12,000 credits)
+                                      </p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Everything in Pro, plus:</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Dedicated account manager</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Team collaboration tools</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Custom branding options</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Upgrade to Pro</button>
+                            <p class="small text-light text-center mt-1">Growing Businesses</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row align-items-center g-4 mx-xxl-5 d-none" id="yearlyplans">
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Starter</h6>
+                                <p class="heading-06 text-light">Perfect for individuals looking to create engaging
+                                  content.</p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-starter.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$290
+                              <span class="heading-05 fw-normal text-light">/Year</span>
+
+                              <p
+                                class="heading-02 fw-semibold text-light d-inline-block align-middle text-decoration-line-through ms-4">
+                                $348/year</p>
+                            </h4>
+                            <div class="d-flex align-items-center my-2 gap-3">
+                              <span class="badge bg-success-light text-success border border-success">
+                                2 Months FREE
+                              </span>
+                              <span class="badge bg-success-light text-success border border-success">
+                                Save 17%
+                              </span>
+                            </div>
+                            <p class="fw-bold">36,000 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">18 minutes</p>
+                                      <p class="heading-06 text-light">(2.67 credits/sec → 1080s × 2.67 = ~2,883
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">30 minutes</p>
+                                      <p class="heading-06 text-light">(1.67 credits/sec → 1800s × 1.67 = ~3,006
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">3 hr 40 minutesurs</p>
+                                      <p class="heading-06 text-light">(0.5 credits/sec → 6000s × 0.5 = 3,000 credits)
+                                      </p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Access to all video generation features</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Monthly credits included in your subscription</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Add more credits at any time</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Priority support</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Upgrade to Pro</button>
+                            <p class="small text-light text-center mt-1">Content Creators</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header-popular">
+                            Most Popular
+                          </div>
+                          <div class="card-plans-header bg-primary-light">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Pro</h6>
+                                <p class="heading-06 text-light">For professionals who need more credits and advanced
+                                  features.</p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-creator-pack.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$590
+                              <span class="heading-05 fw-normal text-light">/Year</span>
+
+                              <p
+                                class="heading-02 fw-semibold text-light d-inline-block align-middle text-decoration-line-through ms-4">
+                                $708/year</p>
+                            </h4>
+                            <div class="d-flex align-items-center my-2 gap-3">
+                              <span class="badge bg-success-light text-success border border-success">
+                                2 Months FREE
+                              </span>
+                              <span class="badge bg-success-light text-success border border-success">
+                                Save 17%
+                              </span>
+                            </div>
+                            <p class="fw-bold">66,000 credits/year</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">34 minutes</p>
+                                      <p class="heading-06 text-light">(2.67 credits/sec → 2040s × 2.67 = ~5,447
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">55 minutes</p>
+                                      <p class="heading-06 text-light">(1.67 credits/sec → 3300s × 1.67 = ~5,511
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">3 hours</p>
+                                      <p class="heading-06 text-light">(0.5 credits/sec → 10800s × 0.5 = 5,400 credits)
+                                      </p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Everything in Starter, plus:</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Higher priority support</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Advanced editing tools</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Commercial usage rights</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Upgrade to Pro</button>
+                            <p class="small text-light text-center mt-1">Marketing Teams</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-center gap-2">
+                              <div class="order-sm-1 order-2">
+                                <h6 class="heading-03 fw-semibold mb-1">Starter</h6>
+                                <p class="heading-06 text-light">The ultimate plan for businesses looking to scale their
+                                  video content.</p>
+                              </div>
+                              <div class="ms-sm-auto order-sm-2 order-1 flex-shrink-0">
+                                <img src="icon/icon-plan-starter.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                            </div>
+
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$990
+                              <span class="heading-05 fw-normal text-light">/Year</span>
+
+                              <p
+                                class="heading-02 fw-semibold text-light d-inline-block align-middle text-decoration-line-through ms-4">
+                                $1,188/year</p>
+                            </h4>
+                            <div class="d-flex align-items-center my-2 gap-3">
+                              <span class="badge bg-success-light text-success border border-success">
+                                2 Months FREE
+                              </span>
+                              <span class="badge bg-success-light text-success border border-success">
+                                Save 17%
+                              </span>
+                            </div>
+                            <p class="fw-bold">144,000 credits/year</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">1 hour 14 minutes</p>
+                                      <p class="heading-06 text-light">(2.67 credits/sec → 4440s × 2.67 = ~11,855
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">2 hours</p>
+                                      <p class="heading-06 text-light">(1.67 credits/sec → 7200s × 1.67 = ~12,024
+                                        credits)</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">6 hours 40 minutes</p>
+                                      <p class="heading-06 text-light">(0.5 credits/sec → 24000s × 0.5 = 12,000 credits)
+                                      </p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Everything in Pro, plus:</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Dedicated account manager</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Team collaboration tools</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Custom branding options</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Upgrade to Pro</button>
+                            <p class="small text-light text-center mt-1">Growing Businesses</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="teamsenterprise-tab-pane" role="tabpanel"
+                    aria-labelledby="teamsenterprise-tab" tabindex="0">
+                    <div class="row align-items-center g-4 mx-xxl-5" id="teamsenterpirsemonthlyplans">
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-column gap-2">
+                              <div class="flex-shrink-0">
+                                <img src="icon/icon-plan-pro-team.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                              <div class="">
+                                <h6 class="heading-03 fw-semibold mb-1">Pro Team</h6>
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$249 <span
+                                class="heading-05 fw-normal text-light">/Month</span></h4>
+                            <p class="fw-bold">8,000 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">50 Ultra Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">80 Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">266 Talking Image videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Team access</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Branded templates</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Analytics dashboard</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <p class="heading-06 fw-medium mt-2">Top up anytime with credit packs. Credits never expire.
+                            </p>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Get Pro Team</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header-popular card-plans-header-popular-pill">
+                            Most Popular
+                          </div>
+
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-column gap-2">
+                              <div class="flex-shrink-0">
+                                <img src="icon/icon-plan-agency.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                              <div class="">
+                                <h6 class="heading-03 fw-semibold mb-1">Agency</h6>
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$449 <span
+                                class="heading-05 fw-normal text-light">/Month</span></h4>
+                            <p class="fw-bold">14,400 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">90 Ultra Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">144 Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">480 Talking Image videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Everything in Pro Team</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Priority support</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Export controls</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <p class="heading-06 fw-medium mt-2">Top up anytime with credit packs. Credits never expire.
+                            </p>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Start Team Pro</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-column gap-2">
+                              <div class="flex-shrink-0">
+                                <img src="icon/icon-plan-studio.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                              <div class="">
+                                <h6 class="heading-03 fw-semibold mb-1">Studio</h6>
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$599 <span
+                                class="heading-05 fw-normal text-light">/Month</span></h4>
+                            <p class="fw-bold">19,200 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">120 Ultra Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">192 Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">640 Talking Image videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Everything in Agency</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Early feature access</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Dedicated onboarding</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <p class="heading-06 fw-medium mt-2">Top up anytime with credit packs. Credits never expire.
+                            </p>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Get Studio</button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row align-items-center g-4 mx-xxl-5 d-none" id="teamsenterpirseyearlyplans">
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-column gap-2">
+                              <div class="flex-shrink-0">
+                                <img src="icon/icon-plan-pro-team.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                              <div class="">
+                                <h6 class="heading-03 fw-semibold mb-1">Pro Team</h6>
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$2490 <span
+                                class="heading-05 fw-normal text-light text-decoration-line-through">$2988</span></h4>
+                            <div class="d-flex align-items-center my-2 gap-3">
+                              <span class="heading-05 fw-normal text-light">$208 /month</span>
+                              <span class="badge bg-success-light text-success border border-success">
+                                2 Months FREE
+                              </span>
+                            </div>
+                            <p class="fw-bold">96,000 credits/year</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">50 Ultra Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">80 Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">266 Talking Image videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Team access</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Branded templates</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Analytics dashboard</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <p class="heading-06 fw-medium mt-2">Top up anytime with credit packs. Credits never expire.
+                            </p>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-outline-primary w-100">Get Pro Team</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header-popular card-plans-header-popular-pill">
+                            Most Popular
+                          </div>
+
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-column gap-2">
+                              <div class="flex-shrink-0">
+                                <img src="icon/icon-plan-agency.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                              <div class="">
+                                <h6 class="heading-03 fw-semibold mb-1">Agency</h6>
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$4490 <span
+                                class="heading-05 fw-normal text-light text-decoration-line-through">$5388</span></h4>
+                            <div class="d-flex align-items-center my-2 gap-3">
+                              <span class="heading-05 fw-normal text-light">$374 /month</span>
+                              <span class="badge bg-success-light text-success border border-success">
+                                2 Months FREE
+                              </span>
+                            </div>
+                            <p class="fw-bold">175,800 credits/month</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">90 Ultra Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">144 Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">480 Talking Image videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Everything in Pro Team</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Priority support</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Export controls</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <p class="heading-06 fw-medium mt-2">Top up anytime with credit packs. Credits never expire.
+                            </p>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-outline-primary w-100">Start Team Pro</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-4 d-flex">
+                        <div class="card-plans">
+                          <div class="card-plans-header">
+                            <div class="d-flex flex-column gap-2">
+                              <div class="flex-shrink-0">
+                                <img src="icon/icon-plan-studio.svg" class="img-fluid dark-white" alt="" />
+                              </div>
+                              <div class="">
+                                <h6 class="heading-03 fw-semibold mb-1">Studio</h6>
+                              </div>
+                            </div>
+                            <h4 class="heading-01 fw-bold mb-2 mt-3">$5990 <span
+                                class="heading-05 fw-normal text-light text-decoration-line-through">$7188</span></h4>
+                            <div class="d-flex align-items-center my-2 gap-3">
+                              <span class="heading-05 fw-normal text-light">$449 /month</span>
+                              <span class="badge bg-success-light text-success border border-success">
+                                2 Months FREE
+                              </span>
+                            </div>
+                            <p class="fw-bold">230,400 credits/year</p>
+                          </div>
+                          <div class="card-plans-body">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="icon/icon-enough-for.svg" class="img-fluid dark-white" />
+                              <p>Enough for:</p>
+                            </div>
+
+                            <div class="mt-3">
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-3">
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-video.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Ultra Realistic</p>
+                                      <p class="heading-06">120 Ultra Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-gallery.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Realistic</p>
+                                      <p class="heading-06">192 Realistic videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex gap-2">
+                                    <div class="flex-shrink-0">
+                                      <img src="icon/icon-circle-image.svg" class="img-fluid" />
+                                    </div>
+                                    <div class="d-flex flex-column gap-1">
+                                      <p class="fw-medium">Talking Image</p>
+                                      <p class="heading-06">640 Talking Image videos</p>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="mt-3">
+                              <p class="heading-06 mb-3">Also included:</p>
+                              <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Everything in Agency</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Early feature access</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img src="icon/icon-done-green.svg" class="img-fluid" />
+                                    <p>Dedicated onboarding</p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <p class="heading-06 fw-medium mt-2">Top up anytime with credit packs. Credits never expire.
+                            </p>
+                          </div>
+                          <div class="card-plans-footer">
+                            <button type="button" class="btn btn-primary w-100">Get Studio</button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="bg-primary-light p-4 rounded-4 border border-primary mt-4">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h4 class="heading-01 fw-bold mb-2">Enterprise</h4>
+                              <p class="text-light mb-3">Custom solutions for large organizations with unique needs.</p>
+                            </div>
+
+                            <div class="col-lg-4">
+                              <div class="mt-3">
+                                <p class="heading-06 mb-3">Enterprise features:</p>
+                                <ul class="list-unstyled heading-06 d-flex flex-column gap-2">
+                                  <li>
+                                    <div class="d-flex align-items-center gap-2">
+                                      <img src="icon/icon-done-green.svg" class="img-fluid">
+                                      <p>Unlimited credits</p>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="d-flex align-items-center gap-2">
+                                      <img src="icon/icon-done-green.svg" class="img-fluid">
+                                      <p>Dedicated support team</p>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="d-flex align-items-center gap-2">
+                                      <img src="icon/icon-done-green.svg" class="img-fluid">
+                                      <p>Custom branding</p>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="d-flex align-items-center gap-2">
+                                      <img src="icon/icon-done-green.svg" class="img-fluid">
+                                      <p>Advanced security features</p>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="d-flex align-items-center gap-2">
+                                      <img src="icon/icon-done-green.svg" class="img-fluid">
+                                      <p>Integration with your existing systems</p>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-8">
+                              <div class="row g-3">
+                                <div class="col-lg-6">
+                                  <div class="card-enterprise-bottom">
+                                    <h6 class="heading-03 fw-medium text-primary">Custom Solutions</h6>
+                                    <p class="text-light">We will work with you to create a custom solution that meets
+                                      your specific needs.</p>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="card-enterprise-bottom">
+                                    <h6 class="heading-03 fw-medium text-primary">Dedicated Support</h6>
+                                    <p class="text-light">You will have a dedicated support team to help you with any
+                                      issues you may have.</p>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="card-enterprise-bottom">
+                                    <h6 class="heading-03 fw-medium text-primary">Advanced Security</h6>
+                                    <p class="text-light">We offer advanced security features to protect your data.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-12 text-center">
+                              <div class="mt-4 d-inline-flex mx-auto">
+                                <a href="#" class="btn btn-primary">Contact Us</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>
