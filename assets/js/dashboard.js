@@ -178,6 +178,130 @@ function createVideoStep() {
   updateUI(currentStep);
 }
 
+function initOnboardingCreatorFlow() {
+  const $steps = $(".creator-onboarding-content-item"); // dynamically detect all step items
+  let currentStep = 0;
+
+  const $progressBar = $(".faceclip-video-tabs-progress .progress-bar");
+  const $progressText = $(".faceclip-video-tabs-progress .faceclip-video-progress-step");
+  const $progressCount = $(".faceclip-video-tabs-progress .faceclip-video-progress-count");
+  const $btnSkip = $("#creator-onboarding-button-skip");
+  const $btnPrev = $("#creator-onboarding-button-prev");
+  const $btnNext = $("#creator-onboarding-button-next");
+
+  function renderOnboardingCreatorStep() {
+    $steps.removeClass("show active");
+    $steps.eq(currentStep).addClass("show active");
+
+    const progressPercent = (((currentStep + 1) / $steps.length) * 100).toFixed(2);
+    $progressBar.css("width", `${progressPercent}%`);
+    $progressText.text(`Step ${currentStep + 1} of ${$steps.length}`);
+    $progressCount.text(`${progressPercent}%`);
+
+    $btnSkip.toggle(currentStep === 0);
+    $btnPrev.toggle(currentStep > 0);
+
+    if (currentStep === 0) {
+      $btnNext.hide();
+      $btnPrev.hide();
+      $("#creator-onboarding-button-landing").hide();
+    } else if ($steps.eq(currentStep).attr("id") === "creator-payment-successful-pane") {
+      $btnNext.hide();
+      $btnPrev.hide();
+      $("#creator-onboarding-button-landing").hide();
+
+      // Show the correct payment card
+      if (selectedPlan === "pro") {
+        $(".card-payment-pro").removeClass("d-none");
+        $(".card-payment-platinum").addClass("d-none");
+      } else if (selectedPlan === "platinum") {
+        $(".card-payment-platinum").removeClass("d-none");
+        $(".card-payment-pro").addClass("d-none");
+      }
+    } else if (currentStep === $steps.length - 1) {
+      $btnNext.hide();
+      $("#creator-onboarding-button-landing").show();
+    } else {
+      $btnNext.show();
+      $btnPrev.show();
+      $("#creator-onboarding-button-landing").hide();
+    }
+
+  }
+
+  $btnNext.on("click", function () {
+    if (currentStep < $steps.length - 1) {
+      currentStep++;
+      renderOnboardingCreatorStep();
+    } else {
+      console.log("Final step reached");
+      // Optional: final action here
+    }
+  });
+
+  $btnPrev.on("click", function () {
+    if (currentStep > 0) {
+      currentStep--;
+      renderOnboardingCreatorStep();
+    }
+  });
+
+  $btnSkip.on("click", function () {
+    // currentStep++;
+    // renderOnboardingCreatorStep();
+  });
+
+  $("#continueMyPaymentSetupBtn").on("click", function () {
+    // Move to next step from payment pane
+    currentStep++;
+    renderOnboardingCreatorStep();
+  });
+
+  let selectedPlan = null; // Will be 'starter', 'pro', or 'platinum'
+
+  $(document).on("click", ".card-creator-plan", function () {
+    if (currentStep === 0) {
+      $(".card-creator-plan").removeClass("active");
+      $(this).addClass("active");
+
+      if ($(this).hasClass("card-creator-plan-starter")) {
+        selectedPlan = "starter";
+      } else if ($(this).hasClass("card-creator-plan-pro")) {
+        selectedPlan = "pro";
+      } else if ($(this).hasClass("card-creator-plan-platinum")) {
+        selectedPlan = "platinum";
+      }
+
+      setTimeout(() => {
+        if (selectedPlan === "starter") {
+          currentStep = $("#creator-basevideo-tab-pane").index();
+        } else {
+          currentStep = $("#creator-payment-successful-pane").index();
+        }
+
+        renderOnboardingCreatorStep();
+      }, 500);
+    }
+
+    // Update navbar creator text and dot color
+    const $navbarCreatorText = $("#navbar-creator-text");
+    $navbarCreatorText.removeClass("bg-purple bg-primary bg-danger"); // Remove old color
+
+    if ($(this).hasClass("card-creator-plan-starter")) {
+      selectedPlan = "starter";
+      $navbarCreatorText.html('<span class="p-1 bg-purple rounded-circle"></span> Starter Creator');
+    } else if ($(this).hasClass("card-creator-plan-pro")) {
+      selectedPlan = "pro";
+      $navbarCreatorText.html('<span class="p-1 bg-primary rounded-circle"></span> Pro Creator');
+    } else if ($(this).hasClass("card-creator-plan-platinum")) {
+      selectedPlan = "platinum";
+      $navbarCreatorText.html('<span class="p-1 bg-danger rounded-circle"></span> Platinum Creator');
+    }
+  });
+
+  renderOnboardingCreatorStep(); // Initial load
+}
+
 $(document).ready(function () {
 
   if ($(".faceclip-add-image-list").length > 0) {
@@ -613,6 +737,7 @@ $(document).ready(function () {
   initVoiceRecordingUI();
   initOnboardingFlow();
   createVideoStep();
+  initOnboardingCreatorFlow();
 });
 
 /* VOULUM */

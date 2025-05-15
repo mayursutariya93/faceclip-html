@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>united Video - AI Video Editor</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/fav/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI for draggable functionality -->
+  <script src="assets/js/jquery-ui.min.js"></script>
+</head>
+
+<body class="">
+  <div class="header-top">
+    <nav class="navbar navbar-expand-lg py-0" aria-label="Navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/logo.svg" class="img-fluid" alt="Logo">
+        </a>
+
+        <p id="navbar-creator-text" class="heading-06 d-flex align-items-center gap-1 fw-semibold me-auto">
+          <span class="p-1 bg-purple rounded-circle"></span>
+          Starter Creator
+        </p>
+
+        <div class="dropdown">
+          <button class="btn border-0 d-flex align-items-center p-0 ms-auto mn-width-auto" type="button"
+            id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="me-2 text-start d-lg-block d-none">
+              <div class="fw-medium mb-1">John Doe</div>
+              <div class="small text-light">john.doe@example.com</div>
+            </div>
+            <div class="rounded-circle bg-primary-light border d-flex align-items-center justify-content-center"
+              style="width: 40px; height: 40px;">
+              <span class="text-black fw-bold">JD</span>
+            </div>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item text-danger" href="sign-in.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="section-onboarding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="faceclip-video-tabs-progress mw-100 d-block">
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+              <p class="small text-light faceclip-video-progress-step">Step 1 of 4</p>
+              <p class="small text-light faceclip-video-progress-count">33.33%</p>
+            </div>
+            <div class="progress progress-lg w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+              aria-valuemax="100">
+              <div class="progress-bar" style="width: 33.3333%;"></div>
+            </div>
+          </div>
+
+          <div class="creator-onboarding-tab-content tab-content mt-5" id="creator-onboardingTabContent">
+            <div class="creator-onboarding-content-item tab-pane fade show active" id="creator-plan-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center mb-lg-5 mb-4">
+                    <h3 class="heading-01 fw-bold mb-2">Choose Your Creator Plan</h3>
+                    <h5 class="heading-05 fw-normal text-light mb-2">Select the plan that fits your style and start
+                      earning today.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gy-4">
+                <div class="col-lg-4 d-flex">
+                  <div class="card-creator-plan card-creator-plan-starter">
+                    <div class="card-creator-plan-header">
+                      <p class="fw-bold d-flex align-items-center gap-2">
+                        <span class="p-1 bg-purple rounded-circle"></span>
+                        Starter
+                      </p>
+                      <h6 class="heading-02 fw-bold my-3">Free</h6>
+                    </div>
+                    <div class="card-creator-plan-body">
+                      <p class="text-light mb-4">Perfect for testing or casual creators</p>
+
+                      <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Upload up to 2 video templates
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Default license fee: $10 per user
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            You earn: $5 per video created
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            FaceClip takes 30% platform fee
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Ideal if you're just getting started
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-creator-plan-footer">
+                      <button type="button" id="getStartedFreeBtn" class="btn btn-sm btn-outline-light w-100">Get
+                        Started Free</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 d-flex">
+                  <div class="card-creator-plan card-creator-plan-pro">
+                    <div class="card-creator-plan-header">
+                      <p class="fw-bold d-flex align-items-center gap-2">
+                        <span class="p-1 bg-primary rounded-circle"></span>
+                        Pro
+                      </p>
+                      <h6 class="heading-02 fw-bold my-3">$50<span class="heading-05 text-light fw-normal">/month</span>
+                      </h6>
+                    </div>
+                    <div class="card-creator-plan-body">
+                      <p class="text-light mb-4">Designed for serious creators ready to earn</p>
+
+                      <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Upload up to 10 video templates
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Set your own license fee (e.g. $25–$99)
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Earn $5–$25 per video depending on usage
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            You keep 70% of every license sale
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Recommended for creators who want to grow
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-creator-plan-footer">
+                      <button type="button" id="getStartedProBtn" class="btn btn-sm btn-primary w-100">Upgrade to
+                        Pro</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 d-flex">
+                  <div class="card-creator-plan card-creator-plan-platinum">
+                    <div class="card-creator-plan-header">
+                      <p class="fw-bold d-flex align-items-center gap-2">
+                        <span class="p-1 bg-darnger rounded-circle"></span>
+                        Platinum
+                      </p>
+                      <h6 class="heading-02 fw-bold my-3">$99<span class="heading-05 text-light fw-normal">/month</span>
+                      </h6>
+                    </div>
+                    <div class="card-creator-plan-body">
+                      <p class="text-light mb-4">Maximize your earnings and creative freedom</p>
+
+                      <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Upload up to 2 video templates
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Default license fee: $10 per user
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            You earn: $5 per video created
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            FaceClip takes 30% platform fee
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="" />
+                            Ideal if you're just getting started
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-creator-plan-footer">
+                      <button type="button" id="getStartedPlatinumBtn"
+                        class="btn btn-sm btn-outline-secondary w-100">Get Platinum</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="creator-onboarding-content-item tab-pane fade show active" id="creator-payment-successful-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <div class="icon mb-4">
+                      <img src="icon/icon-circle-done-lg.svg" class="img-fluid" alt="" />
+                    </div>
+                    <h3 class="heading-01 fw-bold mb-2">Payment Successful!</h3>
+                    <h5 class="heading-05 fw-normal text-light mb-2">Your account has been upgraded to the Pro plan.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-7 mx-auto">
+                  <div class="card card-payment card-payment-pro my-4 text-center">
+                    <div class="card-header p-3">
+                      <div class="icon d-flex align-items-center justify-content-center gap-3">
+                        <img src="icon/icon-payment-card.svg" class="img-fluid" alt="" />
+
+                        <p class="heading-03 fw-semibold">Pro Plan - $50/month</p>
+                      </div>
+                    </div>
+                    <div class="card-body p-4">
+                      <h6 class="heading-04 fw-semibold mb-3">Your plan includes:</h6>
+
+                      <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Upload up to 10 video templates
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Set your own license fees
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Earn $5-$25 per video depending on usage
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Keep 70% of every license sale
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Priority support
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="card card-payment card-payment-platinum my-4 text-center d-none">
+                    <div class="card-header p-3">
+                      <div class="icon d-flex align-items-center justify-content-center gap-3">
+                        <img src="icon/icon-payment-card.svg" class="img-fluid" alt="" />
+
+                        <p class="heading-03 fw-semibold">Platinum Plan - $99/month</p>
+                      </div>
+                    </div>
+                    <div class="card-body p-4">
+                      <h6 class="heading-04 fw-semibold mb-3">Your plan includes:</h6>
+
+                      <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Upload unlimited video templates
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Charge any license fee you want
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Highest earning potential
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Priority placement in marketplace
+                          </div>
+                        </li>
+
+                        <li>
+                          <div class="d-flex align-items-center gap-2 justify-content-center">
+                            <img src="icon/icon-done-green.svg" class="img-fluid" width="20" alt="">
+                            Dedicated account manager
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 text-center">
+                    <button type="button" id="continueMyPaymentSetupBtn" class="btn btn-primary mx-auto">Continue
+                      Setup</button>
+                  </div>
+                  <p class="text-light text-center mt-3">Let's finish setting up your creator profile to start earning.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="creator-onboarding-content-item tab-pane fade" id="creator-basevideo-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <h3 class="heading-01 fw-bold mb-2">Upload Your Video</h3>
+                    <p class="text-light">Record or upload a short video of yourself to generate content with</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <p class="text-center text-primary mt-3 mb-4">See video examples </p>
+                </div>
+              </div>
+
+              <div class="row gy-3">
+                <div class="col-lg-4 d-flex">
+                  <div class="card card-your-face">
+                    <div class="card-body text-center">
+                      <div class="card-your-face-icon">
+                        <img src="icon/icon-video-lg.svg" class="img-fluid" width="24" alt="" />
+                      </div>
+                      <p class="fw-semibold mt-3">Record Video</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 d-flex">
+                  <div class="card card-your-face card-your-face-upload">
+                    <div class="card-body text-center" id="card-your-face-uploaded">
+                      <div class="card-your-face-icon">
+                        <img src="icon/icon-circle-upload.svg" class="img-fluid" width="40" alt="" />
+                      </div>
+                      <p class="heading-03 fw-semibold mt-4">Upload Video File</p>
+
+                      <p class="heading-06 fw-medium text-light mt-3">Upload a good quality video where you
+                        are in focus.</p>
+
+                      <div class="mt-3">
+                        <button type="button" class="btn btn-primary w-100">
+                          <input type="file" id="card-your-face-upload" accept="video/*" />
+                          <img src="icon/icon-upload.svg" class="img-fluid" alt="" />
+                          Upload Base Video
+                        </button>
+                      </div>
+
+                      <p class="small text-light mt-3">Supports MP4, MOV, WEBM (max 100MB)</p>
+                    </div>
+                    <!-- <div class="card-body d-none" id="card-your-face-upload-preview">
+                      <div class="ratio ratio-16x9 overflow-hidden rounded-3">
+                        <video controls>
+                          <source src="assets/video/video1.mp4" type="video/mp4">
+                          <source src="assets/video/video1.mp4" type="video/ogg">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <div class="mt-3">
+                        <button type="button" class="btn btn-sm btn-outline-secondary w-100" id="btnremoveuploadvideo">
+                          Choose Another Video
+                        </button>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+
+                <div class="col-lg-4 d-flex">
+                  <div class="card card-your-face">
+                    <div class="card-body text-center">
+                      <div class="card-your-face-icon">
+                        <img src="icon/icon-qr.svg" class="img-fluid" width="24" alt="" />
+                      </div>
+                      <p class="fw-semibold mt-3">Scan QR Code</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card-warning mt-4">
+                    <h5 class="heading-03 text-dark fw-semibold mb-0">Pro Tips :</h5>
+                    <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                      <li>Position yourself in the center of the frame</li>
+                      <li>Ensure your face is well-lit, preferably with natural light</li>
+                      <li>Choose a clean, uncluttered background</li>
+                      <li>Test your audio to ensure clear sound quality</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="creator-onboarding-content-item tab-pane fade" id="creator-creatormarketplace-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <h3 class="heading-01 fw-bold mb-2">Your base video is ready</h3>
+                    <p class="text-light">You can now create personalized videos using your face and voice.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <p class="text-center text-primary mt-3 mb-4">See video examples </p>
+                </div>
+              </div>
+
+              <div class="row justify-content-center gy-3">
+                <div class="col-lg-5 d-flex">
+                  <div class="w-100">
+                    <p class="heading-04 fw-semibold mb-3">Your Video</p>
+
+                    <div class="card border-0">
+                      <div class="card-body p-0">
+                        <div class="ratio ratio-16x9 overflow-hidden rounded-4">
+                          <video controls>
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                            <source src="assets/video/video1.mp4" type="video/ogg">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-5 d-flex">
+                  <div class="w-100">
+                    <p class="heading-04 fw-semibold mb-3">Your Voice</p>
+
+                    <div class="card card-your-voice">
+                      <div class="card-body">
+                        <div class="icon text-center">
+                          <img src="icon/icon-volumn-lg.svg" class="img-fluid" alt="" />
+                        </div>
+                        <p class="heading-06 my-3 text-center">Listen to your voice sample</p>
+
+                        <div class="audio-player">
+                          <button class="play-btn">▶</button>
+
+                          <span class="small text-light flex-shrink-0">0:00 / 0:00</span>
+
+                          <div class="progress w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <div class="progress-bar" style="width: 0%"></div>
+                          </div>
+
+                          <button class="volume-btn flex-shrink-0">
+                            <img src="icon/icon-volumn-alt.svg" class="img-fluid" alt="Volume Icon">
+                          </button>
+
+                          <button class="dots-btn flex-shrink-0">
+                            <img src="icon/icon-dots.svg" class="img-fluid" alt="Volume Icon">
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="creator-onboarding-content-item tab-pane fade" id="creator-licencesetting-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <h3 class="heading-01 fw-bold mb-2">Submit to Creator Marketplace</h3>
+                    <p class="text-light">Just a few more settings before your video template goes live.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="creator-onboarding-content-item tab-pane fade" id="creator-templete-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <div class="icon mb-4">
+                      <img src="icon/icon-circle-done-lg.svg" class="img-fluid" alt="" />
+                    </div>
+                    <h3 class="heading-01 fw-bold mb-2">Template Created Successfully!</h3>
+                    <h5 class="heading-05 fw-normal text-light mb-2">Your video template has been uploaded and is now
+                      available in the FaceClip marketplace.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="my-4 text-center">
+                <h6 class="heading-03 fw-semibold mb-3">Your Starter Plan Details</h6>
+
+                <ul class="d-inline-flex justify-content-center flex-column gap-2 text-start">
+                  <li class="fw-medium">Video templates: <span class="fw-normal text-light">Up to 2 templates</span>
+                  </li>
+                  <li class="fw-medium">License fee: <span class="fw-normal text-light">$10 (default)</span></li>
+                  <li class="fw-medium">Per-video fee: <span class="fw-normal text-light">$5 (default)</span></li>
+                  <li class="fw-medium">Your earnings: <span class="fw-normal text-light">$7 per license, $3.50 per
+                      video</span></li>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="row">
+                <div class="col-xxl-8 mx-auto">
+                  <div class="d-flex align-items-center justify-content-center flex-lg-nowrap flex-wrap gap-3">
+                    <button type="button" class="btn btn-primary w-100">View Your Creator Page</button>
+                    <button type="button" class="btn btn-outline-secondary w-100">Upload Another Template</button>
+                    <button type="button" class="btn btn-outline-light w-100">
+                      <img src="icon/icon-dashboard.svg" class="img-fluid" alt="" />
+                      Go to Dashboard
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-lg-5 mx-auto">
+                  <div class="card text-center mt-4">
+                    <div class="card-body p-4">
+                      <h5 class="heading-05 fw-semibold mb-3">Promote Your Creator Profile</h5>
+
+                      <div class="heading-06 text-light text-truncate p-2 rounded-3 border">
+                        https://preview--faceclip-speak-easy-videos.lovable.app/creators/my-profile</div>
+
+                      <div class="mt-3 text-center">
+                        <button class="btn btn-outline-light mx-auto">Copy Link</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <div class="onboarding-button d-flex align-items-center justify-content-center gap-3 mt-lg-5 mt-4">
+              <button id="creator-onboarding-button-prev" type="button" class="btn btn-outline-secondary">
+                Back
+              </button>
+
+              <button id="creator-onboarding-button-next" type="button" class="btn btn-primary">
+                Continue
+                <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">
+              </button>
+
+              <a id="creator-onboarding-button-landing" href="dashboard-user-create-video.html" class="btn btn-primary"
+                style="display: none;">
+                Create my first video <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src=" assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>
