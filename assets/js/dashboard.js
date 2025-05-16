@@ -178,7 +178,7 @@ function createVideoStep() {
   updateUI(currentStep);
 }
 
-function initOnboardingCreatorFlow() {
+/*function initOnboardingCreatorFlow() {
   const $steps = $(".creator-onboarding-content-item"); // dynamically detect all step items
   let currentStep = 0;
 
@@ -300,6 +300,163 @@ function initOnboardingCreatorFlow() {
   });
 
   renderOnboardingCreatorStep(); // Initial load
+}*/
+
+function initOnboardingCreatorFlow() {
+  const $steps = $(".creator-onboarding-content-item");
+  let currentStep = 0;
+  let selectedPlan = null;
+
+  const planFlows = {
+    starter: [
+      "creator-plan-tab-pane",
+      "creator-basevideo-tab-pane",
+      "creator-creatormarketplace-tab-pane",
+      "creator-licencesetting-tab-pane",
+      "creator-templete-tab-pane"
+    ],
+    pro: [
+      "creator-plan-tab-pane",
+      "creator-payment-successful-pane",
+      "creator-basevideo-tab-pane",
+      "creator-creatormarketplace-tab-pane",
+      "creator-videoprice-tab-pane",
+      "creator-licencesetting-tab-pane",
+      "creator-templete-tab-pane"
+    ],
+    platinum: [
+      "creator-plan-tab-pane",
+      "creator-payment-successful-pane",
+      "creator-basevideo-tab-pane",
+      "creator-creatormarketplace-tab-pane",
+      "creator-videoprice-tab-pane",
+      "creator-licencesetting-tab-pane",
+      "creator-templete-tab-pane"
+    ]
+  };
+
+  let activeFlow = [];
+
+  const $progressBar = $(".faceclip-video-tabs-progress .progress-bar");
+  const $progressText = $(".faceclip-video-tabs-progress .faceclip-video-progress-step");
+  const $progressCount = $(".faceclip-video-tabs-progress .faceclip-video-progress-count");
+  const $btnSkip = $("#creator-onboarding-button-skip");
+  const $btnPrev = $("#creator-onboarding-button-prev");
+  const $btnNext = $("#creator-onboarding-button-next");
+
+  function renderOnboardingCreatorStep() {
+    const currentId = activeFlow[currentStep];
+
+    $steps.removeClass("show active");
+    $("#" + currentId).addClass("show active");
+
+    const progressPercent = (((currentStep + 1) / activeFlow.length) * 100).toFixed(2);
+    $progressBar.css("width", `${progressPercent}%`);
+    $progressText.text(`Step ${currentStep + 1} of ${activeFlow.length}`);
+    $progressCount.text(`${progressPercent}%`);
+
+    $btnSkip.toggle(currentStep === 0);
+    $btnPrev.toggle(currentStep > 0);
+
+    if (currentStep === 0) {
+      $btnNext.hide();
+      $btnPrev.hide();
+      $("#creator-onboarding-button-landing").hide();
+    } else if (currentId === "creator-payment-successful-pane") {
+      $btnNext.hide();
+      $btnPrev.hide();
+      $("#creator-onboarding-button-landing").hide();
+
+      // Show the correct payment card
+      if (selectedPlan === "pro") {
+        $(".card-payment-pro").removeClass("d-none");
+        $(".card-payment-platinum").addClass("d-none");
+      } else if (selectedPlan === "platinum") {
+        $(".card-payment-platinum").removeClass("d-none");
+        $(".card-payment-pro").addClass("d-none");
+      }
+    } else if (currentStep === activeFlow.length - 1) {
+      $btnNext.hide();
+      $("#creator-onboarding-button-landing").show();
+    } else {
+      $btnNext.show();
+      $btnPrev.show();
+      $("#creator-onboarding-button-landing").hide();
+    }
+  }
+
+  $btnNext.on("click", function () {
+    if (currentStep < activeFlow.length - 1) {
+      currentStep++;
+      renderOnboardingCreatorStep();
+    }
+  });
+
+  $btnPrev.on("click", function () {
+    if (currentStep > 0) {
+      currentStep--;
+      renderOnboardingCreatorStep();
+    }
+  });
+
+  $("#continueMyPaymentSetupBtn").on("click", function () {
+    if (currentStep < activeFlow.length - 1) {
+      currentStep++;
+      renderOnboardingCreatorStep();
+    }
+  });
+
+  $(document).on("click", ".card-creator-plan", function () {
+    if (currentStep === 0) {
+      $(".card-creator-plan").removeClass("active");
+      $(this).addClass("active");
+
+      if ($(this).hasClass("card-creator-plan-starter")) {
+        selectedPlan = "starter";
+      } else if ($(this).hasClass("card-creator-plan-pro")) {
+        selectedPlan = "pro";
+      } else if ($(this).hasClass("card-creator-plan-platinum")) {
+        selectedPlan = "platinum";
+      }
+
+      // Navbar update
+      const $navbarCreatorText = $("#navbar-creator-text");
+      $navbarCreatorText.removeClass("bg-purple bg-primary bg-danger");
+
+      if (selectedPlan === "starter") {
+        $navbarCreatorText.html('<span class="p-1 bg-purple rounded-circle"></span> Starter Creator');
+      } else if (selectedPlan === "pro") {
+        $navbarCreatorText.html('<span class="p-1 bg-primary rounded-circle"></span> Pro Creator');
+      } else if (selectedPlan === "platinum") {
+        $navbarCreatorText.html('<span class="p-1 bg-danger rounded-circle"></span> Platinum Creator');
+      }
+
+      // Load correct flow
+      activeFlow = planFlows[selectedPlan] || [];
+      setTimeout(() => {
+        currentStep = 1; // Always move to next step after plan selection
+        renderOnboardingCreatorStep();
+      }, 500);
+    }
+  });
+
+  // Set default flow for initial load
+  activeFlow = planFlows["starter"];
+  renderOnboardingCreatorStep();
+}
+
+function setupTabSwitching() {
+  $('#nextaddTagsBtn').on('click', function () {
+    $('#addTags-tab').tab('show');
+  });
+
+  $('#nextfinalConfimrationBtn').on('click', function () {
+    $('#finalConfirmation-tab').tab('show');
+  });
+
+  $('#nextPublishBtn').on('click', function () {
+    $("#creator-onboarding-button-next").trigger("click");
+  });
 }
 
 $(document).ready(function () {
@@ -728,15 +885,16 @@ $(document).ready(function () {
         $("#creator-creatormarketplace-tab-pane .ratio").html($videoHTML);
         $("#onboarding-yourprofile-tab-pane .ratio").html($videoHTML);
 
-        // Find the current visible tab-pane
-        const $currentPane = $(".tab-pane.active");
-        const $nextPane = $currentPane.nextAll(".tab-pane").first();
+        $("#onboarding-button-next").trigger("click");
+        $("#creator-onboarding-button-next").trigger("click");
 
-        if ($nextPane.length > 0) {
-          // Hide current and show next
-          $currentPane.removeClass("show active");
-          $nextPane.addClass("show active");
-        }
+        // const $currentPane = $(".tab-pane.active");
+        // const $nextPane = $currentPane.nextAll(".tab-pane").first();
+
+        // if ($nextPane.length > 0) {
+        //   $currentPane.removeClass("show active");
+        //   $nextPane.addClass("show active");
+        // }
       }
     });
   }
@@ -799,6 +957,7 @@ $(document).ready(function () {
   initOnboardingFlow();
   createVideoStep();
   initOnboardingCreatorFlow();
+  setupTabSwitching();
 });
 
 /* VOULUM */
