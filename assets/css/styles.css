@@ -55,6 +55,7 @@
   --bs-purple-light: #FAF5FF;
   --bs-sky-light: #EAF3FE;
   --bs-orange-dark: #FB923C;
+  --bs-warning-light: #FDF8E7;
   --bs-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
@@ -311,6 +312,10 @@ input[type="file"] {
 
 .bg-warning {
   background-color: var(--warning-bg) !important;
+}
+
+.bg-warning-light {
+  background-color: var(--bs-warning-light) !important;
 }
 
 .bg-grey {

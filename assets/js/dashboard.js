@@ -710,6 +710,67 @@ $(document).ready(function () {
   }
   /* SELECT VOICE IN CREATE VIDEO */
 
+  if ($("#card-your-face-upload").length > 0) {
+    $("#card-your-face-upload").on("change", function (e) {
+      const file = e.target.files[0];
+
+      if (file && file.type.startsWith("video/")) {
+        const videoURL = URL.createObjectURL(file);
+
+        // Inject video into the next step containers
+        const $videoHTML = `
+        <video controls class="w-100 rounded-4">
+          <source src="${videoURL}" type="${file.type}">
+          Your browser does not support the video tag.
+        </video>
+      `;
+
+        $("#creator-creatormarketplace-tab-pane .ratio").html($videoHTML);
+        $("#onboarding-yourprofile-tab-pane .ratio").html($videoHTML);
+
+        // Find the current visible tab-pane
+        const $currentPane = $(".tab-pane.active");
+        const $nextPane = $currentPane.nextAll(".tab-pane").first();
+
+        if ($nextPane.length > 0) {
+          // Hide current and show next
+          $currentPane.removeClass("show active");
+          $nextPane.addClass("show active");
+        }
+      }
+    });
+  }
+
+  if ($(".range-slider").length > 0) {
+    $(".range-slider").each(function () {
+      const $this = $(this);
+      const start = parseInt($this.data("start")) || 0;
+      const min = parseInt($this.data("min")) || 0;
+      const max = parseInt($this.data("max")) || 100;
+
+      const $valueInput = $this.closest(".slider-group").find(".slider-value");
+
+      $this.slider({
+        value: start,
+        min: min,
+        max: max,
+        range: "min", // 🔥 This is the key
+        slide: function (event, ui) {
+          $valueInput.val(ui.value);
+        }
+      });
+
+      $valueInput.val(start);
+    });
+  }
+
+  if ($(".tag-list").length > 0) {
+    $(document).on("click", ".tag-item li", function () {
+      $(this).toggleClass("active");
+    });
+  }
+
+
   function togglePlans(switchId, monthlyId, yearlyId) {
     const isChecked = $(switchId).is(':checked');
     if (isChecked) {

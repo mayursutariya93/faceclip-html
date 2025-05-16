@@ -184,7 +184,7 @@
 
               <div class="row gy-3">
                 <div class="col-lg-4 d-flex">
-                  <div class="card card-your-face">
+                  <div class="card card-your-face" data-bs-toggle="modal" data-bs-target="#recordYourBaseVideoContent">
                     <div class="card-body text-center">
                       <div class="card-your-face-icon">
                         <img src="icon/icon-video-lg.svg" class="img-fluid" width="24" alt="" />
@@ -233,7 +233,7 @@
                 </div>
 
                 <div class="col-lg-4 d-flex">
-                  <div class="card card-your-face">
+                  <div class="card card-your-face" data-bs-toggle="modal" data-bs-target="#recordYourBaseVideoQR">
                     <div class="card-body text-center">
                       <div class="card-your-face-icon">
                         <img src="icon/icon-qr.svg" class="img-fluid" width="24" alt="" />
@@ -355,6 +355,141 @@
                 style="display: none;">
                 Create my first video <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">
               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideoContent" tabindex="-1"
+    aria-labelledby="recordYourBaseVideoContentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoContentLabel">Record Your Base Video </h4>
+        </div>
+        <div class="modal-body py-0">
+          <div class="card border-danger">
+            <div class="card-body">
+              <p class="fw-semibold">Camera Access Error </p>
+              <p class="text-light my-3">Camera stream not available. Please ensure you've granted camera permission</p>
+              <button type="button" class="btn btn-sm bg-white border-danger text-danger" id="btnallowcameraaccess">
+                <img src="icon/icon-reload-danger.svg" class="img-fluid" alt="">
+                Retry Camera Access</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center border-0">
+          <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+            data-bs-target="#recordYourBaseVideo">
+            <img src="icon/icon-camera-white.svg" class="img-fluid" alt="">
+            Start Recording</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideo" tabindex="-1" aria-labelledby="recordYourBaseVideoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoLabel">Record Your Base Video </h4>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="card border-0">
+            <div class="card-body p-0">
+              <div class="ratio ratio-16x9">
+                <img src="assets/images/image06.png" class="img-fluid" alt="">
+              </div>
+              <div class="position-absolute top-50 start-50 translate-middle">
+                <button type="button" class="btn btn-sm btn-primary">
+                  <img src="icon/icon-camera-white.svg" class="img-fluid" alt="">
+                  Start Recording</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideoQR" tabindex="-1" aria-labelledby="recordYourBaseVideoQRLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoQRLabel">Scan QR Code to Record
+            <p class="heading-06 text-light fw-normal">Use your phone camera to scan this QR code and record with your
+              mobile camera</p>
+          </h4>
+          <button type="button" class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="text-center">
+                <div class="qr-code-image">
+                  <img src="assets/images/qr.png" class="img-fluid" alt="">
+                </div>
+                <p class="heading-06 text-light mt-4 mb-3">Scan this QR code with your phone's camera</p>
+                <button type="button" class="btn btn-sm btn-primary w-100" disabled>
+                  <img src="icon/icon-refresh-white.svg" class="img-fluid" alt="">
+                  Check for Video
+                </button>
+                <div class="mb-4">
+                  <p class="heading-06 mt-3 mb-2">Waiting for recording...</p>
+                  <div class="progress progress-lg w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100">
+                    <div class="progress-bar" style="width: 33.3333%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="p-3 border border-danger rounded-3 text-danger">
+                <h6 class="heading-05 fw-semibold d-flex align-items-center gap-2">
+                  <img src="icon/icon-warning-red.svg" class="img-fluid" alt="">
+                  Error
+                </h6>
+                <p class="heading-06">Error checking for video: TypeError: Failed to fetch</p>
+              </div>
+
+              <div class="mt-4">
+                <h5 class="heading-05 fw-semibold mb-0">How to record:</h5>
+                <ol class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Open your phone's camera app</li>
+                  <li>Point at this QR code</li>
+                  <li>Tap the notification to open the link</li>
+                  <li>Allow camera and microphone permissions when prompted</li>
+                  <li>Record your video</li>
+                  <li>Tap upload after recording</li>
+                </ol>
+              </div>
+
+              <div class="card-warning p-3 mt-4">
+                <h5 class="heading-05 text-dark fw-semibold mb-0">If you're having permission issues:</h5>
+                <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Check that your browser supports camera access</li>
+                  <li>Make sure permissions are enabled in your phone settings</li>
+                  <li>Try using Chrome or Safari on your mobile device</li>
+                  <li>Some mobile browsers have restrictions on camera access</li>
+                </ul>
+              </div>
+
+              <div class="card-primary p-3 mt-4">
+                <h5 class="heading-05 text-dark fw-semibold mb-0">Tips for best results:</h5>
+                <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Position yourself in the center of the frame</li>
+                  <li>Ensure your face is well-lit, preferably with natural light</li>
+                  <li>Choose a clean, uncluttered background</li>
+                  <li>Test your audio to ensure clear sound quality</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

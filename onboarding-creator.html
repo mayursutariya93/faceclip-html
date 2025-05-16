@@ -18,6 +18,7 @@
 
   <!-- Bootstrap 5 CSS -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/jquery-ui.css" rel="stylesheet">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -267,7 +268,7 @@
               </div>
             </div>
 
-            <div class="creator-onboarding-content-item tab-pane fade show active" id="creator-payment-successful-pane">
+            <div class="creator-onboarding-content-item tab-pane fade" id="creator-payment-successful-pane">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="text-center">
@@ -410,7 +411,7 @@
 
               <div class="row gy-3">
                 <div class="col-lg-4 d-flex">
-                  <div class="card card-your-face">
+                  <div class="card card-your-face" data-bs-toggle="modal" data-bs-target="#recordYourBaseVideoContent">
                     <div class="card-body text-center">
                       <div class="card-your-face-icon">
                         <img src="icon/icon-video-lg.svg" class="img-fluid" width="24" alt="" />
@@ -441,25 +442,11 @@
 
                       <p class="small text-light mt-3">Supports MP4, MOV, WEBM (max 100MB)</p>
                     </div>
-                    <!-- <div class="card-body d-none" id="card-your-face-upload-preview">
-                      <div class="ratio ratio-16x9 overflow-hidden rounded-3">
-                        <video controls>
-                          <source src="assets/video/video1.mp4" type="video/mp4">
-                          <source src="assets/video/video1.mp4" type="video/ogg">
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-                      <div class="mt-3">
-                        <button type="button" class="btn btn-sm btn-outline-secondary w-100" id="btnremoveuploadvideo">
-                          Choose Another Video
-                        </button>
-                      </div>
-                    </div> -->
                   </div>
                 </div>
 
                 <div class="col-lg-4 d-flex">
-                  <div class="card card-your-face">
+                  <div class="card card-your-face" data-bs-toggle="modal" data-bs-target="#recordYourBaseVideoQR">
                     <div class="card-body text-center">
                       <div class="card-your-face-icon">
                         <img src="icon/icon-qr.svg" class="img-fluid" width="24" alt="" />
@@ -556,12 +543,516 @@
               </div>
             </div>
 
+            <div class="creator-onboarding-content-item tab-pane fade" id="creator-videoprice-tab-pane">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="text-center mb-5">
+                    <h3 class="heading-01 fw-bold mb-2">Set Your Pricing</h3>
+                    <p class="text-light">As a Pro creator, you can customize how much you earn from your video
+                      templates.</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-10 mx-auto">
+                  <div class="row">
+                    <div class="col-lg-7">
+                      <form autocomplete="off">
+                        <div class="mb-4">
+                          <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                            <label class="form-label">License Fee (min $10)</label>
+                            <span class="badge bg-primary-light text-primary">Unlimited pricing</span>
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text bg-white border-end-0">$</span>
+                            <input type="text" placeholder="Enter License Fee" value="10"
+                              class="form-control ps-0 border-start-0">
+                          </div>
+                        </div>
+
+                        <div class="mb-4">
+                          <p class="text-light">This is what users pay once to unlock your video style</p>
+                        </div>
+
+                        <div class="mb-4">
+                          <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                            <label class="form-label">Per-Video Use Fee (min $5)</label>
+                            <span class="badge bg-primary-light text-primary">Unlimited pricing</span>
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text bg-white border-end-0">$</span>
+                            <input type="text" placeholder="Enter License Fee" value="5"
+                              class="form-control ps-0 border-start-0">
+                          </div>
+                        </div>
+
+                        <div class="mb-4">
+                          <p class="text-light">This is what users pay each time they generate a video using your style
+                          </p>
+                        </div>
+
+                        <div class="">
+                          <button type="button" class="btn btn-primary w-100">Save Pricing & Continue</button>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="card shadow">
+                        <div class="card-body p-4">
+                          <h6 class="heading-03 fw-semibold mb-3">Your Earnings Preview</h6>
+
+                          <ul class="list-unstyled d-flex flex-column gap-2 mb-4">
+                            <li class="border-bottom d-flex align-items-center justify-content-between gap-1 py-2">
+                              <span class="heading-04 text-light fw-semibold">License Fee</span>
+                              <span class="heading-06 text-light fw-medium">$10.00</span>
+                            </li>
+                            <li class="border-bottom d-flex align-items-center justify-content-between gap-1 py-2">
+                              <span class="heading-04 text-light fw-semibold">Platform Commission (30%)</span>
+                              <span class="heading-06 text-light fw-medium">- $3.00</span>
+                            </li>
+                            <li class="d-flex align-items-center justify-content-between gap-1 py-2">
+                              <span class="heading-04 text-dark fw-semibold">Your License Earnings</span>
+                              <span class="heading-06 text-success fw-medium">$7.00</span>
+                            </li>
+                            <li class="border-bottom d-flex align-items-center justify-content-between gap-1 py-2">
+                              <span class="heading-04 text-light fw-semibold">Per-Video Use Fee</span>
+                              <span class="heading-06 fw-medium">$5.00</span>
+                            </li>
+                            <li class="border-bottom d-flex align-items-center justify-content-between gap-1 py-2">
+                              <span class="heading-04 text-light fw-semibold">Platform Commission (30%)</span>
+                              <span class="heading-06 text-light fw-medium">-$1.50</span>
+                            </li>
+                            <li class="d-flex align-items-center justify-content-between gap-1 py-2">
+                              <span class="heading-04 text-dark fw-semibold">Your Per-Video Earnings</span>
+                              <span class="heading-06 text-success fw-medium">$3.50</span>
+                            </li>
+                          </ul>
+
+                          <div class="card bg-primary-light border-primary mb-4">
+                            <div class="card-body">
+                              <h6 class="heading-04 fw-medium text-primary mb-3">Pro Plan Benefits</h6>
+
+                              <ul class="list-unstyled mb-0 text-primary d-flex flex-column gap-2 heading-06">
+                                <li class="d-flex align-items-center gap-2">
+                                  <img src="icon/icon-circle-done-primary.svg" class="img-fluid" alt="" />
+                                  Unlimited pricing license fee
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                  <img src="icon/icon-circle-done-primary.svg" class="img-fluid" alt="" />
+                                  Unlimited pricing per-video fee
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                  <img src="icon/icon-circle-done-primary.svg" class="img-fluid" alt="" />
+                                  Unlimited templates
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                  <img src="icon/icon-circle-done-primary.svg" class="img-fluid" alt="" />
+                                  Priority marketplace placement
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div class="card bg-success-light">
+                            <div class="card-body">
+                              <p class="heading-06"><b>Example:</b> If 10 customers license your style and each creates 5 videos, you'll
+                                earn
+                                $245.00</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="creator-onboarding-content-item tab-pane fade" id="creator-licencesetting-tab-pane">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="text-center">
                     <h3 class="heading-01 fw-bold mb-2">Submit to Creator Marketplace</h3>
                     <p class="text-light">Just a few more settings before your video template goes live.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <ul class="nav nav-tabs nav-plans-tabs-white  nav-fill py-2 px-3 w-100 bg-primary-light mt-5"
+                    id="creatorMarketPlace" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="licenseSetting-tab" data-bs-toggle="tab"
+                        data-bs-target="#licenseSetting-tab-pane" type="button" role="tab"
+                        aria-controls="licenseSetting-pane" aria-selected="true">
+                        1. License Settings
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="addTags-tab" data-bs-toggle="tab" data-bs-target="#addTags-tab-pane"
+                        type="button" role="tab" aria-controls="addTags-tab-pane" aria-selected="false" tabindex="-1">
+                        2. Add Tags
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="finalConfirmation-tab" data-bs-toggle="tab"
+                        data-bs-target="#finalConfirmation-tab-pane" type="button" role="tab"
+                        aria-controls="finalConfirmation-tab-pane" aria-selected="false" tabindex="-1">
+                        3. Final Confirmation
+                      </button>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content mt-4 pt-2" id="creatorMarketPlaceContent">
+                    <div class="tab-pane fade active show" id="licenseSetting-tab-pane" role="tabpanel"
+                      aria-labelledby="licenseSetting-tab" tabindex="0">
+                      <div class="card shadow">
+                        <div class="card-body p-4">
+                          <div class="row gy-4">
+                            <div class="col-lg-12">
+                              <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                                <h6 class="heading-03 fw-semibold">Set Your License Fee</h6>
+                                <span class="badge bg-warning-light text-warning">Max $10 on Free Plan</span>
+                              </div>
+
+                              <p class="text-light mb-3">This is the one-time fee users pay to access your
+                                video
+                                template.</p>
+
+                              <div class="slider-group d-flex align-items-center gap-3">
+                                <div class="flex-grow-1">
+                                  <div class="range-slider" data-start="30" data-min="0" data-max="99"></div>
+                                  <div class="d-flex align-items-center justify-content-between gap-2 mt-2">
+                                    <p class="small text-light">$2</p>
+                                    <p class="small text-light">$99</p>
+                                  </div>
+                                </div>
+                                <p><input class="slider-value form-control form-control-sm text-end" readonly></p>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                              <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                                <h6 class="heading-03 fw-semibold">Set Your Per Video Fee</h6>
+                                <span class="badge bg-warning-light text-warning">Max $10 on Free Plan</span>
+                              </div>
+
+                              <p class="text-light mb-3">This is the one-time fee users pay to access your
+                                video template.</p>
+
+                              <div class="slider-group d-flex align-items-center gap-3">
+                                <div class="flex-grow-1">
+                                  <div class="range-slider" data-start="2" data-min="0" data-max="25"></div>
+                                  <div class="d-flex align-items-center justify-content-between gap-2 mt-2">
+                                    <p class="small text-light">$1</p>
+                                    <p class="small text-light">$25</p>
+                                  </div>
+                                </div>
+                                <p><input class="slider-value form-control form-control-sm text-end" readonly></p>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                              <div class="card border-primary bg-primary-light rounded-3">
+                                <div class="card-body">
+                                  <h5 class="text-semibold text-primary mb-2">Want to earn more?</h5>
+                                  <p class="heading-06 text-primary mb-3">Upgrade to a paid plan to set higher pricing
+                                    and maximize your earnings potential.</p>
+
+                                  <div class="row gy-3 gx-3">
+                                    <div class="col-lg-6">
+                                      <div class="card">
+                                        <div class="card-body">
+                                          <p class="text-primary fw-semibold">Pro Plan</p>
+
+                                          <ul class="ps-3 text-primary d-flex flex-column gap-1 mt-1 mb-0">
+                                            <li>Up to $99 license fee</li>
+                                            <li>Up to $25 per video</li>
+                                            <li>10 video templates</li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                      <div class="card">
+                                        <div class="card-body">
+                                          <p class="text-primary fw-semibold">Platinum Plan</p>
+
+                                          <ul class="ps-3 text-primary d-flex flex-column gap-1 mt-1 mb-0">
+                                            <li>Unlimited license fees</li>
+                                            <li>Unlimited video fees</li>
+                                            <li>Unlimited templates</li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="mt-3">
+                                    <button type="button" class="btn btn-primary w-100">Upgrade Now</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                              <div class="card bg-primary-light rounded-3">
+                                <div class="card-body">
+                                  <p class="fw-semibold mb-3">Your Estimated Earnings</p>
+
+                                  <div class="row gx-3 gy-3">
+                                    <div class="col-lg-4">
+                                      <div class="card text-center">
+                                        <div class="card-body">
+                                          <p class="text-light">Per License</p>
+
+                                          <h6 class="heading-02 fw-bold mb-0 mt-1">$7.00</h6>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                      <div class="card text-center">
+                                        <div class="card-body">
+                                          <p class="text-light">Per Video</p>
+
+                                          <h6 class="heading-02 fw-bold mb-0 mt-1">$3.50</h6>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                      <div class="card text-center">
+                                        <div class="card-body">
+                                          <p class="text-light">Potential Monthly</p>
+
+                                          <h6 class="heading-02 fw-bold mb-0 mt-1">$245.00</h6>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                              <div class="text-end">
+                                <button type="button" class="btn btn-primary ms-auto">Continue to Tags
+                                  <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="addTags-tab-pane" role="tabpanel" aria-labelledby="addTags-tab"
+                      tabindex="0">
+                      <div class="card shadow">
+                        <div class="card-body p-4">
+                          <div class="row gy-4">
+                            <div class="col-lg-12">
+                              <h6 class="heading-03 fw-semibold">
+                                <img src="icon/icon-tag.svg" class="img-fluid" alt="" />
+                                Add Tags for Better Discovery
+                              </h6>
+                              <p class="text-light opacity-25">This is the one-time fee users pay to access your video
+                                template.</p>
+                            </div>
+
+                            <div class="col-lg-12">
+                              <div class="tag-list">
+                                <div class="tag-item">
+                                  <h6 class="heading-05 fw-semibold mb-3">Use Case</h6>
+
+                                  <ul class="list-unstyled d-flex align-items-center flex-wrap mb-4">
+                                    <li>UGC Ad</li>
+                                    <li>Testimonial</li>
+                                    <li>Product Demo</li>
+                                    <li>Tutorial</li>
+                                    <li>Explainer</li>
+                                    <li>LinkedIn Intro</li>
+                                    <li>Startup Pitch</li>
+                                    <li>Webinar Invite</li>
+                                    <li>Announcement</li>
+                                    <li>Social Media Reel</li>
+                                    <li>Landing Page Video</li>
+                                    <li>FAQ Video</li>
+                                    <li>Event Promo</li>
+                                    <li>Cold Outreach</li>
+                                    <li>App Walkthrough</li>
+                                  </ul>
+                                </div>
+
+                                <div class="tag-item">
+                                  <h6 class="heading-05 fw-semibold mb-3">Industry</h6>
+
+                                  <ul class="list-unstyled d-flex align-items-center flex-wrap mb-4">
+                                    <li>SaaS</li>
+                                    <li>Health</li>
+                                    <li>Finance</li>
+                                    <li>Education</li>
+                                    <li>E-commerce</li>
+                                    <li>Real Estate</li>
+                                    <li>Coaching & Consulting</li>
+                                    <li>HR & Recruiting</li>
+                                    <li>Legal</li>
+                                    <li>Travel & Hospitality</li>
+                                    <li>Nonprofits</li>
+                                    <li>Marketing & Advertising</li>
+                                    <li>Tech / AI</li>
+                                    <li>Retail & Fashion</li>
+                                    <li>Food & Beverage</li>
+                                    <li>Entertainment & Media</li>
+                                  </ul>
+                                </div>
+
+                                <div class="tag-item">
+                                  <h6 class="heading-05 fw-semibold mb-3">Tone</h6>
+
+                                  <ul class="list-unstyled d-flex align-items-center flex-wrap mb-4">
+                                    <li>Friendly</li>
+                                    <li>Professional</li>
+                                    <li>Casual</li>
+                                    <li>Energetic</li>
+                                    <li>Confident</li>
+                                    <li>Calm</li>
+                                    <li>Persuasive</li>
+                                    <li>Warm</li>
+                                    <li>Direct</li>
+                                    <li>Empathetic</li>
+                                    <li>Bold</li>
+                                    <li>Inspirational</li>
+                                    <li>Conversational</li>
+                                    <li>Humorous</li>
+                                    <li>Serious</li>
+                                  </ul>
+                                </div>
+
+                                <div class="tag-item">
+                                  <h6 class="heading-05 fw-semibold mb-3">Languages</h6>
+
+                                  <ul class="list-unstyled d-flex align-items-center flex-wrap mb-4">
+                                    <li>English (USA)</li>
+                                    <li>English (UK)</li>
+                                    <li>English (Australia)</li>
+                                    <li>English (Canada)</li>
+                                    <li>Spanish (Spain)</li>
+                                    <li>Spanish (Mexico)</li>
+                                    <li>French (France)</li>
+                                    <li>French (Canada)</li>
+                                    <li>Portuguese (Brazil)</li>
+                                    <li>Portuguese (Portugal)</li>
+                                    <li>German</li>
+                                    <li>Italian</li>
+                                    <li>Dutch</li>
+                                    <li>Polish</li>
+                                    <li>Swedish</li>
+                                    <li>Danish</li>
+                                    <li>Norwegian</li>
+                                    <li>Icelandic</li>
+                                    <li>Finnish</li>
+                                    <li>Czech</li>
+                                    <li>Slovak</li>
+                                    <li>Croatian</li>
+                                    <li>Romanian</li>
+                                    <li>Bulgarian</li>
+                                    <li>Ukrainian</li>
+                                    <li>Russian</li>
+                                    <li>Greek</li>
+                                    <li>Turkish</li>
+                                    <li>Arabic</li>
+                                    <li>Hebrew</li>
+                                    <li>Hindi</li>
+                                    <li>Tamil</li>
+                                    <li>Filipino</li>
+                                    <li>Malay</li>
+                                    <li>Japanese</li>
+                                    <li>Chinese</li>
+                                    <li>Korean</li>
+                                    <li>Indonesian</li>
+                                    <li>Vietnamese</li>
+                                    <li>Thai</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                              <div class="text-end">
+                                <button type="button" class="btn btn-primary ms-auto">Continue to Tags
+                                  <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="finalConfirmation-tab-pane" role="tabpanel"
+                      aria-labelledby="finalConfirmation-tab" tabindex="0">
+                      <div class="card shadow">
+                        <div class="card-body p-4">
+                          <div class="row gy-4">
+                            <div class="col-lg-12">
+                              <h6 class="heading-03 fw-semibold">
+                                Final Confirmation
+                              </h6>
+                              <p class="text-light">Your video template will be published to the FaceClip
+                                marketplace immediately after submission.</p>
+                            </div>
+
+                            <div class="col-lg-12">
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="finalConfimation"
+                                  id="finalConfimation" autocomplete="off">
+                                <label class="form-check-label fw-semibold" for="finalConfimation">
+                                  I confirm I own the rights to this video and grant users permission to create videos
+                                  using it
+                                </label>
+                              </div>
+
+                              <div class="card mt-3">
+                                <div class="card-body text-light">
+                                  <p>By publishing this video template:</p>
+
+                                  <ul class="ps-3 my-2">
+                                    <li>You agree to license your likeness (video and voice) to other users under the
+                                      terms you've set.</li>
+                                    <li>You understand that buyers can generate multiple videos using their own scripts.
+                                    </li>
+                                    <li>ou retain the right to flag and report any inappropriate or harmful use of your
+                                      likeness.</li>
+                                    <li>FaceClip uses AI moderation to detect and prevent abuse, and reserves the right
+                                      to remove content or block buyers in violation.</li>
+                                    <li>All sales are final. License and video usage fees are non-refundable to buyers
+                                      once a video is generated.</li>
+                                  </ul>
+
+                                  <p class="mt-2">You acknowledge and accept our Creator <a href="#"
+                                      class="text-primary">Terms of Service</a> and <a href="#"
+                                      class="text-primary">Marketplace Policies</a>.</p>
+                                  <p class="mt-2">Need help? Reach out to our Creator Support team at <a
+                                      href="mailto:info@faceclip.ai" class="text-primary">info@faceclip.ai</a> if you
+                                    have concerns about how your content is being used.</p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                              <div class="text-center">
+                                <button type="button" class="btn btn-primary">Publish to Marketplace
+                                  <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -643,6 +1134,141 @@
                 style="display: none;">
                 Create my first video <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">
               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideoContent" tabindex="-1"
+    aria-labelledby="recordYourBaseVideoContentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoContentLabel">Record Your Base Video </h4>
+        </div>
+        <div class="modal-body py-0">
+          <div class="card border-danger">
+            <div class="card-body">
+              <p class="fw-semibold">Camera Access Error </p>
+              <p class="text-light my-3">Camera stream not available. Please ensure you've granted camera permission</p>
+              <button type="button" class="btn btn-sm bg-white border-danger text-danger" id="btnallowcameraaccess">
+                <img src="icon/icon-reload-danger.svg" class="img-fluid" alt="">
+                Retry Camera Access</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center border-0">
+          <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+            data-bs-target="#recordYourBaseVideo">
+            <img src="icon/icon-camera-white.svg" class="img-fluid" alt="">
+            Start Recording</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideo" tabindex="-1" aria-labelledby="recordYourBaseVideoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoLabel">Record Your Base Video </h4>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="card border-0">
+            <div class="card-body p-0">
+              <div class="ratio ratio-16x9">
+                <img src="assets/images/image06.png" class="img-fluid" alt="">
+              </div>
+              <div class="position-absolute top-50 start-50 translate-middle">
+                <button type="button" class="btn btn-sm btn-primary">
+                  <img src="icon/icon-camera-white.svg" class="img-fluid" alt="">
+                  Start Recording</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="recordYourBaseVideoQR" tabindex="-1" aria-labelledby="recordYourBaseVideoQRLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="recordYourBaseVideoQRLabel">Scan QR Code to Record
+            <p class="heading-06 text-light fw-normal">Use your phone camera to scan this QR code and record with your
+              mobile camera</p>
+          </h4>
+          <button type="button" class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="text-center">
+                <div class="qr-code-image">
+                  <img src="assets/images/qr.png" class="img-fluid" alt="">
+                </div>
+                <p class="heading-06 text-light mt-4 mb-3">Scan this QR code with your phone's camera</p>
+                <button type="button" class="btn btn-sm btn-primary w-100" disabled>
+                  <img src="icon/icon-refresh-white.svg" class="img-fluid" alt="">
+                  Check for Video
+                </button>
+                <div class="mb-4">
+                  <p class="heading-06 mt-3 mb-2">Waiting for recording...</p>
+                  <div class="progress progress-lg w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100">
+                    <div class="progress-bar" style="width: 33.3333%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="p-3 border border-danger rounded-3 text-danger">
+                <h6 class="heading-05 fw-semibold d-flex align-items-center gap-2">
+                  <img src="icon/icon-warning-red.svg" class="img-fluid" alt="">
+                  Error
+                </h6>
+                <p class="heading-06">Error checking for video: TypeError: Failed to fetch</p>
+              </div>
+
+              <div class="mt-4">
+                <h5 class="heading-05 fw-semibold mb-0">How to record:</h5>
+                <ol class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Open your phone's camera app</li>
+                  <li>Point at this QR code</li>
+                  <li>Tap the notification to open the link</li>
+                  <li>Allow camera and microphone permissions when prompted</li>
+                  <li>Record your video</li>
+                  <li>Tap upload after recording</li>
+                </ol>
+              </div>
+
+              <div class="card-warning p-3 mt-4">
+                <h5 class="heading-05 text-dark fw-semibold mb-0">If you're having permission issues:</h5>
+                <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Check that your browser supports camera access</li>
+                  <li>Make sure permissions are enabled in your phone settings</li>
+                  <li>Try using Chrome or Safari on your mobile device</li>
+                  <li>Some mobile browsers have restrictions on camera access</li>
+                </ul>
+              </div>
+
+              <div class="card-primary p-3 mt-4">
+                <h5 class="heading-05 text-dark fw-semibold mb-0">Tips for best results:</h5>
+                <ul class="heading-06 text-light mt-3 d-flex flex-column gap-2 mb-0 ps-3">
+                  <li>Position yourself in the center of the frame</li>
+                  <li>Ensure your face is well-lit, preferably with natural light</li>
+                  <li>Choose a clean, uncluttered background</li>
+                  <li>Test your audio to ensure clear sound quality</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
