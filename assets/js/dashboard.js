@@ -59,7 +59,7 @@ function initOnboardingFlow() {
     $progressBar.css("width", `${progressPercent}%`);
     $progressText.text(`Step ${currentStep + 1} of ${$steps.length}`);
     $progressCount.text(`${progressPercent}%`);
-
+    
     // Button visibility
     $btnSkip.toggle(currentStep === 0);
     $btnPrev.toggle(currentStep > 0);
@@ -375,9 +375,19 @@ function initOnboardingCreatorFlow() {
         $(".card-payment-platinum").removeClass("d-none");
         $(".card-payment-pro").addClass("d-none");
       }
+    } else if (currentId === "creator-videoprice-tab-pane") {
+      $btnNext.hide();
+      $btnPrev.hide();
+      $("#savePricingContinueBtn").on("click", function () {
+        $("#creator-onboarding-button-next").trigger("click");
+      });
+    } else if (currentId === "creator-licencesetting-tab-pane") {
+      $btnNext.hide();
+      $btnPrev.hide();
     } else if (currentStep === activeFlow.length - 1) {
       $btnNext.hide();
-      $("#creator-onboarding-button-landing").show();
+      $btnPrev.hide();
+      $("#creator-onboarding-button-landing").hide();
     } else {
       $btnNext.show();
       $btnPrev.show();
