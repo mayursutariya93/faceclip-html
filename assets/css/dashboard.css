@@ -1917,6 +1917,25 @@ a {
   object-position: center;
 }
 
+.creator-page-consulte-image {
+  position: relative;
+}
+
+.creator-page-consulte-image>img {
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  border: 4px solid var(--bs-success);
+  object-fit: cover;
+  object-position: center;
+}
+
+.creator-page-consulte-play {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 @media (min-width: 1200px) {
   .sidebar-sticky {
     height: 100vh;
