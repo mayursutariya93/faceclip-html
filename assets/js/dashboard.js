@@ -37,52 +37,129 @@ function initVoiceRecordingUI() {
   });
 }
 
-function initOnboardingFlow() {
-  const $steps = $(".onboarding-content-item"); // dynamically detect all step items
-  let currentStep = 0;
+function initOnboardingFlowVoice() {
+  const $stepsVoice = $(".section-onboarding-voice .onboarding-content-item"); // dynamically detect all step items
+  let currentStepVoice = 0;
 
-  const $progressBar = $(".faceclip-video-tabs-progress .progress-bar");
-  const $progressText = $(".faceclip-video-tabs-progress .faceclip-video-progress-step");
-  const $progressCount = $(".faceclip-video-tabs-progress .faceclip-video-progress-count");
-  const $btnSkip = $("#onboarding-button-skip");
-  const $btnPrev = $("#onboarding-button-prev");
-  const $btnNext = $("#onboarding-button-next");
+  const $progressBarVoice = $(".section-onboarding-voice .faceclip-video-tabs-progress .progress-bar");
+  const $progressTextVoice = $(".section-onboarding-voice .faceclip-video-tabs-progress .faceclip-video-progress-step");
+  const $progressCountVoice = $(".section-onboarding-voice.faceclip-video-tabs-progress .faceclip-video-progress-count");
+  const $btnSkipVoice = $(".section-onboarding-voice #onboarding-button-skip");
+  const $btnPrevVoice = $(".section-onboarding-voice #onboarding-button-prev");
+  const $btnNextVoice = $(".section-onboarding-voice #onboarding-button-next");
+
+  function renderOnboardingStepVoice() {
+    // Switch tab content
+    $stepsVoice.removeClass("show active");
+    $stepsVoice.eq(currentStepVoice).addClass("show active");
+
+    // Progress bar % & step text
+    // const progressPercent = ((currentStepVoice + 1) / $stepsVoice.length) * 100;
+    const progressPercent = (((currentStepVoice + 1) / $stepsVoice.length) * 100).toFixed(2);
+    $progressBarVoice.css("width", `${progressPercent}%`);
+    $progressTextVoice.text(`Step ${currentStepVoice + 1} of ${$stepsVoice.length}`);
+    $progressCountVoice.text(`${progressPercent}%`);
+
+    // Button visibility
+    $btnSkipVoice.toggle(currentStepVoice === 0);
+    $btnPrevVoice.toggle(currentStepVoice > 0);
+
+    // Toggle between next button and landing link
+    if (currentStepVoice === 0) {
+      // $btnNextVoice.hide();
+      $(".section-onboarding-voice #onboarding-button-landing").hide();
+    } else if (currentStepVoice === $stepsVoice.length - 1) {
+      $btnNextVoice.hide();
+      $(".section-onboarding-voice #onboarding-button-landing").show();
+    } else {
+      $btnNextVoice.show();
+      $(".section-onboarding-voice #onboarding-button-landing").hide();
+    }
+
+    // Optional: update next button text
+    // $btnNextVoice.html('Save & Continue <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">');
+  }
+
+  $btnNextVoice.on("click", function () {
+    if (currentStepVoice < $stepsVoice.length - 1) {
+      currentStepVoice++;
+      renderOnboardingStepVoice();
+    } else {
+      console.log("Final step reached");
+      // Optional: final action here
+    }
+  });
+
+  $btnPrevVoice.on("click", function () {
+    if (currentStepVoice > 0) {
+      currentStepVoice--;
+      renderOnboardingStepVoice();
+    }
+  });
+
+  $btnSkipVoice.on("click", function () {
+    // currentStepVoice++;
+    // renderOnboardingStepVoice();
+  });
+
+  $(document).on("click", ".card-getstarted", function () {
+    if (currentStepVoice === 0) {
+      $(".section-onboarding-voice .card-getstarted").removeClass("active");
+      $(this).addClass("active");
+      currentStepVoice++;
+      renderOnboardingStepVoice();
+    }
+  });
+
+  renderOnboardingStepVoice(); // Initial load
+}
+
+function initOnboardingFlow() {
+  const $stepsFlow = $(".section-onboarding-new .onboarding-content-item"); // dynamically detect all step items
+  let currentStepFlow = 0;
+
+  const $progressBarFlow = $(".section-onboarding-new .faceclip-video-tabs-progress .progress-bar");
+  const $progressTextFlow = $(".section-onboarding-new .faceclip-video-tabs-progress .faceclip-video-progress-step");
+  const $progressCountFlow = $(".section-onboarding-new .faceclip-video-tabs-progress .faceclip-video-progress-count");
+  const $btnSkipFlow = $(".section-onboarding-new #onboarding-button-skip");
+  const $btnPrevFlow = $(".section-onboarding-new #onboarding-button-prev");
+  const $btnNextFlow = $(".section-onboarding-new #onboarding-button-next");
 
   function renderOnboardingStep() {
     // Switch tab content
-    $steps.removeClass("show active");
-    $steps.eq(currentStep).addClass("show active");
+    $stepsFlow.removeClass("show active");
+    $stepsFlow.eq(currentStepFlow).addClass("show active");
 
     // Progress bar % & step text
-    // const progressPercent = ((currentStep + 1) / $steps.length) * 100;
-    const progressPercent = (((currentStep + 1) / $steps.length) * 100).toFixed(2);
-    $progressBar.css("width", `${progressPercent}%`);
-    $progressText.text(`Step ${currentStep + 1} of ${$steps.length}`);
-    $progressCount.text(`${progressPercent}%`);
-    
+    // const progressPercent = ((currentStepFlow + 1) / $stepsFlow.length) * 100;
+    const progressPercent = (((currentStepFlow + 1) / $stepsFlow.length) * 100).toFixed(2);
+    $progressBarFlow.css("width", `${progressPercent}%`);
+    $progressTextFlow.text(`Step ${currentStepFlow + 1} of ${$stepsFlow.length}`);
+    $progressCountFlow.text(`${progressPercent}%`);
+
     // Button visibility
-    $btnSkip.toggle(currentStep === 0);
-    $btnPrev.toggle(currentStep > 0);
+    $btnSkipFlow.toggle(currentStepFlow === 0);
+    $btnPrevFlow.toggle(currentStepFlow > 0);
 
     // Toggle between next button and landing link
-    if (currentStep === 0) {
-      $btnNext.hide();
+    if (currentStepFlow === 0) {
+      $btnNextFlow.hide();
       $("#onboarding-button-landing").hide();
-    } else if (currentStep === $steps.length - 1) {
-      $btnNext.hide();
+    } else if (currentStepFlow === $stepsFlow.length - 1) {
+      $btnNextFlow.hide();
       $("#onboarding-button-landing").show();
     } else {
-      $btnNext.show();
+      $btnNextFlow.show();
       $("#onboarding-button-landing").hide();
     }
 
     // Optional: update next button text
-    // $btnNext.html('Save & Continue <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">');
+    // $btnNextFlow.html('Save & Continue <img src="icon/icon-right-arrow-white.svg" class="img-fluid" alt="">');
   }
 
-  $btnNext.on("click", function () {
-    if (currentStep < $steps.length - 1) {
-      currentStep++;
+  $btnNextFlow.on("click", function () {
+    if (currentStepFlow < $stepsFlow.length - 1) {
+      currentStepFlow++;
       renderOnboardingStep();
     } else {
       console.log("Final step reached");
@@ -90,23 +167,23 @@ function initOnboardingFlow() {
     }
   });
 
-  $btnPrev.on("click", function () {
-    if (currentStep > 0) {
-      currentStep--;
+  $btnPrevFlow.on("click", function () {
+    if (currentStepFlow > 0) {
+      currentStepFlow--;
       renderOnboardingStep();
     }
   });
 
-  $btnSkip.on("click", function () {
-    // currentStep++;
+  $btnSkipFlow.on("click", function () {
+    // currentStepFlow++;
     // renderOnboardingStep();
   });
 
   $(document).on("click", ".card-getstarted", function () {
-    if (currentStep === 0) {
-      $(".card-getstarted").removeClass("active");
+    if (currentStepFlow === 0) {
+      $(".section-onboarding-new .card-getstarted").removeClass("active");
       $(this).addClass("active");
-      currentStep++;
+      currentStepFlow++;
       renderOnboardingStep();
     }
   });
@@ -303,7 +380,7 @@ function createVideoStep() {
 }*/
 
 function initOnboardingCreatorFlow() {
-  const $steps = $(".creator-onboarding-content-item");
+  const $steps = $(".section-onboarding-creator .creator-onboarding-content-item");
   let currentStep = 0;
   let selectedPlan = null;
 
@@ -337,12 +414,12 @@ function initOnboardingCreatorFlow() {
 
   let activeFlow = [];
 
-  const $progressBar = $(".faceclip-video-tabs-progress .progress-bar");
-  const $progressText = $(".faceclip-video-tabs-progress .faceclip-video-progress-step");
-  const $progressCount = $(".faceclip-video-tabs-progress .faceclip-video-progress-count");
-  const $btnSkip = $("#creator-onboarding-button-skip");
-  const $btnPrev = $("#creator-onboarding-button-prev");
-  const $btnNext = $("#creator-onboarding-button-next");
+  const $progressBar = $(".section-onboarding-creator .faceclip-video-tabs-progress .progress-bar");
+  const $progressText = $(".section-onboarding-creator .faceclip-video-tabs-progress .faceclip-video-progress-step");
+  const $progressCount = $(".section-onboarding-creator .faceclip-video-tabs-progress .faceclip-video-progress-count");
+  const $btnSkip = $(".section-onboarding-creator #creator-onboarding-button-skip");
+  const $btnPrev = $(".section-onboarding-creator #creator-onboarding-button-prev");
+  const $btnNext = $(".section-onboarding-creator #creator-onboarding-button-next");
 
   function renderOnboardingCreatorStep() {
     const currentId = activeFlow[currentStep];
@@ -964,6 +1041,7 @@ $(document).ready(function () {
   });
 
   initVoiceRecordingUI();
+  initOnboardingFlowVoice();
   initOnboardingFlow();
   createVideoStep();
   initOnboardingCreatorFlow();
