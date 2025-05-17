@@ -1898,6 +1898,25 @@ a {
   border-color: var(--bs-primary);
 }
 
+/* CREATOR PAGE */
+
+.section-creator-page {
+  padding: 70px 0 40px;
+}
+
+.mb-32 {
+  margin-bottom: 32px;
+}
+
+.creator-page-user-image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  border: 1px solid var(--border-color);
+  object-fit: cover;
+  object-position: center;
+}
+
 @media (min-width: 1200px) {
   .sidebar-sticky {
     height: 100vh;
@@ -1929,7 +1948,7 @@ a {
   }
 
   .navbar-brand img {
-    max-width: 120px;
+    max-width: 100px;
   }
 
   .content {
