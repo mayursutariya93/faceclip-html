@@ -18,6 +18,7 @@
 
   <!-- Bootstrap 5 CSS -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -28,11 +29,14 @@
 
   <!-- jQuery UI for draggable functionality -->
   <script src="assets/js/jquery-ui.min.js"></script>
+
+  <!-- Swiper -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
 </head>
 
-<body class="">
+<body>
   <div class="header-top header-megamenu">
-    <nav class="navbar navbar-expand-lg py-0" aria-label="Navbar">
+    <nav class="navbar navbar-expand-lg py-0 nav-megamenu" aria-label="Navbar">
       <div class="container">
         <a class="navbar-brand" href="#">
           <img src="assets/images/logo.svg" class="img-fluid" alt="Logo">
@@ -52,7 +56,7 @@
             <li class="nav-item nav-item-megamenu dropdown">
               <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <img src="icon/icon-video-sm.svg" class="img-fluid" alt="" />
+                <img src="icon/icon-video-sm.svg" class="img-fluid dark-white" alt="" />
                 Product
               </a>
               <ul class="dropdown-menu">
@@ -61,7 +65,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -70,28 +74,7 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                    </div>
-
-                    <div class="col-md-4">
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -103,7 +86,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -112,7 +95,28 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4">
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -127,7 +131,7 @@
             <li class="nav-item nav-item-megamenu dropdown">
               <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <img src="icon/icon-video-sm.svg" class="img-fluid" alt="" />
+                <img src="icon/icon-video-sm.svg" class="img-fluid dark-white" alt="" />
                 Creators
               </a>
               <ul class="dropdown-menu">
@@ -136,7 +140,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -145,28 +149,7 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                    </div>
-
-                    <div class="col-md-4">
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -178,7 +161,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -187,7 +170,28 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4">
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -202,7 +206,7 @@
             <li class="nav-item nav-item-megamenu dropdown">
               <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <img src="icon/icon-user-sm.svg" class="img-fluid" alt="" />
+                <img src="icon/icon-user-sm.svg" class="img-fluid dark-white" alt="" />
                 Who is's for
               </a>
               <ul class="dropdown-menu">
@@ -211,7 +215,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -220,28 +224,7 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                    </div>
-
-                    <div class="col-md-4">
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -253,7 +236,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -262,7 +245,28 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4">
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -277,7 +281,7 @@
             <li class="nav-item nav-item-megamenu dropdown">
               <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <img src="icon/icon-internet.svg" class="img-fluid" alt="" />
+                <img src="icon/icon-internet.svg" class="img-fluid dark-white" alt="" />
                 Industries
               </a>
               <ul class="dropdown-menu">
@@ -286,7 +290,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -295,28 +299,7 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                    </div>
-
-                    <div class="col-md-4">
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -328,7 +311,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -337,7 +320,28 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4">
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -352,7 +356,7 @@
             <li class="nav-item nav-item-megamenu dropdown">
               <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <img src="icon/icon-book.svg" class="img-fluid" alt="" />
+                <img src="icon/icon-book.svg" class="img-fluid dark-white" alt="" />
                 Resource
               </a>
               <ul class="dropdown-menu">
@@ -361,7 +365,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -370,28 +374,7 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                    </div>
-
-                    <div class="col-md-4">
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                        </span>
-                        <span class="dropdown-text">
-                          <span class="heading-06">Ultra Realistic Video</span>
-                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                        </span>
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -403,7 +386,7 @@
                     <div class="col-md-4">
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -412,7 +395,28 @@
                       </a>
                       <a class="dropdown-item" href="#">
                         <span class="dropdown-icon">
-                          <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4">
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                        </span>
+                        <span class="dropdown-text">
+                          <span class="heading-06">Ultra Realistic Video</span>
+                          <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                        </span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <span class="dropdown-icon">
+                          <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
                         </span>
                         <span class="dropdown-text">
                           <span class="heading-06">Ultra Realistic Video</span>
@@ -426,7 +430,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-megamenu" href="#">
-                <img src="icon/icon-price.svg" class="img-fluid" alt="" />
+                <img src="icon/icon-price.svg" class="img-fluid dark-white" alt="" />
                 Price
               </a>
             </li>
@@ -434,614 +438,631 @@
         </div>
       </div>
     </nav>
-
-    <nav class="navbar navbar-expand" aria-label="Navbar">
-      <div class="container justify-content-start">
-        <ul class="navbar-nav overflow-x-auto">
-          <li class="nav-item nav-item-megamenu dropdown">
-            <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="icon/icon-video-sm.svg" class="img-fluid" alt="" />
-              Use Case
-            </a>
-            <ul class="dropdown-menu mw-100">
-              <li>
-                <div class="row">
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-item-megamenu dropdown">
-            <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="icon/icon-user-sm.svg" class="img-fluid" alt="" />
-              Creator Type
-            </a>
-            <ul class="dropdown-menu mw-100">
-              <li>
-                <div class="row">
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-item-megamenu dropdown">
-            <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="icon/icon-briefcase.svg" class="img-fluid" alt="" />
-              Industry
-            </a>
-            <ul class="dropdown-menu mw-100">
-              <li>
-                <div class="row">
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-item-megamenu dropdown">
-            <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="icon/icon-star.svg" class="img-fluid" alt="" />
-              Top Creators
-            </a>
-            <ul class="dropdown-menu mw-100">
-              <li>
-                <div class="row">
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-item-megamenu dropdown">
-            <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="icon/icon-dollar.svg" class="img-fluid" alt="" />
-              Price
-            </a>
-            <ul class="dropdown-menu mw-100">
-              <li>
-                <div class="row">
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-item-megamenu dropdown">
-            <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="icon/icon-color.svg" class="img-fluid" alt="" />
-              Tone
-            </a>
-            <ul class="dropdown-menu mw-100">
-              <li>
-                <div class="row">
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-item-megamenu dropdown">
-            <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="icon/icon-language-sm.svg" class="img-fluid" alt="" />
-              Language
-            </a>
-            <ul class="dropdown-menu mw-100">
-              <li>
-                <div class="row">
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-item-megamenu dropdown">
-            <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="icon/icon-internet.svg" class="img-fluid" alt="" />
-              Country
-            </a>
-            <ul class="dropdown-menu mw-100">
-              <li>
-                <div class="row">
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="dropdown-icon">
-                        <img src="icon/icon-video-create.svg" class="img-fluid" alt="" />
-                      </span>
-                      <span class="dropdown-text">
-                        <span class="heading-06">Ultra Realistic Video</span>
-                        <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="my-3 mw-100 d-block">
+          <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+            <p class="small text-light faceclip-video-progress-step">Step 1 of 2</p>
+            <p class="small text-light faceclip-video-progress-count">50%</p>
+          </div>
+          <div class="progress progress-lg w-100" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100">
+            <div class="progress-bar" style="width: 50%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand nav-megamenu nav-megamenu-sticky d-lg-flex d-none border-bottom" aria-label="Navbar">
+    <div class="container justify-content-start">
+      <ul class="navbar-nav">
+        <li class="nav-item nav-item-megamenu dropdown">
+          <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="icon/icon-video-sm.svg" class="img-fluid dark-white" alt="" />
+            Use Case
+          </a>
+          <ul class="dropdown-menu mw-100">
+            <li>
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-item-megamenu dropdown">
+          <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="icon/icon-user-sm.svg" class="img-fluid dark-white" alt="" />
+            Creator Type
+          </a>
+          <ul class="dropdown-menu mw-100">
+            <li>
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-item-megamenu dropdown">
+          <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="icon/icon-briefcase.svg" class="img-fluid dark-white" alt="" />
+            Industry
+          </a>
+          <ul class="dropdown-menu mw-100">
+            <li>
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-item-megamenu dropdown">
+          <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="icon/icon-star.svg" class="img-fluid dark-white" alt="" />
+            Top Creators
+          </a>
+          <ul class="dropdown-menu mw-100">
+            <li>
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-item-megamenu dropdown">
+          <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="icon/icon-dollar.svg" class="img-fluid dark-white" alt="" />
+            Price
+          </a>
+          <ul class="dropdown-menu mw-100">
+            <li>
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-item-megamenu dropdown">
+          <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="icon/icon-color.svg" class="img-fluid dark-white" alt="" />
+            Tone
+          </a>
+          <ul class="dropdown-menu mw-100">
+            <li>
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-item-megamenu dropdown">
+          <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="icon/icon-language-sm.svg" class="img-fluid dark-white" alt="" />
+            Language
+          </a>
+          <ul class="dropdown-menu mw-100">
+            <li>
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-item-megamenu dropdown">
+          <a class="nav-link nav-link-megamenu dropdown-toggle" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="icon/icon-internet.svg" class="img-fluid dark-white" alt="" />
+            Country
+          </a>
+          <ul class="dropdown-menu mw-100">
+            <li>
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-md-4">
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="dropdown-icon">
+                      <img src="icon/icon-video-create.svg" class="img-fluid dark-white" alt="" />
+                    </span>
+                    <span class="dropdown-text">
+                      <span class="heading-06">Ultra Realistic Video</span>
+                      <span class="small">Create hyper-realistic videos with perfect lip sync.</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="section-creator-page">
     <div class="container">
@@ -1104,7 +1125,66 @@
               </div>
             </div>
 
-            <div class="creator-page-video mb-32"></div>
+            <div class="creator-page-video mb-32">
+              <div class="swiper swiper-creator-video">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="card-creator-video">
+                      <div class="ratio ratio-16x9">
+                        <video controls width="100%" id="mainVideo">
+                          <source src="assets/video/video1.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card-creator-video">
+                      <div class="ratio ratio-16x9">
+                        <video controls width="100%" id="mainVideo">
+                          <source src="assets/video/video1.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card-creator-video">
+                      <div class="ratio ratio-16x9">
+                        <video controls width="100%" id="mainVideo">
+                          <source src="assets/video/video1.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card-creator-video">
+                      <div class="ratio ratio-16x9">
+                        <video controls width="100%" id="mainVideo">
+                          <source src="assets/video/video1.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper swiper-creator-videoThumb mt-4">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="assets/images/video-thumb.png" alt="Video 1" data-video="video1.mp4" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/images/video-thumb.png" alt="Video 2" data-video="video1.mp4" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/images/video-thumb.png" alt="Video 3" data-video="video1.mp4" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/images/video-thumb.png" alt="Video 3" data-video="video1.mp4" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
 
             <div class="creator-page-about mb-32">
               <h4 class="heading-02 fw-bold mb-3">About This Creator</h4>
@@ -1133,10 +1213,10 @@
                           <h6 class="fw-semibold mb-2">Style</h6>
 
                           <div class="d-flex align-items-center flex-wrap gap-2">
-                            <span class="badge border bg-white py-1 rounded-pill">Energetic</span>
-                            <span class="badge border bg-white py-1 rounded-pill">Direct</span>
-                            <span class="badge border bg-white py-1 rounded-pill">Approachable</span>
-                            <span class="badge border bg-white py-1 rounded-pill">Professional</span>
+                            <span class="badge border text-dark bg-white py-1 rounded-pill">Energetic</span>
+                            <span class="badge border text-dark bg-white py-1 rounded-pill">Direct</span>
+                            <span class="badge border text-dark bg-white py-1 rounded-pill">Approachable</span>
+                            <span class="badge border text-dark bg-white py-1 rounded-pill">Professional</span>
                           </div>
                         </div>
 
@@ -1145,7 +1225,7 @@
 
                           <div class="">
                             <span>
-                              <img src="icon/icon-language-sm.svg" class="img-fluid opacity-50" alt="" />
+                              <img src="icon/icon-language-sm.svg" class="img-fluid dark-white opacity-50" alt="" />
                               English (Native), Spanish (Conversational)</span>
                           </div>
                         </div>
@@ -1437,7 +1517,7 @@
               </div>
             </div>
 
-            <div class="creator-page-related-tags mb-32">
+            <div class="creator-page-consulte mb-32">
               <h4 class="heading-02 fw-bold mb-3">Get to know Allie Madison</h4>
 
               <div class="card">
@@ -1561,9 +1641,790 @@
                 </div>
               </div>
             </div>
+
+            <div class="creator-page-consulte-vidoes mb-32">
+              <h4 class="heading-02 fw-bold mb-3">Get to know Allie Madison</h4>
+
+              <div class="swiper swiper-creator-morevideo">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="card overflow-hidden mb-1">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls width="100%" id="mainVideo">
+                            <source src="assets/video/video1.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+
+                        <a href="#" class="position-absolute top-0 end-0 mt-3 me-3">
+                          <img src="icon/icon-like-outline-white.svg" class="img-fluid" alt="" />
+                        </a>
+
+                        <div class="card-video-consulte-text">
+                          <p class="heading-06 fw-semibold text-white">I will record a high quality female voiceover</p>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-video-consulte-user">
+                          <div class="card-video-consulte-image">
+                            <img src="assets/images/user.png" class="img-fluid" alt="" />
+                          </div>
+                          <div class="card-video-consulte-name me-auto">
+                            <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                          </div>
+                          <div class="card-video-consulte-label">
+                            <span class="badge bg-warning-light text-warning">Top Rated</span>
+                          </div>
+                        </div>
+
+                        <a href="#" class="heading-06 text-black fw-bold d-block my-2">I will record a high quality
+                          female
+                          voiceover</a>
+
+                        <div class="heading-06 d-flex align-items-center gap-2">
+                          <span><img src="icon/icon-star-fill.svg" class="img-fluid d-block" alt="" /></span>
+                          <span class="fw-semibold">5.0</span>
+                          <span class="text-light">(96)</span>
+                        </div>
+
+                        <div class="mt-2">
+                          <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                          <p class="small text-light d-flex align-items-center gap-1">
+                            <img src="icon/icon-plus-sm.svg" class="img-fluid d-block" alt="" />
+                            Offers video consultations
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="card overflow-hidden mb-1">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls width="100%" id="mainVideo">
+                            <source src="assets/video/video1.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+
+                        <a href="#" class="position-absolute top-0 end-0 mt-3 me-3">
+                          <img src="icon/icon-like-outline-white.svg" class="img-fluid" alt="" />
+                        </a>
+
+                        <div class="card-video-consulte-text">
+                          <p class="heading-06 fw-semibold text-white">I will record a high quality female voiceover</p>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-video-consulte-user">
+                          <div class="card-video-consulte-image">
+                            <img src="assets/images/user.png" class="img-fluid" alt="" />
+                          </div>
+                          <div class="card-video-consulte-name me-auto">
+                            <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                          </div>
+                          <div class="card-video-consulte-label">
+                            <span class="badge bg-warning-light text-warning">Top Rated</span>
+                          </div>
+                        </div>
+
+                        <a href="#" class="heading-06 text-black fw-bold d-block my-2">I will record a high quality
+                          female
+                          voiceover</a>
+
+                        <div class="heading-06 d-flex align-items-center gap-2">
+                          <span><img src="icon/icon-star-fill.svg" class="img-fluid d-block" alt="" /></span>
+                          <span class="fw-semibold">5.0</span>
+                          <span class="text-light">(96)</span>
+                        </div>
+
+                        <div class="mt-2">
+                          <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                          <p class="small text-light d-flex align-items-center gap-1">
+                            <img src="icon/icon-plus-sm.svg" class="img-fluid d-block" alt="" />
+                            Offers video consultations
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="card overflow-hidden mb-1">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls width="100%" id="mainVideo">
+                            <source src="assets/video/video1.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+
+                        <a href="#" class="position-absolute top-0 end-0 mt-3 me-3">
+                          <img src="icon/icon-like-outline-white.svg" class="img-fluid" alt="" />
+                        </a>
+
+                        <div class="card-video-consulte-text">
+                          <p class="heading-06 fw-semibold text-white">I will record a high quality female voiceover</p>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-video-consulte-user">
+                          <div class="card-video-consulte-image">
+                            <img src="assets/images/user.png" class="img-fluid" alt="" />
+                          </div>
+                          <div class="card-video-consulte-name me-auto">
+                            <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                          </div>
+                          <div class="card-video-consulte-label">
+                            <span class="badge bg-warning-light text-warning">Top Rated</span>
+                          </div>
+                        </div>
+
+                        <a href="#" class="heading-06 text-black fw-bold d-block my-2">I will record a high quality
+                          female
+                          voiceover</a>
+
+                        <div class="heading-06 d-flex align-items-center gap-2">
+                          <span><img src="icon/icon-star-fill.svg" class="img-fluid d-block" alt="" /></span>
+                          <span class="fw-semibold">5.0</span>
+                          <span class="text-light">(96)</span>
+                        </div>
+
+                        <div class="mt-2">
+                          <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                          <p class="small text-light d-flex align-items-center gap-1">
+                            <img src="icon/icon-plus-sm.svg" class="img-fluid d-block" alt="" />
+                            Offers video consultations
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="card overflow-hidden mb-1">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls width="100%" id="mainVideo">
+                            <source src="assets/video/video1.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+
+                        <a href="#" class="position-absolute top-0 end-0 mt-3 me-3">
+                          <img src="icon/icon-like-outline-white.svg" class="img-fluid" alt="" />
+                        </a>
+
+                        <div class="card-video-consulte-text">
+                          <p class="heading-06 fw-semibold text-white">I will record a high quality female voiceover</p>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-video-consulte-user">
+                          <div class="card-video-consulte-image">
+                            <img src="assets/images/user.png" class="img-fluid" alt="" />
+                          </div>
+                          <div class="card-video-consulte-name me-auto">
+                            <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                          </div>
+                          <div class="card-video-consulte-label">
+                            <span class="badge bg-warning-light text-warning">Top Rated</span>
+                          </div>
+                        </div>
+
+                        <a href="#" class="heading-06 text-black fw-bold d-block my-2">I will record a high quality
+                          female
+                          voiceover</a>
+
+                        <div class="heading-06 d-flex align-items-center gap-2">
+                          <span><img src="icon/icon-star-fill.svg" class="img-fluid d-block" alt="" /></span>
+                          <span class="fw-semibold">5.0</span>
+                          <span class="text-light">(96)</span>
+                        </div>
+
+                        <div class="mt-2">
+                          <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                          <p class="small text-light d-flex align-items-center gap-1">
+                            <img src="icon/icon-plus-sm.svg" class="img-fluid d-block" alt="" />
+                            Offers video consultations
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="card overflow-hidden mb-1">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls width="100%" id="mainVideo">
+                            <source src="assets/video/video1.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+
+                        <a href="#" class="position-absolute top-0 end-0 mt-3 me-3">
+                          <img src="icon/icon-like-outline-white.svg" class="img-fluid" alt="" />
+                        </a>
+
+                        <div class="card-video-consulte-text">
+                          <p class="heading-06 fw-semibold text-white">I will record a high quality female voiceover</p>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-video-consulte-user">
+                          <div class="card-video-consulte-image">
+                            <img src="assets/images/user.png" class="img-fluid" alt="" />
+                          </div>
+                          <div class="card-video-consulte-name me-auto">
+                            <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                          </div>
+                          <div class="card-video-consulte-label">
+                            <span class="badge bg-warning-light text-warning">Top Rated</span>
+                          </div>
+                        </div>
+
+                        <a href="#" class="heading-06 text-black fw-bold d-block my-2">I will record a high quality
+                          female
+                          voiceover</a>
+
+                        <div class="heading-06 d-flex align-items-center gap-2">
+                          <span><img src="icon/icon-star-fill.svg" class="img-fluid d-block" alt="" /></span>
+                          <span class="fw-semibold">5.0</span>
+                          <span class="text-light">(96)</span>
+                        </div>
+
+                        <div class="mt-2">
+                          <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                          <p class="small text-light d-flex align-items-center gap-1">
+                            <img src="icon/icon-plus-sm.svg" class="img-fluid d-block" alt="" />
+                            Offers video consultations
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="card overflow-hidden mb-1">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls width="100%" id="mainVideo">
+                            <source src="assets/video/video1.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+
+                        <a href="#" class="position-absolute top-0 end-0 mt-3 me-3">
+                          <img src="icon/icon-like-outline-white.svg" class="img-fluid" alt="" />
+                        </a>
+
+                        <div class="card-video-consulte-text">
+                          <p class="heading-06 fw-semibold text-white">I will record a high quality female voiceover</p>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-video-consulte-user">
+                          <div class="card-video-consulte-image">
+                            <img src="assets/images/user.png" class="img-fluid" alt="" />
+                          </div>
+                          <div class="card-video-consulte-name me-auto">
+                            <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                          </div>
+                          <div class="card-video-consulte-label">
+                            <span class="badge bg-warning-light text-warning">Top Rated</span>
+                          </div>
+                        </div>
+
+                        <a href="#" class="heading-06 text-black fw-bold d-block my-2">I will record a high quality
+                          female
+                          voiceover</a>
+
+                        <div class="heading-06 d-flex align-items-center gap-2">
+                          <span><img src="icon/icon-star-fill.svg" class="img-fluid d-block" alt="" /></span>
+                          <span class="fw-semibold">5.0</span>
+                          <span class="text-light">(96)</span>
+                        </div>
+
+                        <div class="mt-2">
+                          <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                          <p class="small text-light d-flex align-items-center gap-1">
+                            <img src="icon/icon-plus-sm.svg" class="img-fluid d-block" alt="" />
+                            Offers video consultations
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center gap-2">
+                  <div class="swiper-button-prev position-static mt-0">
+                    <img src="icon/icon-circle-left-arrow.svg" class="img-fluid" alt="" />
+                  </div>
+                  <div class="swiper-button-next position-static mt-0">
+                    <img src="icon/icon-circle-right-arrow.svg" class="img-fluid" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class=" col-lg-4"></div>
+
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="heading-03 fw-semibold mb-3">Creator Stats</h6>
+
+              <div class="row gx-2 gy-3">
+                <div class="col-lg-4">
+                  <div class="card text-center">
+                    <div class="card-body p-2">
+                      <div class="icon">
+                        <img src="icon/icon-license.svg" class="img-fluid" alt="" />
+                      </div>
+                      <h6 class="heading-03 fw-semibold mb-1 mt-3">52+</h6>
+                      <p class="small text-light">Licenses</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="card text-center">
+                    <div class="card-body p-2">
+                      <div class="icon">
+                        <img src="icon/icon-video-md.svg" class="img-fluid" alt="" />
+                      </div>
+                      <h6 class="heading-03 fw-semibold mb-1 mt-3">52+</h6>
+                      <p class="small text-light">Videos</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="card text-center">
+                    <div class="card-body p-2">
+                      <div class="icon">
+                        <img src="icon/icon-earner.svg" class="img-fluid" alt="" />
+                      </div>
+                      <h6 class="heading-03 fw-semibold mb-1 mt-3">52+</h6>
+                      <p class="small text-light">Earner</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center flex-wrap gap-2 mt-3">
+                <span class="badge px-2 rounded-pill border-warning text-warning bg-warning-light">
+                  <img src="icon/icon-star-sm.svg" class="img-fluid" alt="" />
+                  Picked by 10+ startups
+                </span>
+                <span class="badge px-2 rounded-pill border-primary text-primary bg-primary-light">
+                  <img src="icon/icon-linkedin-sm.svg" class="img-fluid" alt="" />
+                  Used in LinkedIn campaigns
+                </span>
+                <span class="badge px-2 rounded-pill border-success text-success bg-success-light">
+                  <img src="icon/icon-growth.svg" class="img-fluid" alt="" />
+                  3x growth this week
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="my-4">
+            <div class="card border-0 bg-transparent">
+              <div class="card-body p-0">
+                <h5 class="heading-03 mb-3">Choose Your License</h5>
+                <p class="text-light mb-3">Select a license that gives you access to the templates you need.</p>
+                <p class="fw-bold">Pick a license → type your script → generate a video in seconds.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body p-2">
+              <ul class="nav nav-tabs nav-tabs-light nav-fill" id="creatorLicenseTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="basiclicense-tab" data-bs-toggle="tab"
+                    data-bs-target="#basiclicense-tab-pane" type="button" role="tab" aria-controls="basiclicense-pane"
+                    aria-selected="true">
+                    Basic License
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="prolicense-tab" data-bs-toggle="tab"
+                    data-bs-target="#prolicense-tab-pane" type="button" role="tab" aria-controls="prolicense-tab-pane"
+                    aria-selected="false" tabindex="-1">
+                    Pro License
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="premiumlicense-tab" data-bs-toggle="tab"
+                    data-bs-target="#premiumlicense-tab-pane" type="button" role="tab"
+                    aria-controls="premiumlicense-tab-pane" aria-selected="false" tabindex="-1">
+                    Premium License
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content mt-1" id="creatorLicenseTabContent">
+                <div class="tab-pane fade show active" id="basiclicense-tab-pane">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card border-0">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center justify-content-between gap-2">
+                            <h6 class="heading-04 fw-semibold mb-0">Basic License</h6>
+                            <p class="heading-03 fw-semibold mb-0">$10 <span
+                                class="text-light heading-05 fw-normal">one-time</span></p>
+                          </div>
+
+                          <div class="faceclip-video-guide-icon">
+                            <ul class="list-unstyled d-flex flex-column gap-2 mb-4 mt-3">
+                              <li data-image="icon-done">Upload up to 2 video templates</li>
+                              <li data-image="icon-done">Default license fee: $10 per user</li>
+                              <li data-image="icon-done">You earn: $5 per video created</li>
+                              <li data-image="icon-done">FaceClip takes 30% platform fee</li>
+                              <li data-image="icon-done">Ideal if you're just getting started</li>
+                            </ul>
+                          </div>
+
+                          <button type="button" class="btn btn-primary w-100">Unlock for $10</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="prolicense-tab-pane">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card border-0">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center justify-content-between gap-2">
+                            <h6 class="heading-04 fw-semibold mb-0">Pro License</h6>
+                            <p class="heading-03 fw-semibold mb-0">$500 <span
+                                class="text-light heading-05 fw-normal">one-time</span></p>
+                          </div>
+
+                          <div class="faceclip-video-guide-icon">
+                            <ul class="list-unstyled d-flex flex-column gap-2 mb-4 mt-3">
+                              <li data-image="icon-done">Upload up to 2 video templates</li>
+                              <li data-image="icon-done">Default license fee: $10 per user</li>
+                              <li data-image="icon-done">You earn: $5 per video created</li>
+                              <li data-image="icon-done">FaceClip takes 30% platform fee</li>
+                              <li data-image="icon-done">Ideal if you're just getting started</li>
+                            </ul>
+                          </div>
+
+                          <button type="button" class="btn btn-primary w-100">Unlock for $10</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="premiumlicense-tab-pane">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card border-0">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center justify-content-between gap-2">
+                            <h6 class="heading-04 fw-semibold mb-0">Premium License</h6>
+                            <p class="heading-03 fw-semibold mb-0">$1000 <span
+                                class="text-light heading-05 fw-normal">one-time</span></p>
+                          </div>
+
+                          <div class="faceclip-video-guide-icon">
+                            <ul class="list-unstyled d-flex flex-column gap-2 mb-4 mt-3">
+                              <li data-image="icon-done">Upload up to 2 video templates</li>
+                              <li data-image="icon-done">Default license fee: $10 per user</li>
+                              <li data-image="icon-done">You earn: $5 per video created</li>
+                              <li data-image="icon-done">FaceClip takes 30% platform fee</li>
+                              <li data-image="icon-done">Ideal if you're just getting started</li>
+                            </ul>
+                          </div>
+
+                          <button type="button" class="btn btn-primary w-100">Unlock for $10</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-4">
+        <div class="col-lg-12">
+          <h6 class="heading-02 fw-bold mb-3">You might also like</h6>
+
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="card overflow-hidden d-block">
+                <div class="swiper swiper-creator-video-like">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="card-body">
+                  <div class="card-video-consulte-user">
+                    <div class="card-video-consulte-image">
+                      <img src="assets/images/user.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="card-video-consulte-name">
+                      <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                    </div>
+                    <div class="card-video-consulte-label">
+                      <span class="small text-light">Ad by</span>
+                    </div>
+                  </div>
+
+                  <p class="heading-06 my-2">I will make ugc content for your brand, I am tattooed female creator</p>
+
+                  <div class="mt-2">
+                    <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                    <p class="small text-light">Per video $5</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3">
+              <div class="card overflow-hidden d-block">
+                <div class="swiper swiper-creator-video-like">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="card-body">
+                  <div class="card-video-consulte-user">
+                    <div class="card-video-consulte-image">
+                      <img src="assets/images/user.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="card-video-consulte-name">
+                      <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                    </div>
+                    <div class="card-video-consulte-label">
+                      <span class="small text-light">Ad by</span>
+                    </div>
+                  </div>
+
+                  <p class="heading-06 my-2">I will make ugc content for your brand, I am tattooed female creator</p>
+
+                  <div class="mt-2">
+                    <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                    <p class="small text-light">Per video $5</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3">
+              <div class="card overflow-hidden d-block">
+                <div class="swiper swiper-creator-video-like">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="card-body">
+                  <div class="card-video-consulte-user">
+                    <div class="card-video-consulte-image">
+                      <img src="assets/images/user.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="card-video-consulte-name">
+                      <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                    </div>
+                    <div class="card-video-consulte-label">
+                      <span class="small text-light">Ad by</span>
+                    </div>
+                  </div>
+
+                  <p class="heading-06 my-2">I will make ugc content for your brand, I am tattooed female creator</p>
+
+                  <div class="mt-2">
+                    <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                    <p class="small text-light">Per video $5</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3">
+              <div class="card overflow-hidden d-block">
+                <div class="swiper swiper-creator-video-like">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="card-video position-relative overflow-hidden rounded-3">
+                        <div class="ratio ratio-16x9">
+                          <video controls="" width="100%">
+                            <source src="assets/video/video1.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="card-body">
+                  <div class="card-video-consulte-user">
+                    <div class="card-video-consulte-image">
+                      <img src="assets/images/user.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="card-video-consulte-name">
+                      <h6 class="heading-05 fw-semibold mb-0">Allie Madison</h6>
+                    </div>
+                    <div class="card-video-consulte-label">
+                      <span class="small text-light">Ad by</span>
+                    </div>
+                  </div>
+
+                  <p class="heading-06 my-2">I will make ugc content for your brand, I am tattooed female creator</p>
+
+                  <div class="mt-2">
+                    <h6 class="heading-05 fw-bold mb-1">From US$50</h6>
+                    <p class="small text-light">Per video $5</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1671,16 +2532,35 @@
             </ul>
 
             <ul class="footer-social list-unstyled d-flex justify-content-center justify-content-lg-end gap-2">
-              <li><a href="#" class="small"><img src="icon/icon-youtube-line.svg" class="img-fluid" alt="" /></a>
+              <li>
+                <a href="#" class="small">
+                  <img src="icon/icon-youtube-line.svg" class="img-fluid dark-white" alt="" />
+                </a>
               </li>
-              <li><a href="#" class="small"><img src="icon/icon-twitter-line.svg" class="img-fluid" alt="" /></a>
+              <li>
+                <a href="#" class="small">
+                  <img src="icon/icon-twitter-line.svg" class="img-fluid dark-white" alt="" />
+                </a>
               </li>
-              <li><a href="#" class="small"><img src="icon/icon-linkedin-line.svg" class="img-fluid" alt="" /></a>
+              <li>
+                <a href="#" class="small">
+                  <img src="icon/icon-linkedin-line.svg" class="img-fluid dark-white" alt="" />
+                </a>
               </li>
-              <li><a href="#" class="small"><img src="icon/icon-instagram-line.svg" class="img-fluid" alt="" /></a></li>
-              <li><a href="#" class="small"><img src="icon/icon-facebook-line.svg" class="img-fluid" alt="" /></a>
+              <li>
+                <a href="#" class="small">
+                  <img src="icon/icon-instagram-line.svg" class="img-fluid dark-white" alt="" />
+                </a>
               </li>
-              <li><a href="#" class="small"><img src="icon/icon-tiktok-line.svg" class="img-fluid" alt="" /></a>
+              <li>
+                <a href="#" class="small">
+                  <img src="icon/icon-facebook-line.svg" class="img-fluid dark-white" alt="" />
+                </a>
+              </li>
+              <li>
+                <a href="#" class="small">
+                  <img src="icon/icon-tiktok-line.svg" class="img-fluid dark-white" alt="" />
+                </a>
               </li>
             </ul>
           </div>

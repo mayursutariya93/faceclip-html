@@ -1058,3 +1058,58 @@ $(document).ready(function () {
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+/* SWIPER JS */
+
+// Initialize thumbnail swiper
+const thumbSwiper = new Swiper(".swiper-creator-videoThumb", {
+  spaceBetween: 8,
+  slidesPerView: "auto",
+  watchSlidesProgress: true,
+});
+
+// Initialize main swiper
+const mainSwiper = new Swiper(".swiper-creator-video", {
+  thumbs: {
+    swiper: thumbSwiper,
+  },
+});
+
+// Handle thumbnail click and replace video source
+document.querySelectorAll(".swiper-creator-videoThumb .swiper-slide img").forEach((thumb, index) => {
+  thumb.addEventListener("click", () => {
+    const videoSrc = thumb.getAttribute("data-video");
+    const video = document.getElementById("mainVideo");
+    video.querySelector("source").setAttribute("src", videoSrc);
+    video.load();
+    video.play();
+  });
+});
+
+const creatorMoreVideoSwiper = new Swiper(".swiper-creator-morevideo", {
+  spaceBetween: 16,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+  breakpoints: {
+    580: {
+      slidesPerView: 2,
+    },
+    1200: {
+      slidesPerView: 3,
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+const creatorVideoLikeSwiper = new Swiper(".swiper-creator-video-like", {
+  spaceBetween: 0,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
