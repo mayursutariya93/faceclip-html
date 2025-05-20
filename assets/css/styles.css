@@ -2436,6 +2436,7 @@ button.tool-button img {
     position: relative;
     top: 0;
     white-space: nowrap;
+    z-index: auto;
   }
 
   .nav-megamenu-sticky .nav-item-megamenu {
