@@ -1040,6 +1040,46 @@ $(document).ready(function () {
     togglePlans('#teamsenterpriseperfectplan', '#teamsenterpirsemonthlyplans', '#teamsenterpirseyearlyplans');
   });
 
+  /* MEGE SECONDARY MENU */
+  function isMobile() {
+    return $(window).width() < 991;
+  }
+
+  $('.nav-megamenu-sticky .nav-link-megamenu.dropdown-toggle').on('click', function (e) {
+    const $this = $(this);
+
+    setTimeout(function () {
+      if ($this.hasClass('show') && isMobile()) {
+        $('body').addClass('overflow-hidden');
+      } else {
+        $('body').removeClass('overflow-hidden');
+      }
+    }, 50);
+  });
+
+  $(document).on('click', function (e) {
+    const $target = $(e.target);
+    const isInsideMenu = $target.closest('.dropdown-menu').length > 0 || $target.closest('.nav-megamenu-sticky .nav-link-megamenu.dropdown-toggle').length > 0;
+
+    if (!isInsideMenu && isMobile()) {
+      $('.nav-megamenu-sticky .nav-link-megamenu.dropdown-toggle, .dropdown-menu').removeClass('show');
+      $('body').removeClass('overflow-hidden');
+    }
+  });
+  
+  $('.dropdown-menu a').on('click', function () {
+    if (isMobile()) {
+      $('body').removeClass('overflow-hidden');
+      $('.nav-megamenu-sticky .nav-link-megamenu.dropdown-toggle, .dropdown-menu').removeClass('show');
+    }
+  });
+
+  $(window).on('resize', function () {
+    if (!isMobile()) {
+      $('body').removeClass('overflow-hidden');
+    }
+  });
+
   initVoiceRecordingUI();
   initOnboardingFlowVoice();
   initOnboardingFlow();
